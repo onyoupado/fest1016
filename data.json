@@ -609,6 +609,36 @@
    "est": true
   },
   {
+   "id": "bluefood",
+   "grp": "busan",
+   "region": "부산 수영구",
+   "name": "2026 부산 블루푸드 웨이브 페스타",
+   "start": "2026-10-17",
+   "end": "2026-10-17",
+   "hours": "11:00~15:00",
+   "venue": "광안리해수욕장 달빛마당(호메르스호텔 앞) 일대",
+   "fee": "무료 (온라인 사전 접수 10/16까지, 당일 11:00~13:00 현장 접수)",
+   "feeType": "free",
+   "programs": "시민 300명 파도타기 플래시몹, 비치코밍, 치어보호 낚시체험, 부산 수산물 미식 체험, 경품 추첨",
+   "home": null,
+   "instagram": null,
+   "tag": "블루푸드웨이브페스타",
+   "src": "https://www.kchannel.kr/news/articleView.html?idxno=210423",
+   "status": "ok",
+   "note": "원 목록에 없던 행사 추가 · 같은 날 저녁 광안리 드론쇼와 묶기 좋음",
+   "cats": [
+    "커피·맥주·음식",
+    "가족"
+   ],
+   "wx": "busan",
+   "lat": 35.154,
+   "lng": 129.118,
+   "open": "11:00",
+   "close": "15:00",
+   "stay": 90,
+   "est": false
+  },
+  {
    "cats": [
     "지역축제"
    ],
@@ -746,6 +776,43 @@
    "close": "22:00",
    "stay": 150,
    "est": true
+  },
+  {
+   "id": "chinatown",
+   "grp": "busan",
+   "region": "부산 동구",
+   "name": "제23회 부산차이나타운 문화축제",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "hours": "16일 17:30 거리 행렬·18:00 홍등 점등식 / 18일 16:30 노래자랑 (그 밖 시간 미공개)",
+   "venue": "부산역 광장·초량 차이나타운 일대 (1호선 부산역)",
+   "fee": "미확인 (거리 행사 중심)",
+   "feeType": "unknown",
+   "programs": "거리 행렬·중국 기예단 서커스, 홍등 점등식, 17일 '야호(夜好) 차이나' 공연, 사자춤·변검·불 퍼포먼스, 짬짜대전·왕홍 체험·중국 전통놀이, 모바일 스탬프 투어, 18일 차이나는 노래자랑",
+   "home": null,
+   "instagram": null,
+   "tag": "부산차이나타운문화축제",
+   "src": "https://m.joongdo.co.kr/view.php?key=20261014010003722",
+   "status": "ok",
+   "note": "16일 저녁 개막 행렬과 홍등 점등식이 볼거리 · 요금은 공식 안내 확인",
+   "cats": [
+    "지역축제",
+    "야간",
+    "커피·맥주·음식"
+   ],
+   "wx": "busan",
+   "lat": 35.1162,
+   "lng": 129.0405,
+   "open": "12:00",
+   "close": "21:00",
+   "stay": 90,
+   "est": true,
+   "byDate": {
+    "2026-10-16": {
+     "open": "17:00",
+     "close": "21:00"
+    }
+   }
   },
   {
    "cats": [
@@ -1464,17 +1531,17 @@
     "커피·맥주·음식"
    ],
    "end": "2026-10-18",
-   "fee": "미확인",
-   "feeType": "unknown",
+   "fee": "무료",
+   "feeType": "free",
    "grp": "busan",
    "home": null,
-   "hours": "미확인",
+   "hours": "11:30~22:00",
    "id": "jagalchi",
    "name": "제33회 부산자갈치축제",
-   "note": "원 목록에 없던 행사 추가 · 해상불꽃은 15일 개막식에만 보도됨",
-   "programs": "용신제, 거리 퍼레이드, 장어 릴레이, 황금물고기 찾기, 수산물 시식, 회비빔밥 기록 도전",
+   "note": "15일 개막 · 해상불꽃쇼는 개막일 · 문의 051-243-9363",
+   "programs": "용신제, 길놀이·줄타기, 개막식·해상불꽃쇼(15일), 자갈치 가요제, K-pop 댄스 경연, 글로벌 대학가요제, 장어 이어달리기·황금물고기를 찾아라·생선 키재기, 무료 회 시식, 세계 최대 회비빔밥 무료 나눔, 플리마켓·푸드트럭",
    "region": "부산 중구",
-   "src": "https://www.fnnews.com/news/202610110814579297",
+   "src": "https://www.specialtimes.co.kr/news/articleView.html?idxno=473355",
    "start": "2026-10-15",
    "status": "ok",
    "tag": "자갈치축제",
@@ -1482,10 +1549,10 @@
    "wx": "busan",
    "lat": 35.0966,
    "lng": 129.0306,
-   "open": "10:00",
-   "close": "20:00",
+   "open": "11:30",
+   "close": "22:00",
    "stay": 90,
-   "est": true
+   "est": false
   },
   {
    "cats": [
@@ -1943,6 +2010,37 @@
    "close": "20:00",
    "stay": 120,
    "est": false
+  },
+  {
+   "id": "youngblue",
+   "grp": "busan",
+   "region": "부산 영도구",
+   "name": "2026 영블루 페스타(Young Blue Festa)",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "hours": "미공개 (2025년은 14:00~20:00)",
+   "venue": "영도구 봉래동 물양장 일원",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "빈티지 마켓, 로컬 F&B·푸드트럭, 인디밴드 공연, 시민 참여 그래피티 아트, MINI 차량 전시, 해산물 꼬치 그릴 체험, 에코백 마킹, 커피 세미나",
+   "home": null,
+   "instagram": null,
+   "tag": "영블루페스타",
+   "src": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2334969",
+   "status": "ok",
+   "note": "행사 기간 봉래동 물양장 일부 구간 차량 통제 · 운영시간은 공식 공지 확인",
+   "cats": [
+    "마켓",
+    "음악",
+    "커피·맥주·음식"
+   ],
+   "wx": "busan",
+   "lat": 35.0935,
+   "lng": 129.04,
+   "open": "14:00",
+   "close": "20:00",
+   "stay": 120,
+   "est": true
   },
   {
    "cats": [
