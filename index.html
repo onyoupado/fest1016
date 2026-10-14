@@ -97,6 +97,41 @@ dt{color:var(--muted)} dd{margin:0;min-width:0;overflow-wrap:anywhere}
 footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
 @media (max-width:520px){.theme{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.card:hover{border-color:var(--sea)}}
+/* ===== planner ===== */
+.add-btn{border:1px solid var(--sea);background:transparent;color:var(--sea);border-radius:8px;padding:4px 10px;font:inherit;font-size:13px;cursor:pointer;align-self:flex-start}
+.add-btn[aria-pressed="true"]{background:var(--sea);color:var(--surface)}
+.planner{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:16px}
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.pl-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.pl-field>span{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.pl-field select{font:inherit;padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.pl-chosen{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.pl-chosen li{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;font-size:14px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.pl-chosen li small{display:block;color:var(--muted);font-size:12px}
+.pl-chosen select{font:inherit;font-size:13px;padding:3px 6px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.x-btn{border:0;background:transparent;color:var(--muted);font-size:18px;cursor:pointer;line-height:1;padding:2px 6px}
+.go-btn{background:var(--lantern);color:var(--surface);border:0;border-radius:10px;padding:10px 18px;font:inherit;font-weight:700;cursor:pointer;align-self:flex-start}
+.go-btn:disabled{opacity:.45;cursor:not-allowed}
+.ghost-btn{background:transparent;border:1px solid var(--line);color:var(--ink);border-radius:10px;padding:9px 14px;font:inherit;cursor:pointer}
+.pl-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.plan-out{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
+.plan-day{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--bg);min-width:0}
+.plan-day h3{margin:0;font-family:var(--f-display);font-weight:400;font-size:20px}
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tl li{display:grid;grid-template-columns:58px 1fr;gap:10px;padding:6px 0;font-size:14px}
+.tl .tm{font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--ink);font-size:13px}
+.tl .leg{color:var(--muted);font-size:12.5px}
+.tl .leg .tm{color:var(--muted)}
+.tl .stop b{display:block}
+.tl .stop small{color:var(--muted);display:block;font-size:12.5px}
+.tl .stop a{font-size:12.5px}
+.tl .warn{color:var(--warn);font-size:12.5px;display:block}
+.tl .stop{border-left:3px solid var(--sea);padding-left:10px}
+.tl .stop.fixed{border-left-color:var(--lantern)}
+.plan-sum{font-size:12.5px;color:var(--muted)}
+.ai-out{white-space:pre-wrap;font-size:14px;line-height:1.7;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px}
+.planbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:center;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));pointer-events:none}
+.planbar a{pointer-events:auto;background:var(--ink);color:var(--bg);text-decoration:none;border-radius:999px;padding:10px 18px;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.18)}
 </style>
 </head>
 <body>
@@ -142,6 +177,41 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
     <div class="empty">행사 목록을 불러오는 중입니다. 잠시 뒤에도 비어 있으면 페이지를 새로 고쳐 주세요.</div>
   </div>
 
+  <section aria-labelledby="pl-h" id="planner">
+    <div class="sec-head"><h2 id="pl-h">내 일정 짜기</h2><span class="src">축제 카드의 ＋담기로 고른 뒤 동선을 만들어 보세요</span></div>
+    <div class="planner">
+      <div class="pl-grid">
+        <div class="pl-field"><span>날짜 (여러 날 선택 가능)</span>
+          <div class="row" id="pl-days">
+            <button class="chip" data-d="16" aria-pressed="false">16 금</button>
+            <button class="chip" data-d="17" aria-pressed="true">17 토</button>
+            <button class="chip" data-d="18" aria-pressed="false">18 일</button>
+          </div></div>
+        <label class="pl-field" for="pl-start"><span>출발지</span>
+          <select id="pl-start">
+            <option value="seomyeon">부산 서면</option><option value="busanst">부산역</option><option value="haeundae">해운대</option>
+            <option value="dongnae">동래</option><option value="nampo">남포동</option><option value="sasang">사상</option>
+          </select></label>
+        <label class="pl-field" for="pl-mode"><span>이동 수단</span>
+          <select id="pl-mode"><option value="transit">대중교통</option><option value="car">자가용</option></select></label>
+        <label class="pl-field" for="pl-t0"><span>출발 시각</span>
+          <select id="pl-t0"><option>08:00</option><option>09:00</option><option selected>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option></select></label>
+      </div>
+      <div class="pl-field"><span>담은 축제</span>
+        <ul class="pl-chosen" id="pl-chosen"></ul>
+        <p id="pl-empty" class="plan-sum" style="margin:0">아직 담은 축제가 없습니다. 위 목록에서 ＋담기를 눌러 주세요. 담은 목록은 이 브라우저에만 저장됩니다.</p>
+      </div>
+      <div class="pl-actions">
+        <button class="go-btn" id="pl-go" disabled>동선 만들기</button>
+        <button class="ghost-btn" id="pl-ai" hidden>Claude에게 일정 다듬기</button>
+        <button class="ghost-btn" id="pl-clear">모두 비우기</button>
+      </div>
+      <div id="pl-out" class="plan-out"></div>
+      <div id="pl-ai-out" class="ai-out" hidden></div>
+      <p class="plan-sum" style="margin:0">이동시간은 직선거리로 계산한 추정치입니다. 실제 교통 상황과 다를 수 있으니 각 장소의 카카오맵 길찾기로 확인하세요. 운영시간이 공개되지 않은 행사는 '시간 추정'으로 표시합니다.</p>
+    </div>
+  </section>
+
   <section aria-labelledby="pick-h">
     <div class="sec-head"><h2 id="pick-h">추천 우선순위</h2><span class="src">날씨·마지막 날 여부를 반영해 매일 조정</span></div>
     <div class="picks" id="picks"></div>
@@ -168,6 +238,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
     인스타그램 공식 계정은 검색 결과에서 확인되지 않아, 축제 이름 해시태그 검색으로 연결했습니다. 운영시간·요금은 현장 사정으로 바뀔 수 있으니 방문 전 공식 홈페이지를 한 번 더 확인하세요.
   </footer>
 </div>
+<div class="planbar" id="planbar" hidden><a href="#planner">일정 짜기</a></div>
 
 <script>
 (function(){
@@ -214,6 +285,7 @@ function card(e,d){
     </dl>
     ${w?`<div class="wxmini">☁ ${w}</div>`:""}
     ${e.note?`<div class="note">${esc(e.note)}</div>`:""}
+    ${e.status==="ok"&&["16","17","18"].some(k=>openOn(e,k))?`<button class="add-btn" data-add="${esc(e.id)}" aria-pressed="${P.ids.includes(e.id)}">${P.ids.includes(e.id)?"✓ 일정에 담음":"＋ 일정에 담기"}</button>`:""}
     <div class="links">
       ${home?`<a href="${esc(home)}" target="_blank" rel="noopener">공식 홈페이지 ↗</a>`:`<span style="color:var(--muted)">공식 홈페이지 미확인</span>`}
       <a href="https://www.instagram.com/explore/tags/${tag}/" target="_blank" rel="noopener">인스타 #${esc(decodeURIComponent(tag))} ↗</a>
@@ -273,7 +345,114 @@ function renderOther(){
   if(st.updatedAt){const t=new Date(st.updatedAt); $("upd").textContent=isNaN(t)?st.updatedAt:t.toLocaleString("ko-KR",{timeZone:"Asia/Seoul",month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});}
   if(st.notice&&!ended){const n=$("notice"); n.hidden=false; n.textContent=st.notice;}
 }
-function renderAll(){renderWx();renderCats();renderLists();renderPicks();renderOther();}
+function renderAll(){renderWx();renderCats();renderLists();renderPicks();renderOther();renderChosen();if(P.plan)renderPlan();}
+
+// ===== Planner =====
+// 좌표는 행사장 대략 위치(지도 검색 기준 근사값). 시간 정보 est:true = 공식 운영시간 미공개라 추정
+const GEO={geumjeong:[35.2638,129.0565],dongnae:[35.2125,129.0870],gupo:[35.2290,129.0040],jeonpo:[35.1555,129.0640],beer:[35.1095,129.0430],jeonggwan:[35.3220,129.1780],seogu:[35.0760,129.0170],oktober:[35.2200,129.0830],sasang:[35.1700,128.9750],jagalchi:[35.0966,129.0306],drone:[35.1532,129.1187],biennale:[35.1080,128.9420],missionrun:[35.2120,129.0870],balcony:[35.0990,129.0330],
+yudeung:[35.1897,128.0770],gaecheon:[35.1900,128.0800],whale:[35.4950,129.3830],gimhae:[35.2310,128.8780],hwangmae:[35.4900,127.9800],cheongdo:[35.6470,128.7340],gyeongsan:[35.8270,128.7400],chilgok:[35.9900,128.4010],gumi:[36.1190,128.3440],daegu:[35.8714,128.6014],dotseom:[35.1890,128.5780],unica:[35.8250,128.7400],
+gmf:[37.5206,127.1214],eoksae:[37.5680,126.8850],gangdong:[37.5600,127.1300],wowbook:[37.5560,126.9230],geumcheon:[37.4570,126.8950],icheon:[37.2720,127.4350],yeoncheon:[38.0120,127.0660],chuncheon:[37.8700,127.7150],yangyang:[38.0700,128.6200],bread:[36.3760,127.3870],ganggyeong:[36.1580,127.0110],yeongdong:[36.1750,127.7830],boeun:[36.4890,127.7290],gujeolcho:[35.5900,127.0950],mokpo:[34.7850,126.3920],hwasun:[34.9900,126.9500],bonghwa:[36.8930,128.7320],garak:[37.4960,127.1180],designweek:[37.5660,126.9910],hangang:[37.5310,127.0300],yuseong:[36.3550,127.3420],seochang:[35.1500,126.8300],inje:[38.0690,128.1700]};
+const TIME={geumjeong:{o:"10:00",c:"19:00",st:120},dongnae:{o:"10:00",c:"21:00",st:120},gupo:{o:"12:00",c:"21:00",st:120,est:true},
+jeonpo:{o:"12:00",c:"20:00",st:90,byDay:{"18":{c:"18:00"}}},beer:{o:"16:00",c:"21:00",st:120},jeonggwan:{o:"10:00",c:"20:00",st:90},seogu:{o:"10:00",c:"18:00",st:60},
+oktober:{o:"17:00",c:"22:00",st:150},sasang:{o:"12:00",c:"20:00",st:90,est:true},jagalchi:{o:"10:00",c:"20:00",st:90,est:true},drone:{fx:["19:00","21:00"],st:30},
+biennale:{o:"10:00",c:"17:00",st:120},missionrun:{o:"10:00",c:"16:00",st:90},yudeung:{o:"18:00",c:"23:30",st:150,fx:{"17":["20:00"]},fxSt:90},gaecheon:{o:"10:00",c:"20:00",st:90,est:true},
+whale:{o:"10:00",c:"21:00",st:150,est:true},gimhae:{o:"18:00",c:"22:00",st:120,est:true},hwangmae:{o:"09:00",c:"17:00",st:150,est:true},cheongdo:{o:"12:00",c:"22:00",st:150,est:true},
+gyeongsan:{o:"11:00",c:"20:30",st:120},chilgok:{o:"12:00",c:"22:00",st:150,est:true},gumi:{o:"11:00",c:"21:00",st:120,est:true},daegu:{o:"10:00",c:"21:00",st:120,est:true},
+gmf:{o:"12:00",c:"22:00",st:360,est:true},eoksae:{o:"10:00",c:"21:00",st:90},gangdong:{o:"10:00",c:"21:00",st:120,byDay:{"16":{o:"15:00"}}},wowbook:{o:"10:00",c:"21:30",st:120},
+geumcheon:{o:"11:00",c:"20:00",st:90},yeoncheon:{o:"09:00",c:"18:00",st:90},bread:{o:"13:00",c:"20:00",st:90,est:true},ganggyeong:{o:"10:00",c:"22:00",st:120},
+yeongdong:{o:"10:00",c:"20:00",st:120},gujeolcho:{o:"09:00",c:"18:30",st:120},mokpo:{o:"12:00",c:"22:00",st:120,est:true,byDay:{"16":{o:"18:00"}}},hwasun:{o:"09:00",c:"18:00",st:90}};
+const TDEF={o:"10:00",c:"20:00",st:90,est:true};
+const START={seomyeon:["부산 서면",35.1578,129.0600],busanst:["부산역",35.1151,129.0422],haeundae:["해운대",35.1631,129.1636],dongnae:["동래",35.2057,129.0786],nampo:["남포동",35.0980,129.0330],sasang:["사상",35.1626,128.9849]};
+let P={ids:[],pin:{},days:["17"],start:"seomyeon",mode:"transit",t0:"10:00",plan:null,manual:false};
+try{const s=JSON.parse(localStorage.getItem("fest-plan")||"null"); if(s&&Array.isArray(s.ids)) P=Object.assign(P,s);}catch(e){}
+const saveP=()=>{try{localStorage.setItem("fest-plan",JSON.stringify(P))}catch(e){}};
+const toM=s=>{const[h,m]=s.split(":").map(Number);return h*60+(m||0)};
+const toS=m=>{m=Math.round(m);const nx=m>=1440;m%=1440;return `${nx?"익일 ":""}${String(Math.floor(m/60)).padStart(2,"0")}:${String(m%60).padStart(2,"0")}`};
+function hav(a,b){const R=6371,r=x=>x*Math.PI/180,dl=r(b[0]-a[0]),dn=r(b[1]-a[1]);const h=Math.sin(dl/2)**2+Math.cos(r(a[0]))*Math.cos(r(b[0]))*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(h));}
+function travel(a,b,mode){if(!a||!b) return {min:30,km:null,unknown:true}; const km=hav(a,b)*1.35; if(km<0.8) return {min:10,km}; let min;
+  if(mode==="car") min=km<15?km/25*60+8:km/70*60+15; else min=km<25?km/20*60+15:km/65*60+40;
+  return {km,min:Math.max(10,Math.round(min/5)*5)};}
+function tinfo(id,d){const t=Object.assign({},TDEF,TIME[id]||{}); if(TIME[id]&&TIME[id].est===undefined) t.est=false; if(t.byDay&&t.byDay[d]) Object.assign(t,t.byDay[d]);
+  let fx=t.fx; if(fx&&!Array.isArray(fx)) fx=fx[d]||null; t.fxl=fx||null; if(t.fxl&&t.fxSt) t.st=t.fxSt; return t;}
+function simulate(order,d,startPt,mode,t0){let now=toM(t0),dep=now,pos=startPt,legs=[],trav=0,wait=0,miss=0;
+  for(const id of order){const g=GEO[id]||null, tr=travel(pos,g,mode); trav+=tr.min; const arr=now+tr.min; const t=tinfo(id,d); let s,dur=t.st,warn=[];
+    if(t.fxl){const slot=t.fxl.map(toM).find(x=>x-15>=arr); if(slot==null){miss++;warn.push(`정해진 시각(${t.fxl.join(", ")})에 도착하기 어렵습니다`);s=arr;} else s=slot-15;}
+    else{const o=toM(t.o),c=toM(t.c); s=Math.max(arr,o); if(s+30>c){miss++;warn.push(`운영 종료(${t.c}) 전에 도착하기 어렵습니다`);} else dur=Math.min(dur,c-s);}
+    if(!legs.length&&s-arr>20){const sh=s-arr-10; now+=sh; dep=now;} else wait+=Math.max(0,s-arr);
+    legs.push({id,arr:Math.max(arr,legs.length?arr:s-10),s,e:s+dur,tr,t,warn,noGeo:!g}); now=s+dur; if(g) pos=g;}
+  const back=travel(pos,startPt,mode); return {legs,back,end:now,dep,score:miss*100000+trav+wait*0.6+Math.max(0,now-toM("23:00"))*5,miss};}
+function* perms(a){if(a.length<=1){yield a.slice();return;} for(let i=0;i<a.length;i++){const r=a.slice(0,i).concat(a.slice(i+1)); for(const p of perms(r)) yield [a[i]].concat(p);}}
+function bestOrder(ids,d,sp,mode,t0){if(ids.length<=1) return ids.slice(); let best=null;
+  if(ids.length<=7){for(const p of perms(ids)){const r=simulate(p,d,sp,mode,t0); if(!best||r.score<best.score) best={...r,order:p};} return best.order;}
+  const left=ids.slice(), out=[]; let pos=sp; while(left.length){left.sort((a,b)=>travel(pos,GEO[a],mode).min-travel(pos,GEO[b],mode).min); const n=left.shift(); out.push(n); pos=GEO[n]||pos;} return out;}
+const isOpen=(id,d)=>{const e=byId(id);return !!(e&&openOn(e,d));};
+function assignDays(){const days=P.days.slice().sort(), by={}; days.forEach(d=>by[d]=[]); const none=[];
+  const ids=P.ids.filter(id=>byId(id)).slice().sort((a,b)=>days.filter(d=>isOpen(a,d)).length-days.filter(d=>isOpen(b,d)).length);
+  for(const id of ids){const pin=P.pin[id]; let opts=days.filter(d=>isOpen(id,d)); if(pin&&pin!=="auto") opts=opts.filter(d=>d===pin);
+    if(!opts.length){none.push(id);continue;}
+    const sp=START[P.start].slice(1); let bd=null,bs=1e9;
+    for(const d of opts){const base=by[d].length?simulate(bestOrder(by[d],d,sp,P.mode,P.t0),d,sp,P.mode,P.t0).score:0;
+      const withIt=simulate(bestOrder(by[d].concat(id),d,sp,P.mode,P.t0),d,sp,P.mode,P.t0).score;
+      const sc=withIt-base+(tinfo(id,d).fxl?-300:0)+by[d].length*20; if(sc<bs){bs=sc;bd=d;}}
+    by[bd].push(id);}
+  return {by,none};}
+function autoPlan(){const sp=START[P.start].slice(1); const {by,none}=assignDays(); const plan={};
+  for(const d of Object.keys(by)) plan[d]=bestOrder(by[d],d,sp,P.mode,P.t0);
+  P.plan={days:plan,none}; P.manual=false; saveP(); renderPlan();}
+function wxFor(id,d){const e=byId(id); const w=e&&e.wx&&S.wx[e.wx]; const x=w&&w.days&&w.days[d]; return x?{txt:`${x.am}${x.am!==x.pm?"→"+x.pm:""} ${x.min}~${x.max}℃ 강수 ${Math.max(x.popAm,x.popPm)}%`,rain:/비/.test(x.am+x.pm)||Math.max(x.popAm,x.popPm)>=50}:null;}
+function renderPlan(){const out=$("pl-out"); $("pl-ai-out").hidden=true;
+  if(!P.plan){out.innerHTML="";return;}
+  const home=START[P.start], sp=home.slice(1), days=Object.keys(P.plan.days).sort(); let html="", prevEnd=null;
+  days.forEach((d,di)=>{const order=P.plan.days[d].filter(id=>byId(id));
+    if(!order.length){html+=`<div class="plan-day"><h3>${DAYS[d]}</h3><p class="plan-sum" style="margin:0">이 날 배정된 축제가 없습니다.</p></div>`; prevEnd=null; return;}
+    let startPt=sp,startName=home[0];
+    if(prevEnd&&prevEnd.overnight){startPt=prevEnd.pos;startName=prevEnd.name+" 인근 숙소";}
+    const r=simulate(order,d,startPt,P.mode,P.t0); const last=r.legs[r.legs.length-1]; const lastG=GEO[last.id];
+    const far=r.back.min>=150 && di<days.length-1; const nextOrder=far?(P.plan.days[days[di+1]]||[]):[];
+    const overnight=far&&nextOrder.length&&travel(lastG,GEO[nextOrder[0]],P.mode).min<travel(sp,GEO[nextOrder[0]],P.mode).min;
+    let li=`<li><span class="tm">${toS(r.dep)}</span><span>${esc(startName)} 출발</span></li>`;
+    r.legs.forEach((L,i)=>{const e=byId(L.id), g=GEO[L.id], w=wxFor(L.id,d);
+      li+=`<li class="leg"><span class="tm">${toS(L.arr-L.tr.min)}</span><span>${P.mode==="car"?"차로":"대중교통"} 약 ${L.tr.min}분${L.tr.km?` · ${Math.round(L.tr.km)}km`:""}${L.s>L.arr+10?` · 도착 후 ${Math.round(L.s-L.arr)}분 여유`:""}</span></li>`;
+      const warns=[...L.warn]; if(L.t.est) warns.push("운영시간 미공개라 시간 추정"); if(L.noGeo) warns.push("위치 정보가 없어 이동시간을 30분으로 가정"); if(w&&w.rain) warns.push("비 예보 – 우산·실내 대안 챙기기");
+      const map=g?`https://map.kakao.com/link/to/${encodeURIComponent(e.name)},${g[0]},${g[1]}`:`https://map.kakao.com/link/search/${encodeURIComponent(e.name)}`;
+      li+=`<li><span class="tm">${toS(L.s)}</span><div class="stop ${L.t.fxl?"fixed":""}"><b>${esc(e.name)}</b><small>${toS(L.s)}~${toS(L.e)} · ${esc(e.venue)}</small>${w?`<small>☁ ${esc(w.txt)}</small>`:""}${warns.map(x=>`<span class="warn">⚠ ${esc(x)}</span>`).join("")}
+        <div class="row" style="margin-top:4px;gap:4px;align-items:center">
+          <button class="x-btn mv" data-d="${d}" data-i="${i}" data-dir="-1" aria-label="앞으로" ${i===0?"disabled":""}>↑</button>
+          <button class="x-btn mv" data-d="${d}" data-i="${i}" data-dir="1" aria-label="뒤로" ${i===r.legs.length-1?"disabled":""}>↓</button>
+          ${days.length>1?`<select class="mvday" data-d="${d}" data-id="${esc(L.id)}" aria-label="다른 날로 옮기기"><option value="">다른 날로</option>${days.filter(x=>x!==d).map(x=>`<option value="${x}" ${isOpen(L.id,x)?"":"disabled"}>${DAYS[x]}${isOpen(L.id,x)?"":" (안 열림)"}</option>`).join("")}</select>`:""}
+          <a href="${esc(map)}" target="_blank" rel="noopener">카카오맵 길찾기 ↗</a></div></div></li>`;});
+    if(overnight){li+=`<li><span class="tm">${toS(r.end)}</span><span>🛏 ${esc(byId(last.id).region)} 인근 숙박 (부산까지 약 ${Math.round(r.back.min/60*10)/10}시간)</span></li>`;}
+    else li+=`<li class="leg"><span class="tm">${toS(r.end)}</span><span>${esc(home[0])}로 귀가 약 ${r.back.min}분 → ${toS(r.end+r.back.min)} 도착</span></li>`;
+    prevEnd={overnight,pos:lastG||sp,name:byId(last.id).region};
+    html+=`<div class="plan-day"><h3>${DAYS[d]}</h3><p class="plan-sum" style="margin:0">축제 ${order.length}곳 · 이동 합계 약 ${r.legs.reduce((a,L)=>a+L.tr.min,0)+(overnight?0:r.back.min)}분${r.miss?` · <b style="color:var(--warn)">시간이 맞지 않는 곳 ${r.miss}곳</b>`:""}</p><ol class="tl">${li}</ol></div>`;});
+  const none=(P.plan.none||[]).filter(id=>byId(id));
+  if(none.length) html+=`<div class="plan-day"><h3>넣지 못한 축제</h3><p class="plan-sum" style="margin:0">고른 날짜에 열리지 않습니다: ${none.map(id=>esc(byId(id).name)).join(", ")}</p></div>`;
+  html+=`<div class="pl-actions" style="grid-column:1/-1"><span class="plan-sum">${P.manual?"직접 조정한 순서입니다.":"추천 순서입니다. ↑↓로 순서를, '다른 날로'로 날짜를 바꿀 수 있어요."}</span>${P.manual?'<button class="ghost-btn" id="pl-reauto">자동으로 다시 짜기</button>':""}</div>`;
+  out.innerHTML=html;}
+function renderChosen(){const ul=$("pl-chosen"), ids=P.ids.filter(id=>byId(id));
+  $("pl-empty").hidden=ids.length>0; $("pl-go").disabled=!ids.length||!P.days.length;
+  ul.innerHTML=ids.map(id=>{const e=byId(id); const open=["16","17","18"].filter(d=>openOn(e,d));
+    return `<li><span>${esc(e.name)}<small>${esc(e.region)} · ${open.length?open.map(d=>DAYS[d].slice(7,8)).join("·")+"요일 열림":"이번 주말 일정 미확인"}</small></span>
+    <select data-pin="${esc(id)}" aria-label="날짜 지정"><option value="auto">날짜 자동</option>${open.map(d=>`<option value="${d}" ${P.pin[id]===d?"selected":""}>${DAYS[d]}</option>`).join("")}</select>
+    <button class="x-btn" data-rm="${esc(id)}" aria-label="빼기">×</button></li>`}).join("");
+  $("pl-days").querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String(P.days.includes(c.dataset.d))));
+  $("pl-start").value=P.start; $("pl-mode").value=P.mode; $("pl-t0").value=P.t0;
+  const bar=$("planbar"); if(bar){bar.hidden=!ids.length; bar.querySelector("a").textContent=`담은 축제 ${ids.length}개 · 일정 짜기 ↓`;}}
+function toggleAdd(id){const i=P.ids.indexOf(id); if(i>=0){P.ids.splice(i,1); delete P.pin[id];} else P.ids.push(id); saveP(); renderChosen(); renderLists();}
+document.addEventListener("click",ev=>{const a=ev.target.closest(".add-btn"); if(a){toggleAdd(a.dataset.add);}});
+$("pl-days").addEventListener("click",ev=>{const b=ev.target.closest(".chip"); if(!b) return; const d=b.dataset.d; P.days=P.days.includes(d)?P.days.filter(x=>x!==d):P.days.concat(d).sort(); saveP(); renderChosen();});
+["pl-start","pl-mode","pl-t0"].forEach(k=>$(k).addEventListener("change",ev=>{P[{"pl-start":"start","pl-mode":"mode","pl-t0":"t0"}[k]]=ev.target.value; saveP(); if(P.plan) renderPlan();}));
+$("pl-chosen").addEventListener("change",ev=>{const s=ev.target.closest("[data-pin]"); if(s){P.pin[s.dataset.pin]=s.value; saveP();}});
+$("pl-chosen").addEventListener("click",ev=>{const b=ev.target.closest("[data-rm]"); if(b) toggleAdd(b.dataset.rm);});
+$("pl-go").addEventListener("click",autoPlan);
+$("pl-clear").addEventListener("click",()=>{P.ids=[];P.pin={};P.plan=null;saveP();renderChosen();renderPlan();renderLists();});
+$("pl-out").addEventListener("click",ev=>{const m=ev.target.closest(".mv"); if(m){const d=m.dataset.d,i=+m.dataset.i,j=i+ +m.dataset.dir, arr=P.plan.days[d]; if(j<0||j>=arr.length) return; [arr[i],arr[j]]=[arr[j],arr[i]]; P.manual=true; saveP(); renderPlan(); return;}
+  if(ev.target.id==="pl-reauto") autoPlan();});
+$("pl-out").addEventListener("change",ev=>{const s=ev.target.closest(".mvday"); if(!s||!s.value) return; const from=s.dataset.d,id=s.dataset.id; P.plan.days[from]=P.plan.days[from].filter(x=>x!==id); (P.plan.days[s.value]=P.plan.days[s.value]||[]).push(id); P.manual=true; saveP(); renderPlan();});
+function planText(){if(!P.plan) return ""; const sp=START[P.start]; let t=`출발지 ${sp[0]}, ${P.mode==="car"?"자가용":"대중교통"}, ${P.t0} 출발\n`;
+  Object.keys(P.plan.days).sort().forEach(d=>{const r=simulate(P.plan.days[d].filter(id=>byId(id)),d,sp.slice(1),P.mode,P.t0); t+=`\n[${DAYS[d]}]\n`;
+    r.legs.forEach(L=>{const e=byId(L.id); t+=`- ${toS(L.s)}~${toS(L.e)} ${e.name} (${e.region}, ${e.venue}) 운영:${e.hours||"미확인"} 요금:${e.fee} 프로그램:${e.programs} 메모:${e.note||"-"} 날씨:${(wxFor(L.id,d)||{}).txt||"-"} 이동 ${L.tr.min}분${L.warn.length?" 경고:"+L.warn.join("/"):""}\n`;});});
+  return t;}
 
 document.querySelector(".days").addEventListener("click",ev=>{const b=ev.target.closest(".day"); if(!b) return; S.day=b.dataset.day; try{localStorage.setItem("fest-day",S.day)}catch(e){} renderWx();renderLists();});
 $("f-grp").addEventListener("click",ev=>{const b=ev.target.closest(".chip"); if(!b) return; S.grp=b.dataset.v; $("f-grp").querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String(c===b))); renderLists();});
