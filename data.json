@@ -579,6 +579,36 @@
    ]
   },
   {
+   "id": "biff",
+   "grp": "busan",
+   "region": "부산 해운대구",
+   "name": "제31회 부산국제영화제(BIFF)",
+   "start": "2026-10-06",
+   "end": "2026-10-15",
+   "hours": "상영 시간표에 따름",
+   "venue": "영화의전당 등 8개 극장 31개 스크린 (해운대·센텀시티 일대)",
+   "fee": "상영작별 유료 예매(ticket.biff.kr) · 오픈 토크·야외무대인사 등 일부 부대행사 무료",
+   "feeType": "mixed",
+   "programs": "59개국 공식 초청작 247편, 오픈 시네마(영화의전당 야외극장), 오픈 토크, 야외무대인사, 커뮤니티비프·동네방네비프",
+   "home": "https://www.biff.kr/kor",
+   "instagram": "https://www.instagram.com/busanfilmfest",
+   "tag": "부산국제영화제",
+   "src": "https://news.mtn.co.kr/news-detail/2026100510181212824",
+   "status": "ok",
+   "note": "15일(목) 폐막 · 상영 회차별 시간은 공식 시간표 확인",
+   "cats": [
+    "전시·영화",
+    "야간"
+   ],
+   "wx": "busan",
+   "lat": 35.1711,
+   "lng": 129.127,
+   "open": "10:00",
+   "close": "23:00",
+   "stay": 180,
+   "est": true
+  },
+  {
    "cats": [
     "지역축제"
    ],
