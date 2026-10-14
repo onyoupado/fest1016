@@ -26,8 +26,8 @@ html{color-scheme:light}body{margin:0}[hidden]{display:none!important}img{max-wi
   --sea:#4FB6C0; --sea-soft:#163238; --lantern:#F0A04B; --lantern-soft:#3A2814;
   --ok:#7CC892; --ok-soft:#173022; --warn:#E3BC5A; --warn-soft:#352B12; --off:#E39A9A; --off-soft:#3A1E1E; --sun:#EE8B84; color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6}
-.wrap{max-width:1080px;margin:0 auto;padding-inline:16px;padding-block:24px 80px;display:flex;flex-direction:column;gap:28px}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:16px;padding-block:24px 120px;display:flex;flex-direction:column;gap:28px}
 a{color:var(--sea)} a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--lantern);outline-offset:2px}
 h1,h2{font-family:var(--f-display);font-weight:800;text-wrap:balance;margin:0;letter-spacing:.01em}
 h1{font-size:clamp(28px,5vw,44px);line-height:1.15}
@@ -149,8 +149,6 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 .tl .stop.fixed{border-left-color:var(--lantern)}
 .plan-sum{font-size:12.5px;color:var(--muted)}
 .ai-out{white-space:pre-wrap;font-size:14px;line-height:1.7;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px}
-.planbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;justify-content:center;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));pointer-events:none}
-.planbar a{pointer-events:auto;background:var(--ink);color:var(--bg);text-decoration:none;border-radius:999px;padding:10px 18px;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.18)}
 
 /* hero + icons + prefs */
 .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:16px;align-items:center}
@@ -178,7 +176,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 .movie b{display:block;font-size:15px}
 .movie small{display:block;color:var(--muted);font-size:12.5px}
 .brand{font-family:var(--f-display);font-weight:800;letter-spacing:-.01em}
-.motto{margin:0;padding:2px 0 2px 14px;border-left:3px solid var(--lantern);font-size:clamp(15px,2.2vw,17px);line-height:1.65;color:var(--ink)}
+.motto{text-wrap:pretty;margin:0;padding:2px 0 2px 14px;border-left:3px solid var(--lantern);font-size:clamp(15px,2.2vw,17px);line-height:1.65;color:var(--ink)}
 .searchbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:8;background:var(--bg);padding-block:8px;display:flex;flex-direction:column;gap:6px;border-bottom:1px solid var(--line)}
 .sbox{display:flex;align-items:center;gap:8px;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:4px 8px 4px 12px;color:var(--muted)}
 .sbox:focus-within{border-color:var(--sea)}
@@ -195,7 +193,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 .fold-s{font-size:13px;color:var(--muted);min-width:0}
 .fold>.pref,.fold>.filters{border:0;border-top:1px dashed var(--line);border-radius:0;padding:14px 16px}
 .listbar{display:flex;flex-direction:column;gap:8px}
-#cal,#lists,#planner,#pick-sec,#mv-sec{scroll-margin-top:110px}
+#cal,#list-top,#lists,#planner,#mine,#pick-sec,#mv-sec{scroll-margin-top:84px}
 .breather{position:relative;background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:14px 44px 14px 16px;min-width:0}
 .br-in{display:flex;flex-direction:column;gap:4px;font-size:14px}
 .br-in>span{color:var(--muted);font-size:13px}
@@ -207,7 +205,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 .br-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
 .lrow{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0}
 .lball{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:13.5px;font-family:var(--f-mono);box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
-.toast{position:fixed;left:50%;bottom:calc(70px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:30;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:14px;max-width:min(92vw,460px);text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:30;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:12px;font-size:14px;max-width:min(92vw,460px);text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.2)}
 @media (prefers-reduced-motion:no-preference){.toast.show{animation:tin .25s ease-out}@keyframes tin{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}
 .hero svg.boom g[stroke="#F0A04B"],.hero svg.boom g[stroke="#EE8B84"],.hero svg.boom g[stroke="#4FB6C0"]:not([fill]){animation:boom .7s ease-out;transform-box:fill-box;transform-origin:center}
 @keyframes boom{0%{transform:scale(.3);opacity:.2}60%{transform:scale(1.25);opacity:1}100%{transform:scale(1)}}}
@@ -236,13 +234,20 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 .mine-col li .mono{color:var(--lantern);margin-right:6px}
 .mine-col small{color:var(--muted)}
 .stamps{display:flex;flex-wrap:wrap;gap:8px}
-.stamp{width:86px;height:86px;border-radius:50%;border:2px dashed var(--lantern);color:var(--lantern);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:11px;line-height:1.25;padding:6px;transform:rotate(-6deg);overflow:hidden}
-.stamp i{font-style:normal;font-weight:800;font-size:12.5px}
+.stampmark{width:86px;height:86px;border-radius:50%;border:2px dashed var(--lantern);color:var(--lantern);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:11px;line-height:1.25;padding:6px;transform:rotate(-6deg);overflow:hidden}
+.stampmark i{font-style:normal;font-weight:800;font-size:12.5px}
 .rainbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;background:var(--sea-soft);border-radius:10px;padding:8px 12px;font-size:14px}
 .story{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px}
 .story-box{background:var(--surface);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px;max-height:100%;max-width:min(420px,100%)}
 .story-box img{width:100%;max-height:62vh;object-fit:contain;border-radius:10px;background:#13222C}
 .theme-of{font-size:13.5px;background:var(--lantern-soft);color:var(--ink);border-radius:6px;padding:5px 8px}
+.lede{margin:0;font-size:14.5px;color:var(--muted)}
+.tabbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:25;display:grid;grid-template-columns:repeat(5,1fr);width:min(520px,calc(100% - 20px));background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 24px rgba(0,0,0,.16);padding:4px}
+.tabbar a{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 2px 6px;border-radius:14px;color:var(--muted);text-decoration:none;font-size:11.5px;font-weight:600}
+.tabbar a .ico{width:21px;height:21px}
+.tabbar a.on{color:var(--lantern);background:var(--lantern-soft)}
+.tabbar .badge{position:absolute;top:3px;right:calc(50% - 22px);min-width:17px;height:17px;border-radius:9px;background:var(--lantern);color:var(--surface);font-size:10.5px;display:grid;place-items:center;padding:0 4px;font-family:var(--f-mono)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 </style>
 </head>
 <body>
@@ -250,13 +255,14 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 <div class="wrap">
   <header class="hero">
    <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
-    <div class="eyebrow">부산에서 출발하는 축제 · 공연 · 스포츠 · 영화 달력</div>
+    <div class="eyebrow">오늘 부산, 뭐 하고 놀까요?</div>
     <h1 class="brand">Ram's Culture Land</h1>
-    <blockquote class="motto">어딘가에서 마주칠지도, 아닐지도 몰라요.<br>그래도 지금 이 순간을 누리고 있다는 건 변하지 않는 사실이에요.</blockquote>
+    <blockquote class="motto">어디선가 마주칠지도, 그냥 스쳐 갈지도 몰라요.<br>그래도 지금 이 순간을 누리고 있다는 건 변하지 않아요.</blockquote>
+    <p class="lede">축제부터 공연, 경기, 영화까지. 부산의 오늘을 한눈에 모았어요.</p>
     <div class="stamp">
       <span>마지막 업데이트 <b id="upd" class="mono">불러오는 중</b></span>
       <span id="coverage"></span>
-      <span>매일 아침 날씨·일정 갱신</span>
+      <span>매일 아침 새로 고쳐 둬요</span>
     </div>
     <div id="notice" class="notice" hidden></div>
    </div>
@@ -275,9 +281,8 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
   </header>
   <div class="searchbar" role="search">
     <div class="sbox"><svg class="ico" aria-hidden="true" style="width:18px;height:18px"><use href="#i-search"/></svg>
-      <input id="q" type="search" placeholder="축제·공연·팀·장소·영화 검색 (예: 광안리, 재즈, 아이파크)" autocomplete="off" aria-label="검색">
+      <input id="q" type="search" placeholder="어디로 갈까요? 광안리, 재즈, 아이파크…" autocomplete="off" aria-label="검색">
       <button class="x-btn" id="q-clear" aria-label="검색어 지우기" hidden>×</button></div>
-    <nav class="quick" aria-label="바로가기"><a href="#cal">달력</a><a href="#lists">목록</a><a href="#planner">내 일정</a><a href="#pick-sec">추천</a><a href="#mv-sec">영화</a></nav>
   </div>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
    <symbol id="i-fire" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"/><circle cx="12" cy="12" r="1.6"/></symbol>
@@ -293,6 +298,10 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
    <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></symbol>
    <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 5v14M17 5v14M3 9h4M3 15h4M17 9h4M17 15h4"/></symbol>
    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+   <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+   <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12"/><circle cx="4.5" cy="6" r="1.2"/><circle cx="4.5" cy="12" r="1.2"/><circle cx="4.5" cy="18" r="1.2"/></symbol>
+   <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="5" r="2.2"/><path d="M8 19h7a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h7"/></symbol>
+   <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4h11l-2 4 2 4H5"/></symbol>
   </svg>
 
@@ -346,7 +355,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
     <div id="rainbar" class="rainbar" hidden><span>☔ 이날 부산에 비 예보가 있어요.</span><button class="go-btn" id="rain-go" style="padding:6px 12px">실내 코스로 보기</button></div>
   </section>
 
-  <div class="listbar"><div class="row" style="justify-content:space-between;align-items:center"><span class="count" id="count"></span><button class="ghost-btn" data-story="list" style="padding:4px 10px;font-size:13px">이 목록 스토리 이미지</button></div>
+  <div class="listbar" id="list-top"><div class="row" style="justify-content:space-between;align-items:center"><span class="count" id="count"></span><button class="ghost-btn" data-story="list" style="padding:4px 10px;font-size:13px">이 목록 스토리 이미지</button></div>
   <details class="fold" id="fold-filter">
     <summary><span class="fold-t">필터·정렬</span><span class="fold-s" id="f-sum">전체</span></summary>
   <div class="filters">
@@ -444,7 +453,13 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 </div>
 <div id="story" class="story" hidden role="dialog" aria-label="스토리 이미지 미리보기"><div class="story-box"><img id="story-img" alt="인스타그램 스토리용 이미지 미리보기"><div class="pl-actions"><button class="go-btn" id="story-save">이미지 저장</button><button class="ghost-btn" id="story-share" hidden>인스타 등으로 공유</button><button class="ghost-btn" id="story-close">닫기</button></div><p class="plan-sum" style="margin:0">1080×1920 인스타그램 스토리 규격이에요. 휴대폰에서는 이미지를 길게 눌러 저장할 수도 있어요.</p></div></div>
 <div id="toast" class="toast" role="status" hidden></div>
-<div class="planbar" id="planbar" hidden><a href="#planner">일정 짜기</a></div>
+<nav class="tabbar" id="tabbar" aria-label="바로가기">
+  <a href="#cal" data-t="cal"><svg class="ico"><use href="#i-cal"/></svg><span>달력</span></a>
+  <a href="#list-top" data-t="list-top"><svg class="ico"><use href="#i-list"/></svg><span>목록</span></a>
+  <a href="#planner" data-t="planner"><svg class="ico"><use href="#i-route"/></svg><span>내 일정</span><b class="badge" id="tb-plan" hidden>0</b></a>
+  <a href="#mine" data-t="mine"><svg class="ico"><use href="#i-heart"/></svg><span>내 찜</span><b class="badge" id="tb-fav" hidden>0</b></a>
+  <a href="#mv-sec" data-t="mv-sec"><svg class="ico"><use href="#i-film"/></svg><span>영화</span></a>
+</nav>
 
 <script>
 (function(){
@@ -732,7 +747,7 @@ function toast(msg){let t=$("toast"); t.textContent=msg; t.hidden=false; t.class
 let heroTaps=0;
 document.querySelector(".hero svg").addEventListener("click",()=>{heroTaps++; const svg=document.querySelector(".hero svg"); svg.classList.remove("boom"); void svg.getBoundingClientRect(); svg.classList.add("boom");
   if(heroTaps%5===0) toast(`불꽃을 ${heroTaps}번이나 터뜨렸어요. 오늘의 행운 번호: ${lotto("hero"+heroTaps).join(", ")}`);
-  else toast(["둘이 같이 보니까 불꽃이 두 배로 예뻐요.","한 번 더 누르면… 또 터져요.","지금 이 순간, 저장 완료.","방파제 자리는 선착순이에요.","이 둘, 어딘가에서 마주칠지도 몰라요."][(heroTaps-1)%5]);});
+  else toast(["둘이 같이 보니까 불꽃이 두 배로 예뻐요.","한 번 더 누르면… 또 터져요.","지금 이 순간, 저장 완료.","방파제 자리는 선착순이에요.","이 둘, 어디선가 마주칠지도 몰라요."][(heroTaps-1)%5]);});
 document.querySelector(".hero svg").style.cursor="pointer";
 // search eggs
 function searchEgg(q){const s=q.trim().toLowerCase();
@@ -777,12 +792,12 @@ function gcal(e,d){const day=d&&openOn(e,d)?d:(e.start>TODAY?e.start:(openOn(e,T
 document.addEventListener("click",ev=>{const f=ev.target.closest("[data-fav]"), s=ev.target.closest("[data-stamp]");
   if(f){const id=f.dataset.fav; MY.fav=MY.fav.includes(id)?MY.fav.filter(x=>x!==id):MY.fav.concat(id); saveMY(); renderLists(); renderMine(); if(MY.fav.includes(id)) toast("찜했어요. 아래 '내 찜·누린 순간'에서 모아 볼 수 있어요.");}
   if(s){const id=s.dataset.stamp; if(MY.stamp[id]) delete MY.stamp[id]; else MY.stamp[id]=TODAY; saveMY(); renderLists(); renderMine(); if(MY.stamp[id]) toast(`도장 쾅! 지금까지 누린 순간 ${Object.keys(MY.stamp).length}개.`);}});
-function renderMine(){const el=$("mine-body"); if(!el) return;
+function renderMine(){const el=$("mine-body"); if(!el) return; const fb=$("tb-fav"), fc=MY.fav.filter(id=>{const e=byId(id);return e&&(!e.end||e.end>=TODAY);}).length; fb.hidden=!fc; fb.textContent=fc;
   const favs=MY.fav.map(byId).filter(e=>e&&(!e.end||e.end>=TODAY)).sort((a,b)=>a.start<b.start?-1:1);
   const st=Object.entries(MY.stamp).map(([id,d])=>({e:byId(id),id,d})).sort((a,b)=>a.d<b.d?1:-1);
   const dday=e=>{const n=Math.round((D(e.start>TODAY?e.start:TODAY)-D(TODAY))/864e5); return e.start<=TODAY?(e.end===TODAY?"오늘 마지막 날":"진행 중"):`D-${n}`;};
   el.innerHTML=`<div class="mine-col"><b>♥ 찜한 행사 <span class="count">${favs.length}개</span></b>${favs.length?`<ul>${favs.map(e=>`<li><span class="mono">${dday(e)}</span> ${esc(e.name)} <small>${esc(fmtD(e.start,e.end))}</small></li>`).join("")}</ul>`:'<p class="plan-sum">아직 찜한 행사가 없어요. 카드의 ♡를 눌러 보세요.</p>'}</div>
-   <div class="mine-col"><b>✓ 누린 순간 <span class="count">${st.length}개</span></b>${st.length?`<div class="stamps">${st.map(x=>`<span class="stamp" title="${esc(x.e?x.e.name:x.id)}"><i>${esc(x.d.slice(5).replace("-","."))}</i>${esc(x.e?x.e.name.replace(/^제\d+회\s|^20\d\d\s/,"").slice(0,14):"지난 행사")}</span>`).join("")}</div>`:'<p class="plan-sum">다녀온 행사에서 \'다녀왔어요\'를 누르면 도장이 쌓여요.</p>'}</div>`;}
+   <div class="mine-col"><b>✓ 누린 순간 <span class="count">${st.length}개</span></b>${st.length?`<div class="stamps">${st.map(x=>`<span class="stampmark" title="${esc(x.e?x.e.name:x.id)}"><i>${esc(x.d.slice(5).replace("-","."))}</i>${esc(x.e?x.e.name.replace(/^제\d+회\s|^20\d\d\s/,"").slice(0,14):"지난 행사")}</span>`).join("")}</div>`:'<p class="plan-sum">다녀온 행사에서 \'다녀왔어요\'를 누르면 도장이 쌓여요.</p>'}</div>`;}
 // ---- story image (Instagram story 1080x1920) ----
 const heroSvgText=()=>{const s=document.querySelector(".hero svg").cloneNode(true); s.setAttribute("xmlns","http://www.w3.org/2000/svg"); s.setAttribute("width","640"); s.setAttribute("height","340"); s.classList.remove("boom"); return new XMLSerializer().serializeToString(s);};
 function wrap(ctx,text,maxW){const out=[]; let line=""; for(const ch of String(text)){const t=line+ch; if(ctx.measureText(t).width>maxW&&line){out.push(line); line=ch;} else line=t;} if(line) out.push(line); return out;}
@@ -810,7 +825,7 @@ async function storyCanvas(kind){const W=1080,H=1920,c=document.createElement("c
     if(r.p){x.fillStyle="#93A5AC"; x.font=`500 32px ${F}`; x.fillText(wrap(x,r.p,W-tx-80)[0],tx,y+4); y+=50;} y+=34;}
   // illustration
   try{const img=new Image(); img.src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(heroSvgText()); await img.decode(); x.drawImage(img,(W-640)/2,1340,640,340);}catch(e){}
-  x.fillStyle="#E4ECEE"; x.font=`500 34px ${F}`; x.textAlign="center"; ["어딘가에서 마주칠지도, 아닐지도 몰라요.","그래도 지금 이 순간을 누리고 있다는 건","변하지 않는 사실이에요."].forEach((l,i)=>x.fillText(l,W/2,1215+i*50)); x.textAlign="left";
+  x.fillStyle="#E4ECEE"; x.font=`500 34px ${F}`; x.textAlign="center"; ["어디선가 마주칠지도, 그냥 스쳐 갈지도 몰라요.","그래도 지금 이 순간을 누리고 있다는 건","변하지 않아요."].forEach((l,i)=>x.fillText(l,W/2,1215+i*50)); x.textAlign="left";
   x.fillStyle="#93A5AC"; x.font=`500 28px ${F}`; x.textAlign="center"; x.fillText("onyoupado.github.io/festival",W/2,1720); x.textAlign="left";
   return c;}
 let storyBlob=null;
@@ -945,7 +960,7 @@ function renderChosen(){const ul=$("pl-chosen"), ids=P.ids.filter(id=>byId(id)),
     <select data-pin="${esc(id)}" aria-label="날짜 지정"><option value="auto">날짜 자동</option>${open.map(d=>`<option value="${d}" ${P.pin[id]===d?"selected":""}>${lab(d)}</option>`).join("")}</select>
     <button class="x-btn" data-rm="${esc(id)}" aria-label="빼기">×</button></li>`}).join("");
   $("pl-start").value=P.start; $("pl-t0").value=P.t0;
-  const bar=$("planbar"); bar.hidden=!ids.length; bar.querySelector("a").textContent=`담은 축제 ${ids.length}개 · 일정 짜기 ↓`;}
+  const b=$("tb-plan"); b.hidden=!ids.length; b.textContent=ids.length;}
 function toggleAdd(id){const i=P.ids.indexOf(id); if(i>=0){P.ids.splice(i,1); delete P.pin[id];} else P.ids.push(id); saveP(); renderChosen(); renderLists();}
 document.addEventListener("click",ev=>{const a=ev.target.closest(".add-btn"); if(a) toggleAdd(a.dataset.add);});
 $("pl-days").addEventListener("click",ev=>{const b=ev.target.closest(".chip"); if(!b) return; const d=b.dataset.d; P.days=P.days.includes(d)?P.days.filter(x=>x!==d):P.days.concat(d).sort(); saveP(); b.setAttribute("aria-pressed",String(P.days.includes(d))); renderChosen();});
@@ -992,6 +1007,11 @@ document.querySelectorAll(".sortc").forEach(b=>b.addEventListener("click",()=>{S
   S.from=a;S.to=b;S.focus=a===b?a:"all";S.month=a.slice(0,7);})();
 $("prefs").open=!hasPF();
 renderAll();
+(function(){const tabs=[...document.querySelectorAll("#tabbar a")]; const ids=tabs.map(a=>a.dataset.t);
+  const setOn=id=>tabs.forEach(a=>a.classList.toggle("on",a.dataset.t===id));
+  const io=new IntersectionObserver(es=>{const vis=ids.map(id=>$(id)).filter(el=>el&&el.offsetParent!==null&&el.getBoundingClientRect().height>0).map(el=>({id:el.id,top:el.getBoundingClientRect().top})).filter(x=>x.top<window.innerHeight*0.45); if(vis.length) setOn(vis[vis.length-1].id); else setOn("cal");},{threshold:[0,.25,.5,1]});
+  ids.forEach(id=>{const el=$(id); if(el) io.observe(el);}); addEventListener("scroll",()=>{clearTimeout(window.__tb);window.__tb=setTimeout(()=>{const vis=ids.map(id=>$(id)).filter(el=>el&&el.offsetParent!==null&&el.getBoundingClientRect().height>0).filter(el=>el.getBoundingClientRect().top<window.innerHeight*0.45); setOn(vis.length?vis[vis.length-1].id:"cal");},80);},{passive:true});
+  tabs.forEach(a=>a.addEventListener("click",()=>setOn(a.dataset.t)));})();
 (async()=>{try{const r=await fetch("data.json?t="+Date.now(),{cache:"no-store"}); if(!r.ok) throw new Error(r.status); const d=await r.json();
   S.events=d.events||[];S.wx=d.weather||{};S.status=d.status||null;S.picks=d.picks||null;S.movies=d.movies||null;S.news=d.news||null;S.days=d.days||null;renderAll();}
   catch(e){$("lists").innerHTML='<div class="empty">축제 데이터를 불러오지 못했습니다. 잠시 뒤 새로 고쳐 주세요.</div>';$("upd").textContent="불러오지 못함";}})();
