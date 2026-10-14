@@ -271,7 +271,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 <div class="wrap">
   <header class="hero">
    <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
-    <div class="eyebrow">오늘 뭐 하노?</div>
+    <div class="eyebrow">오늘 뭐 하고 놀까예?</div>
     <h1 class="brand">Ram's Culture Land</h1>
     <blockquote class="motto">어디선가 마주칠지도, 그냥 스쳐 갈지도 몰라요.<br>그래도 지금 이 순간을 누리고 있다는 건 변하지 않아요.</blockquote>
     <p class="lede">축제, 공연, 경기, 영화까지 싹 모아 놨어요. 집에서 '뭐 하지…'만 세 시간째라면 잘 오셨어요.</p>
@@ -297,7 +297,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
   </header>
   <div class="searchbar" role="search">
     <div class="sbox"><svg class="ico" aria-hidden="true" style="width:18px;height:18px"><use href="#i-search"/></svg>
-      <input id="q" type="search" placeholder="광안리, 재즈… 아무거나 쳐 보이소" autocomplete="off" aria-label="검색">
+      <input id="q" type="search" placeholder="광안리, 재즈… 뭐든 찾아보이소" autocomplete="off" aria-label="검색">
       <button class="x-btn" id="q-clear" aria-label="검색어 지우기" hidden>×</button></div>
   </div>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -356,9 +356,9 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
     <summary><span class="fold-t">나의 여행 취향</span><span class="fold-s" id="pf-short">누구랑, 얼마 들고, 뭐 좋아하는지 알려 주시면 거기 맞춰 드려요</span></summary>
     <div class="pref">
       <div class="step"><div class="step-h"><span class="step-n">1</span>누구랑 가요?</div><div class="row" id="pf-who"></div></div>
-      <div class="step"><div class="step-h"><span class="step-n">2</span>지갑은 얼마나 두둑해요?</div><div class="row" id="pf-budget"></div></div>
+      <div class="step"><div class="step-h"><span class="step-n">2</span>예산은 얼마쯤 생각하세요?</div><div class="row" id="pf-budget"></div></div>
       <div class="step"><div class="step-h"><span class="step-n">3</span>뭐 좋아해요? (여러 개 골라도 돼요)</div><div class="row" id="pf-taste"></div></div>
-      <div class="step"><div class="step-h"><span class="step-n">4</span>체력은 좀 돼요?</div><div class="row" id="pf-pace"></div></div>
+      <div class="step"><div class="step-h"><span class="step-n">4</span>하루에 얼마나 돌아다닐까요?</div><div class="row" id="pf-pace"></div></div>
       <div class="step"><div class="step-h"><span class="step-n">5</span>뭐 타고 가요?</div><div class="row" id="pf-mode"></div></div>
       <p class="store-note" data-note style="grid-column:1/-1"></p>
       <div class="pref-foot"><p id="pf-sum"></p><button class="ghost-btn" id="pf-reset">처음부터 다시</button></div>
@@ -618,7 +618,7 @@ function renderLists(){
     const items=ev.filter(e=>e.grp===g).sort((a,b)=>S.sort==="match"&&hasPF()?(sc.get(b.id)-sc.get(a.id))||(a.end<b.end?-1:1):(a.end<b.end?-1:a.end>b.end?1:0));
     if(!items.length) return "";
     return `<section><div class="sec-head"><h2>${label}</h2><span class="count">${items.length}개</span></div><div class="grid">${items.map(e=>card(e,one)).join("")}</div></section>`}).join("");
-  $("lists").innerHTML=html||(toks.length?`<div class="empty">'${esc(S.q.trim())}'와 맞는 행사가 없어요.${(S.movies&&S.movies.items||[]).some(x=>[x.title,x.genre,x.director,x.cast].join(" ").toLowerCase().includes(S.q.trim().toLowerCase()))?' 개봉 영화에서 찾았어요. <a href="#mv-sec">영화 보기 ↓</a>':" 다른 단어로 찾아보거나 필터를 풀어 보세요."}</div>`:'<div class="empty">이날은 맞는 게 없네요. 필터를 좀 풀어 보든가, 다른 날을 골라 보세요.<br>아니면 그냥 바다 보러 가요. 부산이잖아요.</div>');
+  $("lists").innerHTML=html||(toks.length?`<div class="empty">'${esc(S.q.trim())}'와 맞는 행사가 없어요.${(S.movies&&S.movies.items||[]).some(x=>[x.title,x.genre,x.director,x.cast].join(" ").toLowerCase().includes(S.q.trim().toLowerCase()))?' 개봉 영화에서 찾았어요. <a href="#mv-sec">영화 보기 ↓</a>':" 다른 단어로 찾아보거나 필터를 풀어 보세요."}</div>`:'<div class="empty">이날은 딱 맞는 게 없네요. 필터를 조금 풀어 보시거나 다른 날을 골라 주세요.<br>아니면 그냥 바다 보러 가요. 부산이잖아요.</div>');
 }
 function renderMovies(){const m=S.movies; const qq=S.q.trim().toLowerCase(); const items=(m&&m.items||[]).filter(x=>(!x.date||x.date>=add(TODAY,-3))&&(!qq||[x.title,x.genre,x.country,x.director,x.cast].join(" ").toLowerCase().includes(qq))).sort((a,b)=>(a.date||"9")<(b.date||"9")?-1:1).slice(0,30);
   $("mv-sec").hidden=!items.length; if(!items.length) return;
@@ -795,9 +795,9 @@ const PUBLIC_URL="https://onyoupado.github.io/festival/";
 const b64e=s=>btoa(unescape(encodeURIComponent(s))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
 const b64d=s=>decodeURIComponent(escape(atob(s.replace(/-/g,"+").replace(/_/g,"/"))));
 function planLink(){const o={v:1,ids:P.ids,days:P.days,start:P.start,t0:P.t0,mode:PF.mode,plan:P.plan?P.plan.days:null}; return PUBLIC_URL+"?plan="+b64e(JSON.stringify(o));}
-async function sharePlan(){if(!P.ids.length){toast("보낼 코스가 없어요. 뭐부터 좀 담아 주세요."); return;} const url=planLink();
-  if(navigator.share&&!(window.claude)){try{await navigator.share({title:"Ram's Culture Land · 내 코스",text:"이번에 여기 어때? 같이 가자",url}); return;}catch(e){if(e&&e.name==="AbortError") return;}}
-  try{await navigator.clipboard.writeText(url); toast("링크 복사했어요. 단톡방에 붙여 넣고, 읽씹 안 당하길 빌어요.");}
+async function sharePlan(){if(!P.ids.length){toast("보낼 코스가 아직 없어요. 가고 싶은 곳부터 담아 주세요."); return;} const url=planLink();
+  if(navigator.share&&!(window.claude)){try{await navigator.share({title:"Ram's Culture Land · 내 코스",text:"이번에 여기 어때요? 같이 가요",url}); return;}catch(e){if(e&&e.name==="AbortError") return;}}
+  try{await navigator.clipboard.writeText(url); toast("링크 복사했어요. 단톡방에 붙여 넣으시면 돼요. 답장이 빨리 오길 같이 빌어 드릴게요.");}
   catch(e){const box=$("share-box"); box.hidden=false; box.value=url; box.select(); toast("아래 링크를 길게 눌러 복사해 주세요.");}}
 document.addEventListener("click",ev=>{if(ev.target.closest("#pl-share")) sharePlan();});
 let incoming=null;
@@ -874,7 +874,7 @@ async function storyCanvas(kind){const W=1080,H=1920,c=document.createElement("c
   x.fillStyle="#E4ECEE"; x.font=`800 84px ${F}`; let y=400; wrap(x,title,W-160).slice(0,2).forEach(l=>{x.fillText(l,80,y); y+=100;});
   x.fillStyle="#93A5AC"; x.font=`500 38px ${F}`; x.fillText(sub,80,y); y+=70;
   x.strokeStyle="rgba(228,236,238,.25)"; x.lineWidth=2; x.beginPath(); x.moveTo(80,y); x.lineTo(W-80,y); x.stroke(); y+=70;
-  if(!rows.length){x.fillStyle="#93A5AC"; x.font=`500 40px ${F}`; x.fillText("아직 비어 있어요. 뭐라도 하나 골라 주세요.",80,y); y+=60;}
+  if(!rows.length){x.fillStyle="#93A5AC"; x.font=`500 40px ${F}`; x.fillText("아직 비어 있어요. 마음에 드는 곳을 먼저 골라 주세요.",80,y); y+=60;}
   for(const r of rows){if(y>1120) break;
     if(r.h){x.fillStyle="#F0A04B"; x.font=`800 40px ${F}`; x.fillText(r.h,80,y); y+=62; continue;}
     if(r.t){x.fillStyle="#F0A04B"; x.font=`700 36px ui-monospace,Menlo,monospace`; x.fillText(r.t,80,y);}
@@ -981,7 +981,7 @@ function renderPlan(){const out=$("pl-out"); $("pl-ai-out").hidden=true;
   if(!P.plan){out.innerHTML="";return;}
   const home=START[P.start], sp=home.slice(1), days=Object.keys(P.plan.days).sort(); let html="", prev=null;
   days.forEach((d,di)=>{const order=P.plan.days[d].filter(id=>byId(id));
-    if(!order.length){html+=`<div class="plan-day"><h3>${lab(d)}</h3><p class="plan-sum" style="margin:0">이날은 비어 있어요. 쉬는 날 하죠, 뭐.</p></div>`; prev=null; return;}
+    if(!order.length){html+=`<div class="plan-day"><h3>${lab(d)}</h3><p class="plan-sum" style="margin:0">이날은 비어 있어요. 푹 쉬는 날로 해도 좋겠네요.</p></div>`; prev=null; return;}
     let startPt=sp,startName=home[0]; if(prev&&prev.overnight){startPt=prev.pos;startName=prev.name+" 인근 숙소";}
     const r=simulate(order,d,startPt,PF.mode,P.t0); const last=r.legs[r.legs.length-1]; const lastG=geo(byId(last.id));
     const nextOrder=di<days.length-1?(P.plan.days[days[di+1]]||[]):[]; const nx=nextOrder.length&&add(d,1)===days[di+1]?geo(byId(nextOrder[0])):null;
