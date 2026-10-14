@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta property="og:title" content="10월 셋째 주말 축제 지도">
+<meta property="og:description" content="2026년 10월 16~18일 부산·근교·전국 축제와 지역별 날씨">
+<title>10월 셋째 주말 축제 지도</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+html{color-scheme:light}body{margin:0;font-size:15px}[hidden]{display:none!important}img{max-width:100%}
+/* Layout: 항구의 밤 — 상단 날씨 띠 + 요일 탭, 아래로 지역별 행사 목록. 등불(앰버)은 '오늘'과 추천에만 씀 */
+:root{
+  --bg:#EEF2F2; --surface:#FFFFFF; --ink:#13222C; --muted:#5A6A72; --line:#D3DCDD;
+  --sea:#0E6E78; --sea-soft:#DCEDEE; --lantern:#C76A12; --lantern-soft:#FBEBD9;
+  --ok:#2F7A46; --ok-soft:#E1F1E5; --warn:#9A6A00; --warn-soft:#F7EDCF; --off:#8A3B3B; --off-soft:#F4E2E2;
+  --f-display:"Black Han Sans","IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0D171D; --surface:#14222A; --ink:#E4ECEE; --muted:#93A5AC; --line:#26363F;
+  --sea:#4FB6C0; --sea-soft:#163238; --lantern:#F0A04B; --lantern-soft:#3A2814;
+  --ok:#7CC892; --ok-soft:#173022; --warn:#E3BC5A; --warn-soft:#352B12; --off:#E39A9A; --off-soft:#3A1E1E; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0D171D; --surface:#14222A; --ink:#E4ECEE; --muted:#93A5AC; --line:#26363F;
+  --sea:#4FB6C0; --sea-soft:#163238; --lantern:#F0A04B; --lantern-soft:#3A2814;
+  --ok:#7CC892; --ok-soft:#173022; --warn:#E3BC5A; --warn-soft:#352B12; --off:#E39A9A; --off-soft:#3A1E1E; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:16px;padding-block:24px 64px;display:flex;flex-direction:column;gap:28px}
+a{color:var(--sea)} a:focus-visible,button:focus-visible{outline:2px solid var(--lantern);outline-offset:2px}
+h1,h2{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:.01em}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.15}
+h2{font-size:22px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.eyebrow{font-size:12px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+header{display:flex;flex-direction:column;gap:10px}
+.stamp{display:flex;flex-wrap:wrap;gap:8px 16px;color:var(--muted);font-size:13px}
+.stamp b{color:var(--ink);font-weight:500}
+.notice{background:var(--sea-soft);border-radius:10px;padding:12px 14px;font-size:14px}
+.notice.end{background:var(--off-soft)}
+/* day tabs */
+.days{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:8px}
+.day{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:10px 8px;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:2px;font:inherit}
+.day .d{font-family:var(--f-display);font-size:20px}
+.day small{color:var(--muted);font-size:12px}
+.day[aria-pressed="true"]{border-color:var(--sea);box-shadow:inset 0 0 0 1px var(--sea)}
+.today-tag{display:inline-block;background:var(--lantern);color:var(--surface);font-size:11px;border-radius:4px;padding:0 6px;margin-left:6px;vertical-align:middle;font-family:var(--f-body)}
+/* weather strip */
+.wx{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.wxc{flex:0 0 auto;min-width:118px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.wxc .city{font-weight:700;font-size:13px}
+.wxc .sky{font-size:13px}
+.wxc .t{font-family:var(--f-mono);font-size:13px}
+.wxc .pop{font-size:12px;color:var(--muted)}
+.wxc.rain{border-color:var(--sea);background:var(--sea-soft)}
+.src{font-size:12px;color:var(--muted)}
+/* filters */
+.filters{display:flex;flex-direction:column;gap:10px}
+.row{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 12px;font:inherit;font-size:13px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.count{color:var(--muted);font-size:13px}
+/* sections */
+section{display:flex;flex-direction:column;gap:14px}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card h3{margin:0;font-size:17px;line-height:1.35;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:var(--muted)}
+.pill{font-size:11.5px;border-radius:4px;padding:1px 7px;font-weight:500}
+.p-ok{background:var(--ok-soft);color:var(--ok)} .p-un{background:var(--warn-soft);color:var(--warn)} .p-off{background:var(--off-soft);color:var(--off)}
+.p-free{background:var(--sea-soft);color:var(--sea)} .p-paid{background:var(--lantern-soft);color:var(--lantern)} .p-mix{background:var(--sea-soft);color:var(--sea)} .p-unk{background:var(--bg);color:var(--muted)}
+dl{display:grid;grid-template-columns:max-content 1fr;gap:3px 10px;margin:0;font-size:13.5px}
+dt{color:var(--muted)} dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.note{font-size:12.5px;color:var(--warn);background:var(--warn-soft);border-radius:6px;padding:5px 8px}
+.wxmini{font-size:12.5px;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;margin-top:auto;padding-top:6px;border-top:1px dashed var(--line)}
+.links a{text-decoration:none} .links a:hover{text-decoration:underline}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:24px;color:var(--muted);text-align:center}
+/* picks */
+.picks{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.pick-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:p}
+.pick-list li{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:start}
+.pick-list li::before{counter-increment:p;content:counter(p);font-family:var(--f-display);font-size:18px;color:var(--lantern);line-height:1.4}
+.pick-list b{display:block}
+.pick-list span{font-size:13px;color:var(--muted)}
+.route ol{margin:0;padding-left:20px;font-size:14px}
+.themes{display:flex;flex-direction:column;gap:8px}
+.theme{display:grid;grid-template-columns:110px 1fr;gap:8px;font-size:13.5px}
+.theme b{color:var(--sea)}
+.small-list{margin:0;padding-left:18px;font-size:13.5px;display:flex;flex-direction:column;gap:4px}
+.log{font-size:13px;color:var(--muted);margin:0;padding-left:18px}
+footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+@media (max-width:520px){.theme{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.card:hover{border-color:var(--sea)}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">부산 출발 기준 · 2026년 10월 16일(금)~18일(일)</div>
+    <h1>10월 셋째 주말 축제 지도</h1>
+    <div class="stamp">
+      <span>마지막 업데이트 <b id="upd" class="mono">불러오는 중</b></span>
+      <span id="dday"></span>
+      <span>매일 아침 공식 자료·기상청 예보로 다시 확인합니다</span>
+    </div>
+    <div id="notice" class="notice" hidden></div>
+  </header>
+
+  <nav class="days" aria-label="날짜 선택">
+    <button class="day" id="day-16" data-day="16" aria-pressed="false"><span class="d">16 금</span><small id="cnt-16">–</small></button>
+    <button class="day" id="day-17" data-day="17" aria-pressed="true"><span class="d">17 토</span><small id="cnt-17">–</small></button>
+    <button class="day" id="day-18" data-day="18" aria-pressed="false"><span class="d">18 일</span><small id="cnt-18">–</small></button>
+  </nav>
+
+  <section aria-labelledby="wx-h">
+    <div class="sec-head"><h2 id="wx-h">지역별 날씨 <span id="wx-day" class="mono" style="font-family:var(--f-mono);font-size:15px"></span></h2><span id="wx-src" class="src"></span></div>
+    <div id="wx" class="wx"><div class="empty" style="flex:1">기상청 예보를 불러오는 중입니다.</div></div>
+  </section>
+
+  <div class="filters">
+    <div class="row" id="f-grp" role="group" aria-label="지역">
+      <button class="chip" data-v="all" aria-pressed="true">전체</button>
+      <button class="chip" data-v="busan" aria-pressed="false">부산</button>
+      <button class="chip" data-v="near" aria-pressed="false">근교·울산·경남·경북</button>
+      <button class="chip" data-v="nation" aria-pressed="false">전국</button>
+    </div>
+    <div class="row" id="f-cat" role="group" aria-label="유형"></div>
+    <div class="row" role="group" aria-label="요금">
+      <button class="chip" id="f-free" aria-pressed="false">무료(입장)만</button>
+      <span class="count" id="count"></span>
+    </div>
+  </div>
+
+  <div id="lists">
+    <div class="empty">행사 목록을 불러오는 중입니다. 잠시 뒤에도 비어 있으면 페이지를 새로 고쳐 주세요.</div>
+  </div>
+
+  <section aria-labelledby="pick-h">
+    <div class="sec-head"><h2 id="pick-h">추천 우선순위</h2><span class="src">날씨·마지막 날 여부를 반영해 매일 조정</span></div>
+    <div class="picks" id="picks"></div>
+  </section>
+
+  <section aria-labelledby="route-h">
+    <div class="sec-head"><h2 id="route-h">동선과 테마별 추천</h2></div>
+    <div class="picks" id="routes"></div>
+    <div class="card themes" id="themes"></div>
+  </section>
+
+  <section aria-labelledby="un-h">
+    <div class="sec-head"><h2 id="un-h">일정 미확인 · 해당일 없음</h2><span class="src">공식 발표가 나오면 위 목록으로 옮깁니다</span></div>
+    <div class="grid" id="unconfirmed"></div>
+    <div class="card"><b style="font-size:14px">이번 주말이 아닌 행사</b><ul class="small-list" id="outrange"></ul></div>
+  </section>
+
+  <section aria-labelledby="log-h">
+    <div class="sec-head"><h2 id="log-h">업데이트 기록</h2></div>
+    <ul class="log" id="log"></ul>
+  </section>
+
+  <footer>
+    인스타그램 공식 계정은 검색 결과에서 확인되지 않아, 축제 이름 해시태그 검색으로 연결했습니다. 운영시간·요금은 현장 사정으로 바뀔 수 있으니 방문 전 공식 홈페이지를 한 번 더 확인하세요.
+  </footer>
+</div>
+
+<script>
+(function(){
+const DAYS={"16":"10/16 (금)","17":"10/17 (토)","18":"10/18 (일)"};
+const S={events:[],wx:{},status:null,picks:null,day:null,grp:"all",cat:"all",free:false};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl=u=>/^https?:\/\//.test(u||"")?u:null;
+
+// 오늘(KST)
+const kst=new Date(Date.now()+9*3600e3); const ky=kst.getUTCFullYear(), km=kst.getUTCMonth()+1, kd=kst.getUTCDate();
+const todayKey=(ky===2026&&km===10&&kd>=16&&kd<=18)?String(kd):null;
+const ended=(ky>2026)||(ky===2026&&(km>10||(km===10&&kd>18)));
+let saved=null; try{saved=localStorage.getItem("fest-day")}catch(e){}
+const hashDay={"#fri":"16","#sat":"17","#sun":"18"}[location.hash];
+S.day=hashDay||todayKey||(saved&&DAYS[saved]?saved:"17");
+if(todayKey){const b=$("day-"+todayKey); b.querySelector(".d").insertAdjacentHTML("beforeend",'<span class="today-tag">오늘</span>');}
+const dleft=Math.round((Date.UTC(2026,9,16)-Date.UTC(ky,km-1,kd))/864e5);
+$("dday").textContent= ended?"축제 주말이 끝났습니다": dleft>0?`금요일까지 D-${dleft}`: "축제 주말 진행 중";
+if(ended){const n=$("notice"); n.hidden=false; n.className="notice end"; n.textContent="10월 16~18일 일정은 모두 끝났습니다. 아래 정보는 기록으로 남겨 둡니다.";}
+
+const openOn=(e,d)=>e.start&&e.end&&e.status==="ok"&&e.start<=`2026-10-${d}`&&`2026-10-${d}`<=e.end;
+const feePill={free:["무료","p-free"],paid:["유료","p-paid"],mixed:["무료·일부 유료","p-mix"],unknown:["요금 미확인","p-unk"]};
+const stPill={ok:["일정 확인","p-ok"],unconfirmed:["일정 미확인","p-un"],nodate:["해당일 없음","p-off"]};
+const fmtD=(s,e)=>!s?"미정":s===e?s.slice(5).replace("-","/"):`${s.slice(5).replace("-","/")}~${e.slice(5).replace("-","/")}`;
+
+function wxLine(key,d){const w=S.wx[key]; if(!w||!w.days||!w.days[d]) return ""; const x=w.days[d];
+  return `${esc(w.name)} ${esc(x.am)}${x.am!==x.pm?"→"+esc(x.pm):""} · ${x.min}~${x.max}℃ · 강수 ${Math.max(x.popAm,x.popPm)}%`;}
+
+function card(e,d){
+  const st=stPill[e.status]||stPill.ok, fp=feePill[e.feeType]||feePill.unknown;
+  const home=safeUrl(e.home), src=safeUrl(e.src);
+  const tag=encodeURIComponent((e.tag||e.name).replace(/\s/g,""));
+  const w=d&&e.wx?wxLine(e.wx,d):"";
+  return `<article class="card">
+    <div class="meta"><span>${esc(e.region)}</span><span class="pill ${st[1]}">${st[0]}</span><span class="pill ${fp[1]}">${fp[0]}</span></div>
+    <h3>${esc(e.name)}</h3>
+    <dl>
+      <dt>기간</dt><dd class="mono">${esc(fmtD(e.start,e.end))}</dd>
+      <dt>시간</dt><dd>${esc(e.hours||"미확인")}</dd>
+      <dt>장소</dt><dd>${esc(e.venue)}</dd>
+      <dt>요금</dt><dd>${esc(e.fee)}</dd>
+      <dt>프로그램</dt><dd>${esc(e.programs)}</dd>
+    </dl>
+    ${w?`<div class="wxmini">☁ ${w}</div>`:""}
+    ${e.note?`<div class="note">${esc(e.note)}</div>`:""}
+    <div class="links">
+      ${home?`<a href="${esc(home)}" target="_blank" rel="noopener">공식 홈페이지 ↗</a>`:`<span style="color:var(--muted)">공식 홈페이지 미확인</span>`}
+      <a href="https://www.instagram.com/explore/tags/${tag}/" target="_blank" rel="noopener">인스타 #${esc(decodeURIComponent(tag))} ↗</a>
+      ${src?`<a href="${esc(src)}" target="_blank" rel="noopener">확인 출처 ↗</a>`:""}
+    </div></article>`;
+}
+
+function renderWx(){
+  const d=S.day; $("wx-day").textContent=DAYS[d];
+  const list=Object.entries(S.wx).sort((a,b)=>(a[1].order??0)-(b[1].order??0));
+  if(!list.length){$("wx").innerHTML='<div class="empty" style="flex:1">날씨 정보가 아직 없습니다.</div>';return;}
+  $("wx").innerHTML=list.map(([k,w])=>{const x=w.days&&w.days[d]; if(!x) return "";
+    const rain=/비/.test(x.am+x.pm)||Math.max(x.popAm,x.popPm)>=50;
+    return `<div class="wxc ${rain?"rain":""}"><span class="city">${esc(w.name)}</span><span class="sky">${esc(x.am)}${x.am!==x.pm?" → "+esc(x.pm):""}</span><span class="t">${x.min}° / ${x.max}°</span><span class="pop">강수 오전 ${x.popAm}% · 오후 ${x.popPm}%</span></div>`}).join("");
+  const st=S.status; $("wx-src").innerHTML=st&&st.weatherIssued?`${esc(st.weatherIssued)} · <a href="${esc(safeUrl(st.weatherSource)||"#")}" target="_blank" rel="noopener">기상청</a>`:"";
+}
+
+function renderCats(){
+  const cats=[...new Set(S.events.flatMap(e=>e.cats||[]))];
+  const order=["지역축제","음악","커피·맥주·음식","마켓","야시장","불꽃·드론","야간","전시·영화","꽃·억새·단풍","역사","가족","기타"];
+  cats.sort((a,b)=>(order.indexOf(a)+99)%99-(order.indexOf(b)+99)%99);
+  $("f-cat").innerHTML=['<button class="chip" data-v="all" aria-pressed="'+(S.cat==="all")+'">모든 유형</button>'].concat(cats.map(c=>`<button class="chip" data-v="${esc(c)}" aria-pressed="${S.cat===c}">${esc(c)}</button>`)).join("");
+}
+
+function renderLists(){
+  const d=S.day;
+  ["16","17","18"].forEach(k=>{const n=S.events.filter(e=>openOn(e,k)).length; $("cnt-"+k).textContent=S.events.length?`${n}개 행사`:"–";
+    $("day-"+k).setAttribute("aria-pressed",String(k===d));});
+  let ev=S.events.filter(e=>openOn(e,d));
+  if(S.grp!=="all") ev=ev.filter(e=>e.grp===S.grp);
+  if(S.cat!=="all") ev=ev.filter(e=>(e.cats||[]).includes(S.cat));
+  if(S.free) ev=ev.filter(e=>e.feeType==="free"||e.feeType==="mixed");
+  $("count").textContent=S.events.length?`${DAYS[d]} · ${ev.length}개 표시`:"";
+  const groups=[["busan","부산"],["near","부산 근교 · 울산 · 경남 · 경북"],["nation","전국"]];
+  if(!S.events.length) return;
+  const html=groups.map(([g,label])=>{const items=ev.filter(e=>e.grp===g).sort((a,b)=>(b.end===`2026-10-${d}`)-(a.end===`2026-10-${d}`));
+    if(!items.length) return "";
+    return `<section><div class="sec-head"><h2>${label}</h2><span class="count">${items.length}개</span></div><div class="grid">${items.map(e=>card(e,d)).join("")}</div></section>`}).join("");
+  $("lists").innerHTML=html||'<div class="empty">조건에 맞는 행사가 없습니다. 유형이나 지역 필터를 풀어 보세요.</div>';
+  $("lists").style.display="flex";$("lists").style.flexDirection="column";$("lists").style.gap="28px";
+}
+
+function byId(id){return S.events.find(e=>e.id===id)}
+function renderPicks(){
+  const p=S.picks; if(!p){$("picks").innerHTML='<div class="empty">추천을 불러오는 중입니다.</div>';return;}
+  const block=(title,arr,k)=>`<div class="card"><b style="font-family:var(--f-display);font-weight:400;font-size:19px">${title}${todayKey===k?'<span class="today-tag">오늘</span>':""}</b><ol class="pick-list">${(arr||[]).map(x=>{const e=byId(x.id);return `<li><div><b>${esc(e?e.name:x.id)}</b><span>${esc(e?e.region+" · ":"")}${esc(x.why)}</span></div></li>`}).join("")}</ol></div>`;
+  $("picks").innerHTML=block("10/17 토요일",p.sat,"17")+block("10/18 일요일",p.sun,"18");
+  $("routes").innerHTML=(p.routes||[]).map(r=>`<div class="card route"><b>${esc(r.title)}</b><ol>${r.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol></div>`).join("");
+  $("themes").innerHTML=(p.themes||[]).map(t=>`<div class="theme"><b>${esc(t.label)}</b><span>${t.ids.map(i=>{const e=byId(i);return e?esc(e.name.replace(/^제\d+회\s|^2026\s/,"")):""}).filter(Boolean).join(" · ")}</span></div>`).join("");
+}
+function renderOther(){
+  const un=S.events.filter(e=>e.status!=="ok");
+  $("unconfirmed").innerHTML=un.length?un.map(e=>card(e,null)).join(""):'<div class="empty">미확인 행사가 없습니다.</div>';
+  const st=S.status||{};
+  $("outrange").innerHTML=(st.outOfRange||[]).map(o=>`<li>${esc(o.name)} — <span class="mono">${esc(o.when)}</span></li>`).join("");
+  $("log").innerHTML=(st.changelog||[]).slice().reverse().map(c=>`<li><span class="mono">${esc(c.at)}</span> ${esc(c.text)}</li>`).join("");
+  if(st.updatedAt){const t=new Date(st.updatedAt); $("upd").textContent=isNaN(t)?st.updatedAt:t.toLocaleString("ko-KR",{timeZone:"Asia/Seoul",month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});}
+  if(st.notice&&!ended){const n=$("notice"); n.hidden=false; n.textContent=st.notice;}
+}
+function renderAll(){renderWx();renderCats();renderLists();renderPicks();renderOther();}
+
+document.querySelector(".days").addEventListener("click",ev=>{const b=ev.target.closest(".day"); if(!b) return; S.day=b.dataset.day; try{localStorage.setItem("fest-day",S.day)}catch(e){} renderWx();renderLists();});
+$("f-grp").addEventListener("click",ev=>{const b=ev.target.closest(".chip"); if(!b) return; S.grp=b.dataset.v; $("f-grp").querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String(c===b))); renderLists();});
+$("f-cat").addEventListener("click",ev=>{const b=ev.target.closest(".chip"); if(!b) return; S.cat=b.dataset.v; renderCats(); renderLists();});
+$("f-free").addEventListener("click",()=>{S.free=!S.free; $("f-free").setAttribute("aria-pressed",String(S.free)); renderLists();});
+renderAll();
+
+(async()=>{
+  try{
+    const r=await fetch("data.json?t="+Date.now(),{cache:"no-store"});
+    if(!r.ok) throw new Error(r.status);
+    const d=await r.json();
+    S.events=d.events||[];S.wx=d.weather||{};S.status=d.status||null;S.picks=d.picks||null;renderAll();
+  }catch(e){$("lists").innerHTML='<div class="empty">행사 데이터를 불러오지 못했습니다. 잠시 뒤 새로 고쳐 주세요.</div>';$("upd").textContent="불러오지 못함";}
+})();
+})();
+</script>
+</body>
+</html>

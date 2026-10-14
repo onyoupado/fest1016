@@ -1,0 +1,1651 @@
+{
+ "status": {
+  "updatedAt": "2026-10-12T21:00:00+09:00",
+  "weatherIssued": "기상청 중기예보 2026-10-12(월) 06:00 발표",
+  "weatherSource": "https://www.weather.go.kr/w/weather/forecast/mid-term.do",
+  "notice": "18일(일)은 전국에 비 소식(강수확률 40~60%). 수도권·충청·강원은 '흐리고 비' 예보. 비가 오는 시점은 바뀔 수 있습니다.",
+  "changelog": [
+   {
+    "at": "2026-10-12",
+    "text": "첫 게시: 행사 51건 검증(확인 40 · 일정 미확인 10 · 해당일 없음 1), 기상청 중기예보 반영"
+   }
+  ],
+  "outOfRange": [
+   {
+    "name": "부산국제록페스티벌",
+    "when": "10/2~4 (종료)"
+   },
+   {
+    "name": "부산국제영화제",
+    "when": "10/15 폐막"
+   },
+   {
+    "name": "부산불꽃축제",
+    "when": "11/7"
+   },
+   {
+    "name": "마산가고파국화축제",
+    "when": "10/31~11/8"
+   }
+  ]
+ },
+ "picks": {
+  "sat": [
+   {
+    "id": "yudeung",
+    "why": "마지막 대형 불꽃+드론쇼(20:00). 남강 유등과 함께 이번 주말 최고의 야경"
+   },
+   {
+    "id": "drone",
+    "why": "19:00·21:00 무료 드론쇼. 맑은 날씨 예보라 토요일이 적기"
+   },
+   {
+    "id": "jeonpo",
+    "why": "카페거리 산책형 축제, 혼자 가기 좋음. 서면에서 도보권"
+   },
+   {
+    "id": "beer",
+    "why": "북항 야외 수제맥주 + 버스킹·DJ. 부산역 근처"
+   },
+   {
+    "id": "dongnae",
+    "why": "동래성전투 재현 뮤지컬과 야간 프로그램, 4호선으로 이동 편리"
+   },
+   {
+    "id": "whale",
+    "why": "30주년 불꽃쇼·콘서트, 태화강역 셔틀"
+   }
+  ],
+  "sun": [
+   {
+    "id": "jagalchi",
+    "why": "마지막 날 행사 · 실내외가 섞인 시장이라 비가 와도 무난"
+   },
+   {
+    "id": "whale",
+    "why": "30주년 고래 퍼레이드가 마지막 날 진행"
+   },
+   {
+    "id": "biennale",
+    "why": "실내 전시라 비 예보(40~60%)에도 안전한 선택"
+   },
+   {
+    "id": "jeonpo",
+    "why": "일요일 12:00~18:00 운영, 비 오면 카페 실내로"
+   },
+   {
+    "id": "gimhae",
+    "why": "마지막 밤 미디어파사드 · 경전철로 접근"
+   }
+  ],
+  "routes": [
+   {
+    "title": "토요일 부산 시내 3곳 (대중교통)",
+    "steps": [
+     "13:00 전포커피축제 (서면·전포역)",
+     "16:00 북항 바이킹 비어밤 (부산역)",
+     "19:00 광안리 M 드론라이트쇼 (2호선 광안역)"
+    ]
+   },
+   {
+    "title": "토요일 동래 역사+맥주",
+    "steps": [
+     "14:00 동래읍성역사축제 (4호선 동래역)",
+     "17:00 허심청 옥토버페스트 (토 마지막 날, 유료)",
+     "21:00 광안리 드론쇼 2회차"
+    ]
+   },
+   {
+    "title": "토요일 진주 당일치기 (자가용 약 1시간 30분)",
+    "steps": [
+     "15:00 개천예술제·진주성",
+     "18:00 남강 유등 점등",
+     "20:00 불꽃놀이+드론라이트쇼 (막히니 일찍 도착)"
+    ]
+   },
+   {
+    "title": "일요일 비 대비 코스",
+    "steps": [
+     "11:00 부산비엔날레 (부산현대미술관)",
+     "14:00 자갈치축제 마지막 날",
+     "16:00 전포카페거리 (18시 종료)"
+    ]
+   }
+  ],
+  "themes": [
+   {
+    "label": "대중교통",
+    "ids": [
+     "dongnae",
+     "jeonpo",
+     "beer",
+     "drone",
+     "jagalchi",
+     "gimhae",
+     "whale"
+    ]
+   },
+   {
+    "label": "자가용 당일치기",
+    "ids": [
+     "yudeung",
+     "whale",
+     "hwangmae",
+     "cheongdo",
+     "gyeongsan",
+     "chilgok"
+    ]
+   },
+   {
+    "label": "1박 2일",
+    "ids": [
+     "gmf",
+     "gangdong",
+     "gujeolcho",
+     "mokpo",
+     "chuncheon"
+    ]
+   },
+   {
+    "label": "혼자서도",
+    "ids": [
+     "jeonpo",
+     "biennale",
+     "drone",
+     "wowbook",
+     "gimhae"
+    ]
+   },
+   {
+    "label": "사진·SNS",
+    "ids": [
+     "yudeung",
+     "drone",
+     "gimhae",
+     "hwangmae",
+     "eoksae",
+     "gujeolcho"
+    ]
+   },
+   {
+    "label": "음악·공연",
+    "ids": [
+     "gmf",
+     "beer",
+     "cheongdo",
+     "chilgok",
+     "whale",
+     "gupo",
+     "wowbook"
+    ]
+   }
+  ]
+ },
+ "weather": {
+  "ulsan": {
+   "name": "울산",
+   "order": 1,
+   "days": {
+    "16": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 10,
+     "min": 10,
+     "max": 25
+    },
+    "17": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 20,
+     "min": 15,
+     "max": 24
+    },
+    "18": {
+     "am": "흐림",
+     "pm": "흐림",
+     "popAm": 40,
+     "popPm": 60,
+     "min": 17,
+     "max": 24
+    }
+   }
+  },
+  "gimhae": {
+   "name": "김해·창원",
+   "order": 3,
+   "days": {
+    "16": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 10,
+     "min": 13,
+     "max": 25
+    },
+    "17": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 20,
+     "min": 16,
+     "max": 25
+    },
+    "18": {
+     "am": "흐림",
+     "pm": "흐림",
+     "popAm": 40,
+     "popPm": 60,
+     "min": 18,
+     "max": 25
+    }
+   }
+  },
+  "jinju": {
+   "name": "진주",
+   "order": 2,
+   "days": {
+    "16": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 10,
+     "min": 8,
+     "max": 24
+    },
+    "17": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 20,
+     "min": 12,
+     "max": 25
+    },
+    "18": {
+     "am": "흐림",
+     "pm": "흐림",
+     "popAm": 40,
+     "popPm": 60,
+     "min": 15,
+     "max": 25
+    }
+   }
+  },
+  "chuncheon": {
+   "name": "춘천",
+   "order": 6,
+   "days": {
+    "16": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 10,
+     "min": 9,
+     "max": 23
+    },
+    "17": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 20,
+     "min": 9,
+     "max": 24
+    },
+    "18": {
+     "am": "흐리고 비",
+     "pm": "흐리고 비",
+     "popAm": 60,
+     "popPm": 60,
+     "min": 12,
+     "max": 21
+    }
+   }
+  },
+  "seoul": {
+   "name": "서울",
+   "order": 5,
+   "days": {
+    "16": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 10,
+     "min": 11,
+     "max": 23
+    },
+    "17": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 20,
+     "min": 14,
+     "max": 25
+    },
+    "18": {
+     "am": "흐리고 비",
+     "pm": "흐리고 비",
+     "popAm": 60,
+     "popPm": 60,
+     "min": 16,
+     "max": 21
+    }
+   }
+  },
+  "mokpo": {
+   "name": "목포",
+   "order": 9,
+   "days": {
+    "16": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 10,
+     "min": 12,
+     "max": 24
+    },
+    "17": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 20,
+     "min": 17,
+     "max": 25
+    },
+    "18": {
+     "am": "흐림",
+     "pm": "흐림",
+     "popAm": 40,
+     "popPm": 60,
+     "min": 19,
+     "max": 25
+    }
+   }
+  },
+  "daejeon": {
+   "name": "대전",
+   "order": 7,
+   "days": {
+    "16": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 10,
+     "min": 10,
+     "max": 24
+    },
+    "17": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 20,
+     "min": 13,
+     "max": 24
+    },
+    "18": {
+     "am": "흐리고 비",
+     "pm": "흐리고 비",
+     "popAm": 60,
+     "popPm": 60,
+     "min": 16,
+     "max": 22
+    }
+   }
+  },
+  "busan": {
+   "name": "부산",
+   "order": 0,
+   "days": {
+    "16": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 10,
+     "min": 14,
+     "max": 24
+    },
+    "17": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 20,
+     "min": 18,
+     "max": 25
+    },
+    "18": {
+     "am": "흐림",
+     "pm": "흐림",
+     "popAm": 40,
+     "popPm": 60,
+     "min": 19,
+     "max": 25
+    }
+   }
+  },
+  "jeongeup": {
+   "name": "정읍",
+   "order": 8,
+   "days": {
+    "16": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 10,
+     "min": 11,
+     "max": 25
+    },
+    "17": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 20,
+     "min": 14,
+     "max": 26
+    },
+    "18": {
+     "am": "흐림",
+     "pm": "흐림",
+     "popAm": 40,
+     "popPm": 60,
+     "min": 16,
+     "max": 24
+    }
+   }
+  },
+  "daegu": {
+   "name": "대구·경북",
+   "order": 4,
+   "days": {
+    "16": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 10,
+     "min": 10,
+     "max": 25
+    },
+    "17": {
+     "am": "맑음",
+     "pm": "맑음",
+     "popAm": 10,
+     "popPm": 20,
+     "min": 14,
+     "max": 24
+    },
+    "18": {
+     "am": "흐림",
+     "pm": "흐림",
+     "popAm": 40,
+     "popPm": 60,
+     "min": 16,
+     "max": 24
+    }
+   }
+  }
+ },
+ "events": [
+  {
+   "id": "balcony",
+   "grp": "busan",
+   "region": "부산 중구",
+   "name": "광복로 발코니 뮤직쇼 앤 스트릿 페스타",
+   "start": null,
+   "end": null,
+   "hours": "17:00~22:00",
+   "venue": "광복로 일원",
+   "fee": "무료",
+   "feeType": "free",
+   "programs": "발코니 공연, 퍼레이드, 플리마켓",
+   "src": "https://www.fnnews.com/news/202607220914030970",
+   "status": "nodate",
+   "cats": [
+    "음악",
+    "마켓"
+   ],
+   "wx": "busan",
+   "tag": "발코니뮤직쇼",
+   "note": "매월 둘째·넷째 토요일만 공연 → 10월은 10/10, 10/24. 17일(셋째 토요일)은 공연 없음",
+   "home": null
+  },
+  {
+   "id": "beer",
+   "grp": "busan",
+   "region": "부산 동구",
+   "name": "부산수제맥주마스터스챌린지 – 바이킹 비어밤",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "hours": "16:00~21:00",
+   "venue": "부산 북항 랜드마크 부지(동구 이순신대로 164)",
+   "fee": "입장 무료, 시음·F&B 유료",
+   "feeType": "mixed",
+   "programs": "전국 수제맥주 쇼케이스, 블라인드 테이스팅, 비어마켓, 버스킹·DJ 와일드 나이트",
+   "home": "http://busanbeerchallenge.com/",
+   "src": "https://popga.co.kr/popup/11528",
+   "status": "ok",
+   "cats": [
+    "커피·맥주·음식",
+    "음악",
+    "야간"
+   ],
+   "wx": "busan",
+   "tag": "부산수제맥주",
+   "note": ""
+  },
+  {
+   "id": "biennale",
+   "grp": "busan",
+   "region": "부산 사하구·영도구",
+   "name": "2026 부산비엔날레 〈불협하는 합창〉",
+   "start": "2026-08-29",
+   "end": "2026-11-01",
+   "hours": "10:00~18:00 (월요일 휴관)",
+   "venue": "부산현대미술관(을숙도), 옛 부산남고(영도), 스페이스 원지(영도)",
+   "fee": "유료(금액 미확인)",
+   "feeType": "paid",
+   "programs": "사운드·퍼포먼스 중심 현대미술전",
+   "src": "https://www.newsis.com/view/NISX20260527_0003645687",
+   "status": "ok",
+   "cats": [
+    "전시·영화"
+   ],
+   "wx": "busan",
+   "tag": "부산비엔날레",
+   "note": "16~18일 모두 개관",
+   "home": null
+  },
+  {
+   "id": "boeun",
+   "grp": "nation",
+   "region": "충북 보은",
+   "name": "2026 보은대추축제",
+   "start": "2026-10-16",
+   "end": "2026-10-25",
+   "venue": "뱃들공원·속리산 일원",
+   "fee": "무료",
+   "feeType": "free",
+   "programs": "대형 콘서트, 전국민속소힘겨루기, 대추 체험, 먹거리장터",
+   "src": "https://www.reportera.co.kr/travel/boeun-jujube-festival-autumn-travel/",
+   "status": "ok",
+   "cats": [
+    "지역축제"
+   ],
+   "wx": "daejeon",
+   "tag": "보은대추축제",
+   "note": "날씨는 대전 기준",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "bonghwa",
+   "grp": "nation",
+   "region": "경북 봉화",
+   "name": "제30회 봉화송이축제",
+   "start": "2026-10-15",
+   "end": "2026-10-18",
+   "venue": "봉화읍 내성천 일원",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "송이 판매·경매, 드론쇼·불꽃쇼, 청량문화제",
+   "src": "https://news.tf.co.kr/read/ogmeta/2370707.htm",
+   "status": "ok",
+   "cats": [
+    "커피·맥주·음식",
+    "불꽃·드론"
+   ],
+   "wx": "daegu",
+   "tag": "봉화송이축제",
+   "note": "날씨는 대구·경북 권역 참고",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "bread",
+   "grp": "nation",
+   "region": "대전 유성",
+   "name": "2026 대전빵축제",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "hours": "13:00 개장",
+   "venue": "엑스포과학공원 한빛탑 일대 (올해 이전)",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "빵집 120곳 참여",
+   "src": "https://www.wikitree.co.kr/articles/1162266",
+   "status": "ok",
+   "cats": [
+    "커피·맥주·음식"
+   ],
+   "wx": "daejeon",
+   "tag": "대전빵축제",
+   "home": null,
+   "note": ""
+  },
+  {
+   "id": "cheongdo",
+   "grp": "near",
+   "region": "경북 청도",
+   "name": "2026 청도반시축제 + 청도세계코미디아트페스티벌",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "hours": "16일 18:30 개막",
+   "venue": "청도야외공연장 일원 (무료 셔틀 20분 간격)",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "16일 박상민·인순이, 17일 케이윌, 18일 장한별·김용빈, 코미디클럽",
+   "src": "https://kbmaeil.com/article/20261003500065",
+   "status": "ok",
+   "cats": [
+    "음악",
+    "지역축제"
+   ],
+   "wx": "daegu",
+   "tag": "청도반시축제",
+   "note": "원 목록에 없던 행사 추가 · 날씨는 대구 기준",
+   "home": null
+  },
+  {
+   "id": "chilgok",
+   "grp": "near",
+   "region": "경북 칠곡",
+   "name": "제13회 칠곡낙동강평화축제",
+   "start": "2026-10-15",
+   "end": "2026-10-18",
+   "venue": "칠곡보생태공원 일원",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "430m 부교, 블랙이글스 에어쇼, 매일 밤 공연·불꽃쇼 (장민호·백지영·10CM·포레스텔라)",
+   "src": "https://www.kukinews.com/article/view/kuk202610110014",
+   "status": "ok",
+   "cats": [
+    "불꽃·드론",
+    "음악"
+   ],
+   "wx": "daegu",
+   "tag": "칠곡낙동강평화축제",
+   "note": "원 목록에 없던 행사 추가 · 날씨는 대구 기준",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "chuncheon",
+   "grp": "nation",
+   "region": "강원 춘천",
+   "name": "2026 춘천막국수닭갈비축제",
+   "start": "2026-10-14",
+   "end": "2026-10-18",
+   "venue": "공지천 일원",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "막국수·닭갈비 판매존, 공연, 체험",
+   "home": "https://www.mdfestival.com/",
+   "src": "https://www.segye.com/newsView/20260730511292",
+   "status": "ok",
+   "cats": [
+    "커피·맥주·음식"
+   ],
+   "wx": "chuncheon",
+   "tag": "춘천막국수닭갈비축제",
+   "note": "",
+   "hours": "미확인"
+  },
+  {
+   "id": "daegu",
+   "grp": "near",
+   "region": "대구",
+   "name": "2026 판타지아대구페스타",
+   "start": "2026-10-02",
+   "end": "2026-10-21",
+   "venue": "대구 전역 (대구예술제 10/16~19, 대구콘텐츠페어 10/16~17 엑스코)",
+   "fee": "행사별 상이",
+   "feeType": "mixed",
+   "programs": "대구국제오페라축제, 힐링공연예술제(~18일), 스탬프투어",
+   "home": "https://fantasiafesta.or.kr/",
+   "src": "https://www.idaegu.co.kr/news/articleView.html?idxno=560847",
+   "status": "ok",
+   "cats": [
+    "음악",
+    "전시·영화"
+   ],
+   "wx": "daegu",
+   "tag": "판타지아대구페스타",
+   "note": "원 목록에 없던 행사 추가",
+   "hours": "미확인"
+  },
+  {
+   "id": "designweek",
+   "grp": "nation",
+   "region": "서울 중구",
+   "name": "서울디자인위크",
+   "start": "2026-10-14",
+   "end": "2026-10-25",
+   "venue": "미확인",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "미확인",
+   "src": "https://www.month2k.com/event/festival/2026-10",
+   "status": "unconfirmed",
+   "cats": [
+    "전시·영화",
+    "마켓"
+   ],
+   "wx": "seoul",
+   "tag": "서울디자인위크",
+   "note": "집계 달력에만 날짜가 있고 공식 발표는 확인 못함",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "dongnae",
+   "grp": "busan",
+   "region": "부산 동래구",
+   "name": "제32회 동래읍성역사축제",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "hours": "10:00~21:00",
+   "venue": "동래읍성 북문·동래문화회관·온천장 일원 (4호선 동래역)",
+   "fee": "무료(야외방탈출 10,000원, 체험 3,000~10,000원)",
+   "feeType": "mixed",
+   "programs": "동래부사 행차 길놀이, 세가닥 줄다리기, 동래성전투 재현 뮤지컬, 장영실 과학체험, 동래장터",
+   "home": "https://www.dongnae.go.kr/festival/index.dongnae",
+   "src": "https://www.hankyung.com/article/202609233755K",
+   "status": "ok",
+   "cats": [
+    "지역축제",
+    "역사",
+    "야간"
+   ],
+   "wx": "busan",
+   "tag": "동래읍성역사축제",
+   "note": ""
+  },
+  {
+   "id": "dotseom",
+   "grp": "near",
+   "region": "경남 창원",
+   "name": "렉키의 수상한 피크닉 (돝섬)",
+   "start": "2026-10-17",
+   "end": "2026-10-25",
+   "venue": "미확인",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "미확인",
+   "src": "https://www.month2k.com/event/festival/2026-10",
+   "status": "unconfirmed",
+   "cats": [
+    "가족"
+   ],
+   "wx": "gimhae",
+   "tag": "렉키의수상한피크닉",
+   "note": "집계 달력에만 날짜가 있고 공식 발표는 확인 못함",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "drone",
+   "grp": "busan",
+   "region": "부산 수영구",
+   "name": "광안리 M 드론라이트쇼",
+   "start": "2026-10-17",
+   "end": "2026-10-17",
+   "hours": "19:00, 21:00 (회당 약 12분, 동절기)",
+   "venue": "광안리해수욕장",
+   "fee": "무료",
+   "feeType": "free",
+   "programs": "매주 토요일 상설 드론쇼",
+   "home": "https://www.gwangallimdrone.co.kr/",
+   "src": "https://www.ktriptips.com/kor/festival/2786391",
+   "status": "ok",
+   "cats": [
+    "불꽃·드론",
+    "야간"
+   ],
+   "wx": "busan",
+   "tag": "광안리드론쇼",
+   "note": "매주 토요일 · 기상에 따라 취소될 수 있음"
+  },
+  {
+   "id": "eoksae",
+   "grp": "nation",
+   "region": "서울 마포",
+   "name": "제25회 서울억새축제",
+   "start": "2026-10-17",
+   "end": "2026-10-23",
+   "hours": "10:00~21:00",
+   "venue": "월드컵공원 하늘공원",
+   "fee": "미확인 (예년 무료)",
+   "feeType": "unknown",
+   "programs": "주제 〈억새, 자연이 건네는 위로〉",
+   "src": "https://news.seoul.go.kr/env/?p=570795",
+   "status": "ok",
+   "cats": [
+    "꽃·억새·단풍"
+   ],
+   "wx": "seoul",
+   "tag": "서울억새축제",
+   "note": "17일 개막 (16일은 해당 없음)",
+   "home": null
+  },
+  {
+   "id": "gaecheon",
+   "grp": "near",
+   "region": "경남 진주",
+   "name": "제75회 개천예술제",
+   "start": "2026-10-09",
+   "end": "2026-10-18",
+   "venue": "진주성 등 진주시 일원",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "전국휘호대회, 남가람가요제, 시낭송대회, 전통놀이, 풍물시장 (가장행렬은 10/10 종료)",
+   "home": "https://www.gaecheonart.com",
+   "src": "https://www.kukinews.com/article/view/kuk202610080230",
+   "status": "ok",
+   "cats": [
+    "전시·영화",
+    "지역축제"
+   ],
+   "wx": "jinju",
+   "tag": "개천예술제",
+   "note": "16~18일 세부 일정 미공개",
+   "hours": "미확인"
+  },
+  {
+   "id": "gangdong",
+   "grp": "nation",
+   "region": "서울 강동",
+   "name": "제31회 강동선사문화축제",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "hours": "10:00~21:00 (16일 15:00~)",
+   "venue": "서울 암사동 유적",
+   "fee": "무료(일부 체험 유료)",
+   "feeType": "mixed",
+   "programs": "16일 개막 드론쇼, 17일 Electric Forest 뮤직페스티벌, 18일 이세돌 토크콘서트·폐막 불꽃쇼",
+   "home": "https://www.gdsunsa.com/",
+   "src": "https://gangdong.go.kr/web/culture/contents/gdc030_040",
+   "status": "ok",
+   "cats": [
+    "역사",
+    "음악",
+    "불꽃·드론"
+   ],
+   "wx": "seoul",
+   "tag": "강동선사문화축제",
+   "note": ""
+  },
+  {
+   "id": "ganggyeong",
+   "grp": "nation",
+   "region": "충남 논산",
+   "name": "제30회 강경젓갈축제",
+   "start": "2026-10-15",
+   "end": "2026-10-18",
+   "hours": "10:00~22:00",
+   "venue": "강경읍 금강 둔치",
+   "fee": "무료(일부 체험 유료)",
+   "feeType": "mixed",
+   "programs": "김장페스타, 포구장터, 불꽃쇼, EDM파티, 열기구",
+   "home": "https://www.nonsan.go.kr/ggfestival/",
+   "src": "https://www.ktriptips.com/kor/festival/506376",
+   "status": "ok",
+   "cats": [
+    "커피·맥주·음식",
+    "지역축제"
+   ],
+   "wx": "daejeon",
+   "tag": "강경젓갈축제",
+   "note": "날씨는 대전 기준 · 출처에 예전 날짜가 섞여 있어 공식 홈페이지 재확인 권장"
+  },
+  {
+   "id": "garak",
+   "grp": "nation",
+   "region": "서울 송파",
+   "name": "가락 옥토버페스트",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "venue": "미확인",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "미확인",
+   "src": "https://www.month2k.com/event/festival/2026-10",
+   "status": "unconfirmed",
+   "cats": [
+    "커피·맥주·음식"
+   ],
+   "wx": "seoul",
+   "tag": "가락옥토버페스트",
+   "note": "집계 달력에만 날짜가 있고 공식 발표는 확인 못함",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "geumcheon",
+   "grp": "nation",
+   "region": "서울 금천",
+   "name": "2026 금천하모니축제",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "hours": "11:00~20:00",
+   "venue": "금나래중앙공원·금천구청 앞 광장",
+   "fee": "무료",
+   "feeType": "free",
+   "programs": "공연, 불꽃쇼, 체험부스, 푸드트럭, 플리마켓",
+   "src": "https://www.ktriptips.com/eng/festival/4104871",
+   "status": "ok",
+   "cats": [
+    "지역축제",
+    "불꽃·드론",
+    "마켓"
+   ],
+   "wx": "seoul",
+   "tag": "금천하모니축제",
+   "home": null,
+   "note": ""
+  },
+  {
+   "id": "geumjeong",
+   "grp": "busan",
+   "region": "부산 금정구",
+   "name": "금정산성축제",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "hours": "10:00~19:00",
+   "venue": "금정산성광장 및 금정산성 일원",
+   "fee": "무료(일부 체험 유료)",
+   "feeType": "mixed",
+   "programs": "걷기대회, 생태투어, 축성 체험, 주민 뮤지컬·가요제, 막걸리축제, 플리마켓",
+   "home": "https://www.gjfac.org/",
+   "src": "https://www.ktriptips.com/kor/festival/1275743",
+   "status": "ok",
+   "cats": [
+    "지역축제",
+    "음식",
+    "마켓"
+   ],
+   "wx": "busan",
+   "tag": "금정산성축제",
+   "note": ""
+  },
+  {
+   "id": "gijang",
+   "grp": "busan",
+   "region": "부산 기장군",
+   "name": "기장붕장어축제",
+   "start": null,
+   "end": null,
+   "venue": "미확인",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "2025년: 붕장어 맨손잡기, 불꽃쇼, 가요제",
+   "home": "https://www.gijang.go.kr/tour/index.gijang?menuCd=DOM_000000307001003000",
+   "src": "https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=694fca6f-ba38-45c7-91fe-1da959a22594",
+   "status": "unconfirmed",
+   "cats": [
+    "커피·맥주·음식"
+   ],
+   "wx": "busan",
+   "tag": "기장붕장어축제",
+   "note": "2026년 발표 없음. 2025년은 10/24~26 개최라 이번 주말일 가능성 낮음",
+   "hours": "미확인"
+  },
+  {
+   "id": "gimhae",
+   "grp": "near",
+   "region": "경남 김해",
+   "name": "2026 김해국가유산야행",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "venue": "수로왕릉·수릉원·대성동고분군 일원",
+   "fee": "미확인 (예년 무료)",
+   "feeType": "unknown",
+   "programs": "미디어파사드 〈가야에 흐르는 밤빛〉, 강강술래, 퍼레이드 〈가야의 연〉, 다문화 푸드존",
+   "home": "https://festa.gyeongnam.go.kr/ghgukga",
+   "src": "https://www.kukinews.com/article/view/kuk202609230013",
+   "status": "ok",
+   "cats": [
+    "야간",
+    "역사"
+   ],
+   "wx": "gimhae",
+   "tag": "김해국가유산야행",
+   "note": "부산김해경전철 수로왕릉역",
+   "hours": "미확인"
+  },
+  {
+   "id": "gmf",
+   "grp": "nation",
+   "region": "서울 송파",
+   "name": "그랜드 민트 페스티벌 2026",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "venue": "올림픽공원 (88잔디마당·KSPO DOME·88호수 수변무대)",
+   "fee": "1일권 132,000원",
+   "feeType": "paid",
+   "programs": "17일 이소라·이승윤·장기하·페퍼톤스·적재 / 18일 윤하·씨엔블루·로이킴·볼빨간사춘기·쏜애플 등 48팀",
+   "src": "https://isplus.com/article/view/isp202609300177",
+   "status": "ok",
+   "cats": [
+    "음악"
+   ],
+   "wx": "seoul",
+   "tag": "그랜드민트페스티벌",
+   "note": "원 목록에 없던 행사 추가",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "gujeolcho",
+   "grp": "nation",
+   "region": "전북 정읍",
+   "name": "제19회 정읍 구절초 꽃축제",
+   "start": "2026-10-08",
+   "end": "2026-10-18",
+   "hours": "셔틀 09:00~18:30",
+   "venue": "산내면 구절초지방정원",
+   "fee": "7,000원 (4,000원 상품권 환급)",
+   "feeType": "paid",
+   "programs": "정원음악회, 줄타기, 꽃기차, 해설 탐방",
+   "src": "https://news.mtn.co.kr/news-detail/2026100111531451854",
+   "status": "ok",
+   "cats": [
+    "꽃·억새·단풍"
+   ],
+   "wx": "jeongeup",
+   "tag": "구절초꽃축제",
+   "note": "18일이 마지막 날",
+   "home": null
+  },
+  {
+   "id": "gumi",
+   "grp": "near",
+   "region": "경북 구미",
+   "name": "2026 구미푸드페스티벌",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "venue": "송정맛길 일원",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "9개 테마 푸드존, 전국 코스튬 콘테스트(17일 14:00), QR 주문",
+   "src": "https://kbmaeil.com/article/20260930500118",
+   "status": "ok",
+   "cats": [
+    "커피·맥주·음식"
+   ],
+   "wx": "daegu",
+   "tag": "구미푸드페스티벌",
+   "note": "날씨는 대구 기준",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "gupo",
+   "grp": "busan",
+   "region": "부산 북구",
+   "name": "제13회 낙동강 구포나루축제",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "venue": "화명생태공원 야구장B·연꽃단지 일원",
+   "fee": "무료(일부 체험 유료)",
+   "feeType": "mixed",
+   "programs": "구포국수 체험, 수상레포츠, 불꽃쇼, 구포 EDM 파티, 가요제, 빛의 정원, 별바다부산 나이트마켓",
+   "src": "https://www.reportera.co.kr/travel/nakdong-river-gupo-port-autumn-healing-festival/",
+   "status": "ok",
+   "cats": [
+    "지역축제",
+    "불꽃·드론",
+    "음악",
+    "야시장"
+   ],
+   "wx": "busan",
+   "tag": "구포나루축제",
+   "note": "운영시간 미공개",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "gyeongsan",
+   "grp": "near",
+   "region": "경북 경산",
+   "name": "제15회 경산대추축제 & 농산물한마당",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "hours": "11:00~20:30",
+   "venue": "경산생활체육공원 온마루광장",
+   "fee": "무료",
+   "feeType": "free",
+   "programs": "개막 트로트콘서트, 디너쇼, 중방농악, 남상일 공연",
+   "home": "https://gsctf.or.kr/",
+   "src": "https://www.ktriptips.com/kor/festival/2759249",
+   "status": "ok",
+   "cats": [
+    "지역축제",
+    "음악"
+   ],
+   "wx": "daegu",
+   "tag": "경산대추축제",
+   "note": "날씨는 대구 기준"
+  },
+  {
+   "id": "hangang",
+   "grp": "nation",
+   "region": "서울",
+   "name": "서울한강페스티벌",
+   "start": "2026-10-17",
+   "end": "2026-10-25",
+   "venue": "미확인",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "미확인",
+   "src": "https://www.month2k.com/event/festival/2026-10",
+   "status": "unconfirmed",
+   "cats": [
+    "음악"
+   ],
+   "wx": "seoul",
+   "tag": "서울한강페스티벌",
+   "note": "집계 달력에만 날짜가 있고 공식 발표는 확인 못함",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "hwangmae",
+   "grp": "near",
+   "region": "경남 합천",
+   "name": "제5회 황매산 억새축제",
+   "start": "2026-10-17",
+   "end": "2026-10-25",
+   "venue": "황매산군립공원 일원",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "개막 공연, 주말 공연, 숲해설 도슨트 투어, 농특산물 장터",
+   "src": "https://www.webeconomy.co.kr/news/articleView.html?idxno=2304684",
+   "status": "ok",
+   "cats": [
+    "꽃·억새·단풍"
+   ],
+   "wx": "jinju",
+   "tag": "황매산억새축제",
+   "note": "원 목록에 없던 행사 추가 · 날씨는 진주 기준",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "hwasun",
+   "grp": "nation",
+   "region": "전남 화순",
+   "name": "세계문화유산 화순 고인돌 가을꽃 축제",
+   "start": "2026-10-16",
+   "end": "2026-10-25",
+   "hours": "09:00~18:00",
+   "venue": "도곡면 효산리·춘양면 대신리",
+   "fee": "16일 무료 / 17일부터 5,000원(상품권 환급)",
+   "feeType": "mixed",
+   "programs": "청동기 체험, 국화정원, 공연(17·18·25일)",
+   "src": "https://news.mtn.co.kr/news-detail/2026100714431553836",
+   "status": "ok",
+   "cats": [
+    "꽃·억새·단풍"
+   ],
+   "wx": "mokpo",
+   "tag": "화순고인돌가을꽃축제",
+   "note": "날씨는 목포 기준(같은 광주·전남 권역)",
+   "home": null
+  },
+  {
+   "id": "icheon",
+   "grp": "nation",
+   "region": "경기 이천",
+   "name": "제25회 이천쌀문화축제",
+   "start": "2026-10-14",
+   "end": "2026-10-18",
+   "venue": "복하천 수변공원 (올해 장소 이전)",
+   "fee": "미확인 (가마솥밥 2,000원)",
+   "feeType": "unknown",
+   "programs": "임금님 진상행렬, 600m 무지개 가래떡, 드론쇼, 조선주막클럽 DJ파티, 달집태우기",
+   "src": "https://go.seoul.co.kr/news/newsView.php?id=20261012500197",
+   "status": "ok",
+   "cats": [
+    "지역축제",
+    "커피·맥주·음식"
+   ],
+   "wx": "seoul",
+   "tag": "이천쌀문화축제",
+   "note": "날씨는 서울 기준",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "jagalchi",
+   "grp": "busan",
+   "region": "부산 중구",
+   "name": "제33회 부산자갈치축제",
+   "start": "2026-10-15",
+   "end": "2026-10-18",
+   "venue": "자갈치시장·유라리광장 일원 (1호선 자갈치역)",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "용신제, 거리 퍼레이드, 장어 릴레이, 황금물고기 찾기, 수산물 시식, 회비빔밥 기록 도전",
+   "src": "https://www.fnnews.com/news/202610110814579297",
+   "status": "ok",
+   "cats": [
+    "지역축제",
+    "커피·맥주·음식"
+   ],
+   "wx": "busan",
+   "tag": "자갈치축제",
+   "note": "원 목록에 없던 행사 추가 · 해상불꽃은 15일 개막식에만 보도됨",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "jeonggwan",
+   "grp": "busan",
+   "region": "부산 기장군",
+   "name": "정관생태하천학습문화축제",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "hours": "10:00~20:00",
+   "venue": "정관 중앙공원(정관읍 구연3로 27)",
+   "fee": "무료",
+   "feeType": "free",
+   "programs": "길놀이 퍼레이드, 가을밤 콘서트, 어린이 동요제, 좌광천 생태체험, 프리마켓, 걷기대회",
+   "home": "https://blog.naver.com/jg_sangtae",
+   "src": "https://www.ktriptips.com/kor/festival/3007256",
+   "status": "ok",
+   "cats": [
+    "지역축제",
+    "가족",
+    "마켓"
+   ],
+   "wx": "busan",
+   "tag": "정관생태하천학습문화축제",
+   "note": ""
+  },
+  {
+   "id": "jeonpo",
+   "grp": "busan",
+   "region": "부산 부산진구",
+   "name": "제10회 전포커피축제",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "hours": "토 12:00~20:00 / 일 12:00~18:00",
+   "venue": "전포카페거리(전포 놀이마루 일원)",
+   "fee": "무료(시음·구매 별도)",
+   "feeType": "free",
+   "programs": "커피·디저트 시음·판매, 해외 게스트 바리스타, 커피 세미나, 핸드드립 클래스, 스탬프투어",
+   "home": "https://www.busanjin.go.kr/",
+   "src": "https://www.ktriptips.com/kor/festival/3018117",
+   "status": "ok",
+   "cats": [
+    "커피·맥주·음식"
+   ],
+   "wx": "busan",
+   "tag": "전포커피축제",
+   "note": "16일(금)은 열리지 않음"
+  },
+  {
+   "id": "missionrun",
+   "grp": "busan",
+   "region": "부산 동래구",
+   "name": "달려라부산! 행운 미션런 × 카멜레온 찾기",
+   "start": "2026-10-18",
+   "end": "2026-10-18",
+   "hours": "10:00~16:00",
+   "venue": "온천천 인공폭포(명륜동)",
+   "fee": "무료",
+   "feeType": "free",
+   "programs": "미션 러닝 이벤트",
+   "src": "https://event-us.kr/runbusanslowcrew/event/136265",
+   "status": "ok",
+   "cats": [
+    "기타"
+   ],
+   "wx": "busan",
+   "tag": "달려라부산",
+   "note": "원 목록에 없던 행사 추가",
+   "home": null
+  },
+  {
+   "id": "mokpo",
+   "grp": "nation",
+   "region": "전남 목포",
+   "name": "2026 목포항구축제",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "hours": "16일 18:00 개막",
+   "venue": "목포항·삼학도 일원",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "파시 경매쇼, 어부밥상, 레트로 선창거리, 스탬프투어",
+   "home": "https://mokpoharborfestival.com/",
+   "src": "https://news.mtn.co.kr/news-detail/2026100716292179691",
+   "status": "ok",
+   "cats": [
+    "지역축제",
+    "커피·맥주·음식"
+   ],
+   "wx": "mokpo",
+   "tag": "목포항구축제",
+   "note": ""
+  },
+  {
+   "id": "oktober",
+   "grp": "busan",
+   "region": "부산 동래구",
+   "name": "제20회 허심청브로이 옥토버페스트",
+   "start": "2026-10-15",
+   "end": "2026-10-17",
+   "hours": "17:00~22:00 (공연 19:00~21:00)",
+   "venue": "호텔농심 야외마당·비어가든",
+   "fee": "34,000원 (얼리버드 31,000원, 맥주 무제한)",
+   "feeType": "paid",
+   "programs": "맥주 무제한, 라이브·댄스 공연, 푸드부스, 맥주 빨리마시기 대회",
+   "home": "https://litt.ly/hscoktober",
+   "src": "https://www.ktriptips.com/kor/festival/2855626",
+   "status": "ok",
+   "cats": [
+    "커피·맥주·음식",
+    "음악",
+    "야간"
+   ],
+   "wx": "busan",
+   "tag": "허심청옥토버페스트",
+   "note": "15일(목) 시작, 18일(일)은 열리지 않음"
+  },
+  {
+   "id": "sasang",
+   "grp": "busan",
+   "region": "부산 사상구",
+   "name": "제23회 사상강변축제",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "venue": "삼락생태공원 일원",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "강변가요제, 강변 주니어 트롯 등 (세부 프로그램 미공개)",
+   "src": "https://www.gukjenews.com/news/articleView.html?idxno=3689729",
+   "status": "ok",
+   "cats": [
+    "지역축제",
+    "음악"
+   ],
+   "wx": "busan",
+   "tag": "사상강변축제",
+   "note": "16일(금)은 열리지 않음 · 운영시간·요금 미공개",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "science",
+   "grp": "nation",
+   "region": "전국",
+   "name": "대한민국과학축제",
+   "start": null,
+   "end": null,
+   "venue": "미확인",
+   "fee": "무료",
+   "feeType": "free",
+   "programs": "2026년 본 행사는 4/11~12 부산 벡스코에서 개최",
+   "src": "https://www.heraldk.com/article/2026040818052746194",
+   "status": "unconfirmed",
+   "cats": [
+    "기타"
+   ],
+   "wx": null,
+   "tag": "대한민국과학축제",
+   "note": "10/16~18 개최는 집계 달력에만 있고 공식 자료로 확인 못함",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "seochang",
+   "grp": "nation",
+   "region": "광주 서구",
+   "name": "광주 서창억새축제",
+   "start": "2026-10-15",
+   "end": "2026-10-18",
+   "venue": "미확인",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "미확인",
+   "src": "https://www.month2k.com/event/festival/2026-10",
+   "status": "unconfirmed",
+   "cats": [
+    "꽃·억새·단풍"
+   ],
+   "wx": "mokpo",
+   "tag": "광주서창억새축제",
+   "note": "집계 달력에만 날짜가 있고 공식 발표는 확인 못함",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "seogu",
+   "grp": "busan",
+   "region": "부산 서구",
+   "name": "제5회 부산 서구 의료관광축제",
+   "start": "2026-10-16",
+   "end": "2026-10-17",
+   "hours": "10:00~18:00",
+   "venue": "송도오션파크",
+   "fee": "무료",
+   "feeType": "free",
+   "programs": "헬스케어 홍보관, 닥터 토크콘서트, 건강측정·한방상담, 웰니스 클래스, 푸드트럭",
+   "home": "https://www.bsseogu.go.kr",
+   "src": "https://www.ktriptips.com/kor/festival/3532971",
+   "status": "ok",
+   "cats": [
+    "지역축제",
+    "가족"
+   ],
+   "wx": "busan",
+   "tag": "서구의료관광축제",
+   "note": "18일(일)은 열리지 않음 · 장소는 송도해수욕장이 아니라 송도오션파크"
+  },
+  {
+   "id": "socialart",
+   "grp": "busan",
+   "region": "부산",
+   "name": "사회참여예술 컨벤션",
+   "start": null,
+   "end": null,
+   "venue": "미확인",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "2025년에는 10/25~26 도모헌·온그루 개최",
+   "src": "https://www.newsis.com/view/NISX20251024_0003375202",
+   "status": "unconfirmed",
+   "cats": [
+    "전시·영화"
+   ],
+   "wx": "busan",
+   "tag": "사회참여예술컨벤션",
+   "note": "2026년 공식 발표를 찾지 못함",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "unica",
+   "grp": "near",
+   "region": "경북 경산",
+   "name": "유니카코리아 국제영화제",
+   "start": "2026-10-17",
+   "end": "2026-10-18",
+   "venue": "미확인",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "미확인",
+   "src": "https://www.month2k.com/event/festival/2026-10",
+   "status": "unconfirmed",
+   "cats": [
+    "전시·영화"
+   ],
+   "wx": "daegu",
+   "tag": "유니카코리아국제영화제",
+   "note": "집계 달력에만 날짜가 있고 공식 발표는 확인 못함",
+   "home": null,
+   "hours": "미확인"
+  },
+  {
+   "id": "whale",
+   "grp": "near",
+   "region": "울산 남구",
+   "name": "제30회 울산고래축제",
+   "start": "2026-10-15",
+   "end": "2026-10-18",
+   "venue": "장생포 고래문화특구 (태화강역↔장생포 셔틀 30분 간격)",
+   "fee": "무료",
+   "feeType": "free",
+   "programs": "30주년 고래 퍼레이드(마지막 날), 불꽃쇼, WAVE CONCERT, AI 체험존, 플리마켓",
+   "src": "https://mobile.newsis.com/view/NISX20260730_0003730182",
+   "status": "ok",
+   "cats": [
+    "지역축제",
+    "불꽃·드론",
+    "음악",
+    "마켓"
+   ],
+   "wx": "ulsan",
+   "tag": "울산고래축제",
+   "home": null,
+   "note": "",
+   "hours": "미확인"
+  },
+  {
+   "id": "wowbook",
+   "grp": "nation",
+   "region": "서울 마포",
+   "name": "제22회 서울와우북페스티벌",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "hours": "10:00~21:30",
+   "venue": "홍대 레드로드·플랫폼P·산울림소극장 등",
+   "fee": "거리도서전 무료 / 강연 8,000~13,000원 / 영희페스티벌 50,000원",
+   "feeType": "mixed",
+   "programs": "작가 강연, 영희페스티벌 인디공연, 거리도서전",
+   "home": "https://wowlab.or.kr/wowbook-festival/2026-wowfestival/",
+   "src": "https://www.ktriptips.com/kor/festival/229057",
+   "status": "ok",
+   "cats": [
+    "전시·영화",
+    "음악"
+   ],
+   "wx": "seoul",
+   "tag": "와우북페스티벌",
+   "note": ""
+  },
+  {
+   "id": "yangyang",
+   "grp": "nation",
+   "region": "강원 양양",
+   "name": "2026 양양 송이·연어축제",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "venue": "남대천 일원",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "세부 프로그램 미공개 (전년: 연어 맨손잡기, 송이 보물찾기)",
+   "src": "https://www.news1.kr/local/kangwon/6215707",
+   "status": "ok",
+   "cats": [
+    "지역축제",
+    "커피·맥주·음식"
+   ],
+   "wx": null,
+   "tag": "양양송이연어축제",
+   "home": null,
+   "note": "",
+   "hours": "미확인"
+  },
+  {
+   "id": "yeoncheon",
+   "grp": "nation",
+   "region": "경기 연천",
+   "name": "제8회 연천 국화축제",
+   "start": "2026-10-16",
+   "end": "2026-10-25",
+   "hours": "09:00~18:00",
+   "venue": "전곡리 유적 일원",
+   "fee": "5,000원 (지역상품권 환급)",
+   "feeType": "paid",
+   "programs": "국화 전시",
+   "src": "https://info.koreacharts.com/tour/2870929/contents.html",
+   "status": "ok",
+   "cats": [
+    "꽃·억새·단풍"
+   ],
+   "wx": "seoul",
+   "tag": "연천국화축제",
+   "note": "날씨는 서울 기준",
+   "home": null
+  },
+  {
+   "id": "yeongdong",
+   "grp": "nation",
+   "region": "충북 영동",
+   "name": "제57회 영동난계국악축제",
+   "start": "2026-10-15",
+   "end": "2026-10-18",
+   "hours": "10:00~20:00",
+   "venue": "레인보우힐링광장 일원",
+   "fee": "무료(체험 5,000~15,000원)",
+   "feeType": "mixed",
+   "programs": "국악공연, 세계민속춤, 추풍령가요제, 18일 FUN&RUN",
+   "home": "https://xn--989aomz2fs84a4hdfuk.com/",
+   "src": "https://www.inews24.com/view/2011283",
+   "status": "ok",
+   "cats": [
+    "음악",
+    "지역축제"
+   ],
+   "wx": "daejeon",
+   "tag": "영동난계국악축제",
+   "note": "날씨는 대전 기준"
+  },
+  {
+   "id": "yudeung",
+   "grp": "near",
+   "region": "경남 진주",
+   "name": "2026 진주남강유등축제",
+   "start": "2026-10-03",
+   "end": "2026-10-18",
+   "hours": "유등 점등 18:00~24:00 (블로그 기준)",
+   "venue": "남강·진주성·진주대첩역사공원 일원",
+   "fee": "진주성·유등전시관 무료 / 부교 편도 2,000원(블로그 기준)",
+   "feeType": "mixed",
+   "programs": "남강 유등, 17일(토) 20:00 불꽃놀이+드론라이트쇼, AI 반응형 유등, 유람선, KDF 콘서트 매일 20:30",
+   "home": "https://www.yudeung.com/",
+   "src": "https://www.newspim.com/news/view/20261004000012",
+   "status": "ok",
+   "cats": [
+    "불꽃·드론",
+    "야간",
+    "지역축제"
+   ],
+   "wx": "jinju",
+   "tag": "진주남강유등축제",
+   "note": "18일이 마지막 날 · 17일 밤 불꽃+드론쇼가 마지막 대형 쇼"
+  },
+  {
+   "id": "yuseong",
+   "grp": "nation",
+   "region": "대전 유성",
+   "name": "대전유성국화축제",
+   "start": "2026-10-17",
+   "end": "2026-11-01",
+   "venue": "미확인",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "미확인",
+   "src": "https://www.month2k.com/event/festival/2026-10",
+   "status": "unconfirmed",
+   "cats": [
+    "꽃·억새·단풍"
+   ],
+   "wx": "daejeon",
+   "tag": "대전유성국화축제",
+   "note": "집계 달력에만 날짜가 있고 공식 발표는 확인 못함",
+   "home": null,
+   "hours": "미확인"
+  }
+ ]
+}
