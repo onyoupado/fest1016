@@ -221,6 +221,27 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 .tips li.warn{color:var(--warn)}
 .finale{font-size:13px;background:var(--lantern-soft);border-radius:8px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
 .finale b{color:var(--lantern)}
+.todaybox{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.td-col{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.td-row{display:grid;grid-template-columns:64px 1fr;gap:8px;font-size:13.5px;align-items:baseline}
+.td-row>b:first-child{color:var(--lantern);font-size:13px}
+.td-row a{text-decoration:none}
+.store-note{margin:0;font-size:12.5px;color:var(--muted)}
+.mybtns{display:flex;flex-wrap:wrap;gap:6px}
+.mini{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:3px 10px;font:inherit;font-size:12.5px;cursor:pointer;text-decoration:none}
+.mini.on{background:var(--lantern-soft);border-color:var(--lantern);color:var(--lantern)}
+.mine{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.mine-col{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.mine-col ul{margin:0;padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.mine-col li .mono{color:var(--lantern);margin-right:6px}
+.mine-col small{color:var(--muted)}
+.stamps{display:flex;flex-wrap:wrap;gap:8px}
+.stamp{width:86px;height:86px;border-radius:50%;border:2px dashed var(--lantern);color:var(--lantern);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:11px;line-height:1.25;padding:6px;transform:rotate(-6deg);overflow:hidden}
+.stamp i{font-style:normal;font-weight:800;font-size:12.5px}
+.rainbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;background:var(--sea-soft);border-radius:10px;padding:8px 12px;font-size:14px}
+.story{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px}
+.story-box{background:var(--surface);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px;max-height:100%;max-width:min(420px,100%)}
+.story-box img{width:100%;max-height:62vh;object-fit:contain;border-radius:10px;background:#13222C}
 </style>
 </head>
 <body>
@@ -274,6 +295,8 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4h11l-2 4 2 4H5"/></symbol>
   </svg>
 
+  <section class="todaybox" id="today" aria-label="오늘의 절기·제철·부산 소식"></section>
+
   <div class="cal-wrap" id="cal">
     <div class="cal" aria-label="날짜 선택 달력">
       <div class="cal-head">
@@ -309,6 +332,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
       <div class="step"><div class="step-h"><span class="step-n">3</span>좋아하는 것 (여러 개)</div><div class="row" id="pf-taste"></div></div>
       <div class="step"><div class="step-h"><span class="step-n">4</span>하루 일정 속도</div><div class="row" id="pf-pace"></div></div>
       <div class="step"><div class="step-h"><span class="step-n">5</span>이동 수단</div><div class="row" id="pf-mode"></div></div>
+      <p class="store-note" data-note style="grid-column:1/-1"></p>
       <div class="pref-foot"><p id="pf-sum"></p><button class="ghost-btn" id="pf-reset">취향 초기화</button></div>
     </div>
   </details>
@@ -318,9 +342,10 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
   <section aria-labelledby="wx-h">
     <div class="sec-head"><h2 id="wx-h">지역별 날씨 <span id="wx-day" style="font-family:var(--f-mono);font-size:15px"></span></h2><span id="wx-src" class="src"></span></div>
     <div id="wx" class="wx"><div class="empty" style="flex:1">기상청 예보를 불러오는 중입니다.</div></div>
+    <div id="rainbar" class="rainbar" hidden><span>☔ 이날 부산에 비 예보가 있어요.</span><button class="go-btn" id="rain-go" style="padding:6px 12px">실내 코스로 보기</button></div>
   </section>
 
-  <div class="listbar"><span class="count" id="count"></span>
+  <div class="listbar"><div class="row" style="justify-content:space-between;align-items:center"><span class="count" id="count"></span><button class="ghost-btn" data-story="list" style="padding:4px 10px;font-size:13px">이 목록 스토리 이미지</button></div>
   <details class="fold" id="fold-filter">
     <summary><span class="fold-t">필터·정렬</span><span class="fold-s" id="f-sum">전체</span></summary>
   <div class="filters">
@@ -333,6 +358,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
     <div class="row" id="f-cat" role="group" aria-label="유형"></div>
     <div class="row" role="group" aria-label="요금">
       <button class="chip" id="f-free" aria-pressed="false">무료(입장)만</button>
+      <button class="chip" id="f-indoor" aria-pressed="false">실내 위주</button>
       <span style="width:8px"></span>
       <button class="chip sortc" data-s="match" aria-pressed="true">취향 맞춤순</button>
       <button class="chip sortc" data-s="end" aria-pressed="false">마감 임박순</button>
@@ -345,7 +371,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
     <div class="empty">축제 목록을 불러오는 중입니다.</div>
   </div>
 
-  <div class="br-row"><aside class="breather" id="br2" data-kind="poem" aria-label="오늘의 한 구절"></aside><aside class="breather" id="br3" data-kind="art" aria-label="오늘의 감상"></aside></div>
+  <div class="br-row"><aside class="breather" id="br2" data-kind="poem" aria-label="오늘의 부산말"></aside><aside class="breather" id="br3" data-kind="art" aria-label="부산이 담긴 작품"></aside></div>
 
   <section aria-labelledby="pl-h" id="planner">
     <div class="sec-head"><h2 id="pl-h">내 일정 짜기</h2><span class="src">축제 카드의 ＋담기로 고른 뒤 동선을 만들어 보세요</span></div>
@@ -367,12 +393,20 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
       <div class="pl-actions">
         <button class="go-btn" id="pl-go" disabled>동선 만들기</button>
         <button class="ghost-btn" id="pl-ai" hidden>Claude에게 일정 다듬기</button>
+        <button class="ghost-btn" data-story="plan">스토리 이미지로 저장</button>
         <button class="ghost-btn" id="pl-clear">모두 비우기</button>
       </div>
       <div id="pl-out" class="plan-out"></div>
       <div id="pl-ai-out" class="ai-out" hidden></div>
       <p class="plan-sum" style="margin:0">이동시간은 행사장 대략 위치와 직선거리로 계산한 추정치입니다. 출발 전 카카오맵 길찾기로 확인하세요. 운영시간이 공개되지 않은 행사는 '시간 추정'으로 표시합니다.</p>
     </div>
+  </section>
+
+  <section aria-labelledby="mine-h" id="mine">
+    <div class="sec-head"><h2 id="mine-h">내 찜 · 누린 순간</h2><span class="src">이 브라우저에만 저장돼요</span></div>
+    <div class="mine" id="mine-body"></div>
+    <div class="pl-actions"><button class="ghost-btn" data-story="fav">찜 목록 스토리 이미지</button><button class="ghost-btn" data-story="stamp">누린 순간 스토리 이미지</button></div>
+    <p class="store-note" data-note></p>
   </section>
 
   <div class="br-row"><aside class="breather" id="br4" data-kind="joke" aria-label="축제 생존 팁"></aside><aside class="breather" id="br5" data-kind="lotto" aria-label="오늘의 행운 번호"></aside></div>
@@ -407,12 +441,13 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
     인스타그램 공식 계정은 확인된 곳만 연결하고, 없으면 축제 이름 해시태그 검색으로 연결했습니다. 운영시간·요금은 현장 사정으로 바뀔 수 있으니 방문 전 공식 홈페이지를 확인하세요. 기상청 예보는 약 10일 앞까지만 나옵니다.
   </footer>
 </div>
+<div id="story" class="story" hidden role="dialog" aria-label="스토리 이미지 미리보기"><div class="story-box"><img id="story-img" alt="인스타그램 스토리용 이미지 미리보기"><div class="pl-actions"><button class="go-btn" id="story-save">이미지 저장</button><button class="ghost-btn" id="story-share" hidden>인스타 등으로 공유</button><button class="ghost-btn" id="story-close">닫기</button></div><p class="plan-sum" style="margin:0">1080×1920 인스타그램 스토리 규격이에요. 휴대폰에서는 이미지를 길게 눌러 저장할 수도 있어요.</p></div></div>
 <div id="toast" class="toast" role="status" hidden></div>
 <div class="planbar" id="planbar" hidden><a href="#planner">일정 짜기</a></div>
 
 <script>
 (function(){
-const S={events:[],wx:{},status:null,picks:null,from:null,to:null,focus:"all",grp:"all",cat:"all",free:false,month:null,sort:"match",movies:null,q:""};
+const S={events:[],wx:{},status:null,picks:null,from:null,to:null,focus:"all",grp:"all",cat:"all",free:false,month:null,sort:"match",movies:null,q:"",indoor:false,news:null,days:null};
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safeUrl=u=>/^https?:\/\//.test(u||"")?u:null;
@@ -468,6 +503,7 @@ function card(e,d){
     ${e.result?`<div class="result"><b>결과</b> ${esc(e.result)}</div>`:isGame&&e.end<TODAY?`<div class="wxmini">경기 결과는 다음 날 아침에 반영됩니다</div>`:""}
     ${e.note?`<div class="note">${esc(e.note)}</div>`:""}
     ${e.status==="ok"&&e.end>=TODAY?tipsBox(e,d)+nearby(e):""}
+    ${e.status==="ok"?`<div class="mybtns">${myBtns(e,d)}</div>`:""}
     ${canAdd?`<button class="add-btn" data-add="${esc(e.id)}" aria-pressed="${P.ids.includes(e.id)}">${P.ids.includes(e.id)?"✓ 일정에 담음":"＋ 일정에 담기"}</button>`:""}
     <div class="links">
       ${ticket&&e.end>=TODAY?`<a class="tix" href="${esc(ticket)}" target="_blank" rel="noopener">예매하기 ↗</a>`:""}
@@ -514,8 +550,10 @@ function renderWx(){
     const rain=/비|눈/.test(x.am+x.pm)||Math.max(x.popAm,x.popPm)>=50;
     return `<div class="wxc ${rain?"rain":""}"><span class="city">${esc(w.name)}</span><span class="sky">${esc(x.am)}${x.am!==x.pm?" → "+esc(x.pm):""}</span><span class="t">${x.min}° / ${x.max}°</span><span class="pop">강수 오전 ${x.popAm}% · 오후 ${x.popPm}%</span></div>`}).join("");
   $("wx").innerHTML=cards||`<div class="empty" style="flex:1">${d&&d<TODAY?"지난 날짜입니다.":"이 날짜는 아직 기상청 예보가 없습니다. 예보는 약 10일 앞까지 나와요."}</div>`;
+  const bw=S.wx.busan&&S.wx.busan.days&&S.wx.busan.days[d]; $("rainbar").hidden=!(bw&&(/비|눈/.test(bw.am+bw.pm)||Math.max(bw.popAm,bw.popPm)>=50));
   const st=S.status; $("wx-src").innerHTML=st&&st.weatherIssued?`${esc(st.weatherIssued)} · <a href="${esc(safeUrl(st.weatherSource)||"https://www.weather.go.kr")}" target="_blank" rel="noopener">기상청</a>`:"";
 }
+function isIndoor(e){const c=e.cats||[], v=e.venue||""; if(/일원|일대|해변|해수욕장|광장|거리|운동장|야외/.test(v)) return false; if(/체육관|홀|센터|미술관|박물관|벡스코|극장|씨어터|BIFC|실내|상상마당|영화의전당|콘서트홀|문화회관/.test(v)) return true; return (c.includes("공연")||c.includes("전시·영화"))&&!/일원|일대|공원|해변|해수욕장|광장|거리|운동장|야외|대운동장/.test(v);}
 function renderCats(){
   const cats=[...new Set(S.events.flatMap(e=>e.cats||[]))];
   const order=["지역축제","공연","스포츠","음악","커피·맥주·음식","마켓","야시장","불꽃·드론","야간","전시·영화","꽃·억새·단풍","역사","가족","기타"];
@@ -531,8 +569,9 @@ function renderLists(){
   if(S.grp!=="all") ev=ev.filter(e=>e.grp===S.grp);
   if(S.cat!=="all") ev=ev.filter(e=>(e.cats||[]).includes(S.cat));
   if(S.free) ev=ev.filter(e=>e.feeType==="free"||e.feeType==="mixed");
+  if(S.indoor) ev=ev.filter(isIndoor);
   $("count").textContent=toks.length?`'${S.q.trim()}' 검색 결과 · 오늘 이후 전체 기간 ${ev.length}개`:`${one?lab(one):"선택한 기간 전체"} · ${ev.length}개`;
-  const fs=[S.grp!=="all"&&{busan:"부산",near:"근교",nation:"전국"}[S.grp],S.cat!=="all"&&S.cat,S.free&&"무료만",S.sort==="end"&&"마감 임박순"].filter(Boolean); $("f-sum").textContent=fs.length?fs.join(" · "):"전체 · 취향 맞춤순";
+  const fs=[S.grp!=="all"&&{busan:"부산",near:"근교",nation:"전국"}[S.grp],S.cat!=="all"&&S.cat,S.free&&"무료만",S.indoor&&"실내 위주",S.sort==="end"&&"마감 임박순"].filter(Boolean); $("f-sum").textContent=fs.length?fs.join(" · "):"전체 · 취향 맞춤순";
   const last=ds[ds.length-1];
   const groups=[["busan","부산"],["near","부산 근교 · 울산 · 경남 · 경북"],["nation","전국"]];
   const html=groups.map(([g,label])=>{const sc=new Map(ev.map(e=>[e.id,hasPF()?match(e,one).v:50]));
@@ -636,25 +675,27 @@ const EGG={
   ["광안리 밤바다","드론쇼가 없는 날에도 광안대교 불빛만으로 충분해요."],
   ["범어사 가는 길","금정산 자락의 숲길이에요. 축제 사이 마음을 비우는 시간."]],
  art:[
-  ["드뷔시 「달빛」","광안리 밤바다를 보며 들으면 딱이에요.","음악"],
-  ["비발디 「사계」 중 '가을'","축제 가는 길 배경음악으로 추천해요.","음악"],
-  ["쇼팽 「녹턴」 Op.9 No.2","늦은 밤 귀갓길 버스 창가에서.","음악"],
-  ["피아졸라 「부에노스아이레스의 가을」","바닷바람 부는 저녁, 탱고 한 곡.","음악"],
-  ["조용필 「돌아와요 부산항에」","부산 노래의 고전. 노래방 18번 후보예요.","음악"],
-  ["모네 「인상, 해돋이」(1872)","항구의 아침 빛을 그린 그림이에요. 부산항 새벽과 겹쳐 보여요.","그림"],
-  ["고흐 「별이 빛나는 밤」(1889)","드론쇼 보러 가기 전에 한 번 떠올려 보세요.","그림"],
-  ["호쿠사이 「가나가와 해변의 높은 파도 아래」","송정 파도를 보고 나면 이 그림이 달리 보여요.","그림"],
-  ["르누아르 「뱃놀이 일행의 점심」(1881)","축제 끝나고 친구들과 먹는 늦은 점심이 꼭 이래요.","그림"]],
+  ["조용필 「돌아와요 부산항에」(1976)","부산 노래 하면 가장 먼저 떠오르는 곡이에요. 부산항 바다를 보며 들어 보세요.","노래"],
+  ["문성재 「부산 갈매기」(1982)","사직야구장에서 다 같이 부르는 바로 그 노래예요.","노래"],
+  ["현인 「굳세어라 금순아」(1953)","한국전쟁 피란 시절 영도다리가 등장하는 노래예요.","노래"],
+  ["남인수 「이별의 부산정거장」(1954)","피란살이를 마치고 부산역을 떠나던 사람들의 노래예요.","노래"],
+  ["영화 「친구」(2001, 곽경택)","부산 사투리 대사로 유명한 영화예요. 부산 곳곳이 배경이에요.","영화"],
+  ["영화 「국제시장」(2014, 윤제균)","영화에 나온 국제시장 '꽃분이네'가 명소가 됐어요.","영화"],
+  ["영화 「해운대」(2009, 윤제균)","해운대 바다를 배경으로 한 재난 영화. 다음 해운대 산책이 조금 달라 보일지도요.","영화"],
+  ["영화 「변호인」(2013, 양우석)","1980년대 부산을 배경으로 한 법정 드라마예요.","영화"],
+  ["화가 이중섭과 피란 시절의 부산","한국전쟁 때 부산에 머물며 그림을 그렸던 화가예요. 가난한 피란살이 속에서도 그림을 놓지 않았어요.","미술"],
+  ["김정한 「모래톱 이야기」(1966)","낙동강 하구 섬마을 사람들의 이야기예요. 을숙도나 다대포의 강바람과 함께 떠올려 보세요.","소설"],
+  ["최남선 「해에게서 소년에게」(1908)","'처……ㄹ썩, 처……ㄹ썩, 척, 쏴……아.' 바다를 노래한 우리 신체시의 첫머리예요. 파도 소리 들으며 읽어 보세요.","시"],
+  ["부산비엔날레","2년마다 열리는 부산의 현대미술 축제예요. 올해 전시는 11월 1일까지 열려요.","미술"]],
  poem:[
-  ["산에는 꽃 피네\n꽃이 피네\n갈 봄 여름 없이\n꽃이 피네","김소월, 「산유화」(1925)"],
-  ["나 보기가 역겨워\n가실 때에는\n말없이 고이 보내 드리우리다","김소월, 「진달래꽃」(1925)"],
-  ["님은 갔습니다. 아아 사랑하는 나의 님은 갔습니다.","한용운, 「님의 침묵」(1926)"],
-  ["그곳이 차마 꿈엔들 잊힐리야.","정지용, 「향수」(1927)"],
-  ["고개 들어 밝은 달 바라보고\n고개 숙여 고향을 생각하네","이백, 「정야사(靜夜思)」"],
-  ["오래된 연못\n개구리 뛰어드는\n물소리","마쓰오 바쇼 (1686)"],
-  ["온 세상은 무대이고, 모든 남녀는 배우일 뿐.","셰익스피어, 『뜻대로 하세요』"],
-  ["도대체 나는 누구지? 아, 그게 바로 큰 수수께끼야!","루이스 캐럴, 『이상한 나라의 앨리스』(1865)"],
-  ["아름다운 것은 영원한 기쁨이다.","존 키츠, 「엔디미온」(1818)"]],
+  ["단디 해라","제대로, 야무지게 하라는 말. 축제 갈 때 우산은 단디 챙기세요."],
+  ["억수로","'매우, 엄청'이라는 뜻. 오늘 날씨 억수로 좋네예."],
+  ["고마 해라","'그만해라'라는 뜻. 축제 다섯 군데 도는 친구에게 쓰세요."],
+  ["뭐라카노","'뭐라고 하니?' 불꽃 소리에 말이 안 들릴 때 딱이에요."],
+  ["가가 가가?","'그 아이가 그 아이니?' 부산말의 압축 기술을 보여 주는 명문장이에요."],
+  ["와 이리 덥노","'왜 이렇게 덥니?' 가을 축제에도 의외로 자주 쓰게 돼요."],
+  ["쫌!","'좀!' 한 글자에 부탁·짜증·애정이 다 들어 있어요."],
+  ["밥 뭇나?","'밥 먹었니?' 부산식 안부 인사예요. 대답은 국밥으로."]],
  joke:[
   "축제 세 곳 연속이면 다리가 먼저 퇴근해요. 중간에 앉을 곳부터 찾아 두세요.",
   "드론쇼는 하늘 보느라 목이 아파요. 출발 전에 목 스트레칭 한 번.",
@@ -676,8 +717,8 @@ let lottoTry=0;
 function renderBreathers(){
   document.querySelectorAll(".breather").forEach(el=>{const kind=el.dataset.kind, slot=el.id; let h="";
     if(kind==="busan"){const [t,d]=pickEgg("busan",slot); h=`<span class="br-k">부산에서 이것도</span><b>${esc(t)}</b><span>${esc(d)}</span>`;}
-    else if(kind==="art"){const [t,d,k]=pickEgg("art",slot); h=`<span class="br-k">오늘의 감상 · ${k}</span><b>${esc(t)}</b><span>${esc(d)}</span>`;}
-    else if(kind==="poem"){const [t,w]=pickEgg("poem",slot); h=`<span class="br-k">오늘의 한 구절</span><p class="br-poem">${esc(t).replace(/\n/g,"<br>")}</p><span>— ${esc(w)}</span>`;}
+    else if(kind==="art"){const [t,d,k]=pickEgg("art",slot); h=`<span class="br-k">부산이 담긴 작품 · ${k}</span><b>${esc(t)}</b><span>${esc(d)}</span>`;}
+    else if(kind==="poem"){const [t,w]=pickEgg("poem",slot); h=`<span class="br-k">오늘의 부산말</span><p class="br-poem">“${esc(t)}”</p><span>${esc(w)}</span>`;}
     else if(kind==="joke"){const t=pickEgg("joke",slot); h=`<span class="br-k">축제 생존 팁</span><span class="br-joke">${esc(t)}</span>`;}
     else if(kind==="lotto"){const n=lotto(lottoTry?String(lottoTry):""); h=`<span class="br-k">오늘의 행운 번호 🍀</span><div class="lrow">${n.map(ball).join("")}</div><span>재미로만 보세요. 당첨은 장담 못 해요. 숫자는 날마다 바뀌어요.</span>`;}
     el.innerHTML=`<div class="br-in">${h}</div><button class="br-next" aria-label="다른 것 보기">↻</button>`;});}
@@ -704,6 +745,85 @@ function costQuip(c){if(c.total===0) return "공짜로 하루를 꽉 채웠어�
   if(c.total>=150000) return "통장이 살짝 떨리지만, 추억은 할부가 안 돼요.";
   if(c.meals>=2) return "두 끼 다 챙기는 일정이라 든든해요.";
   return "";}
+
+// ---- today card: 절기·기념일·제철·부산 소식 ----
+const DAYS_NOTE=[["2026-10-23","상강","서리가 내리기 시작한다는 절기예요. 단풍이 짙어지는 때."],["2026-10-25","독도의 날",""],["2026-10-31","핼러윈","태종대 좀비레이스가 열리는 날이에요."],
+ ["2026-11-07","입동","겨울이 시작된다는 절기. 김장 준비가 시작돼요."],["2026-11-11","턴 투워드 부산 · 빼빼로데이","오전 11시, 유엔기념공원(남구)을 향해 1분간 묵념하는 유엔참전용사 국제추모의 날이에요."],
+ ["2026-11-22","소설","첫눈이 내린다는 절기."],["2026-12-07","대설","눈이 많이 내린다는 절기."],["2026-12-22","동지","밤이 가장 긴 날. 팥죽 한 그릇."],["2026-12-24","크리스마스이브",""],["2026-12-25","크리스마스",""],["2026-12-31","한 해의 마지막 날","다대포나 흰여울에서 올해 마지막 노을을 보는 것도 좋아요."],["2027-01-01","새해 첫날","해운대·광안리 해돋이 명소가 붐벼요. 일찍 출발하세요."]];
+const SEASON={1:"대게 · 물메기 · 기장 미역",2:"물메기 · 기장 미역 · 굴",3:"도다리쑥국 · 기장 미역",4:"기장 멸치 · 도다리",5:"기장 멸치 · 장어",6:"장어 · 밀면",7:"밀면 · 장어",8:"밀면 · 전복",9:"전어 · 대하",10:"전어 · 대하 · 가을 꽃게",11:"방어 · 굴 · 과메기",12:"대방어 · 굴 · 물메기"};
+function renderToday(){const el=$("today"); if(!el) return; const m=+TODAY.slice(5,7);
+  const up=((S.days&&S.days.items)||DAYS_NOTE).filter(x=>x[0]>=TODAY&&x[0]<=add(TODAY,30)).slice(0,2);
+  const dd=d=>{const n=Math.round((D(d)-D(TODAY))/864e5); return n===0?"오늘":`D-${n}`;};
+  const news=(S.news&&S.news.items||[]).slice(0,3);
+  el.innerHTML=`<div class="td-col"><span class="br-k">오늘 · ${esc(lab(TODAY))}</span>
+    ${up.length?up.map(x=>`<div class="td-row"><b class="mono">${dd(x[0])}</b><span><b>${esc(x[1])}</b> ${esc(lab(x[0]))}${x[2]?` · ${esc(x[2])}`:""}</span></div>`).join(""):`<div class="td-row"><span>다가오는 절기·기념일이 아직 없어요.</span></div>`}
+    <div class="td-row"><b>제철</b><span>${esc(SEASON[m])}</span></div></div>
+    ${news.length?`<div class="td-col"><span class="br-k">부산 소식</span>${news.map(n=>`<div class="td-row"><span class="mono" style="color:var(--muted)">${esc((n.date||"").slice(5).replace("-","/"))}</span><span>${safeUrl(n.url)?`<a href="${esc(n.url)}" target="_blank" rel="noopener">${esc(n.title)} ↗</a>`:esc(n.title)}</span></div>`).join("")}</div>`:""}`;}
+// ---- favorites & stamps (this browser only) ----
+let MY={fav:[],stamp:{}};
+try{const s=JSON.parse(localStorage.getItem("fest-mine")||"null"); if(s) MY=Object.assign(MY,s);}catch(e){}
+const saveMY=()=>{try{localStorage.setItem("fest-mine",JSON.stringify(MY))}catch(e){}};
+const STORE_NOTE="이 기기·이 브라우저에만 저장돼요. 다른 기기나 브라우저에서는 보이지 않고, 방문 기록·사이트 데이터를 지우면 함께 사라져요.";
+function myBtns(e,d){const fav=MY.fav.includes(e.id), st=!!MY.stamp[e.id], canStamp=e.start&&e.start<=TODAY;
+  return `<button class="mini ${fav?"on":""}" data-fav="${esc(e.id)}" aria-pressed="${fav}" title="찜하기">${fav?"♥ 찜":"♡ 찜"}</button>${canStamp?`<button class="mini ${st?"on":""}" data-stamp="${esc(e.id)}" aria-pressed="${st}" title="누린 순간에 도장 찍기">${st?"✓ 누림":"다녀왔어요"}</button>`:""}<a class="mini" href="${esc(gcal(e,d))}" target="_blank" rel="noopener">캘린더에 추가 ↗</a>`;}
+function gcal(e,d){const day=d&&openOn(e,d)?d:(e.start>TODAY?e.start:(openOn(e,TODAY)?TODAY:e.start)); const t=(Array.isArray(e.fixed)&&e.fixed[0])||(e.fixedByDate&&e.fixedByDate[day]&&e.fixedByDate[day][0])||e.open;
+  const ymd=day.replace(/-/g,""); let dates;
+  if(t){const s=toM(t), en=s+(e.stay||120); const f=m=>`${ymd}T${pad(Math.floor(m/60)%24)}${pad(m%60)}00`; dates=`${f(s)}/${en>=1440?add(day,1).replace(/-/g,"")+"T"+pad(Math.floor(en/60)%24)+pad(en%60)+"00":f(en)}`;}
+  else dates=`${ymd}/${add(day,1).replace(/-/g,"")}`;
+  const det=[e.hours&&"시간: "+e.hours,e.fee&&"요금: "+e.fee,safeUrl(e.ticket)&&"예매: "+e.ticket,safeUrl(e.home)&&"공식: "+e.home,"Ram's Culture Land"].filter(Boolean).join("\n");
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(e.name)}&dates=${dates}&ctz=Asia/Seoul&location=${encodeURIComponent(e.venue||"")}&details=${encodeURIComponent(det)}`;}
+document.addEventListener("click",ev=>{const f=ev.target.closest("[data-fav]"), s=ev.target.closest("[data-stamp]");
+  if(f){const id=f.dataset.fav; MY.fav=MY.fav.includes(id)?MY.fav.filter(x=>x!==id):MY.fav.concat(id); saveMY(); renderLists(); renderMine(); if(MY.fav.includes(id)) toast("찜했어요. 아래 '내 찜·누린 순간'에서 모아 볼 수 있어요.");}
+  if(s){const id=s.dataset.stamp; if(MY.stamp[id]) delete MY.stamp[id]; else MY.stamp[id]=TODAY; saveMY(); renderLists(); renderMine(); if(MY.stamp[id]) toast(`도장 쾅! 지금까지 누린 순간 ${Object.keys(MY.stamp).length}개.`);}});
+function renderMine(){const el=$("mine-body"); if(!el) return;
+  const favs=MY.fav.map(byId).filter(e=>e&&(!e.end||e.end>=TODAY)).sort((a,b)=>a.start<b.start?-1:1);
+  const st=Object.entries(MY.stamp).map(([id,d])=>({e:byId(id),id,d})).sort((a,b)=>a.d<b.d?1:-1);
+  const dday=e=>{const n=Math.round((D(e.start>TODAY?e.start:TODAY)-D(TODAY))/864e5); return e.start<=TODAY?(e.end===TODAY?"오늘 마지막 날":"진행 중"):`D-${n}`;};
+  el.innerHTML=`<div class="mine-col"><b>♥ 찜한 행사 <span class="count">${favs.length}개</span></b>${favs.length?`<ul>${favs.map(e=>`<li><span class="mono">${dday(e)}</span> ${esc(e.name)} <small>${esc(fmtD(e.start,e.end))}</small></li>`).join("")}</ul>`:'<p class="plan-sum">아직 찜한 행사가 없어요. 카드의 ♡를 눌러 보세요.</p>'}</div>
+   <div class="mine-col"><b>✓ 누린 순간 <span class="count">${st.length}개</span></b>${st.length?`<div class="stamps">${st.map(x=>`<span class="stamp" title="${esc(x.e?x.e.name:x.id)}"><i>${esc(x.d.slice(5).replace("-","."))}</i>${esc(x.e?x.e.name.replace(/^제\d+회\s|^20\d\d\s/,"").slice(0,14):"지난 행사")}</span>`).join("")}</div>`:'<p class="plan-sum">다녀온 행사에서 \'다녀왔어요\'를 누르면 도장이 쌓여요.</p>'}</div>`;}
+// ---- story image (Instagram story 1080x1920) ----
+const heroSvgText=()=>{const s=document.querySelector(".hero svg").cloneNode(true); s.setAttribute("xmlns","http://www.w3.org/2000/svg"); s.setAttribute("width","640"); s.setAttribute("height","340"); s.classList.remove("boom"); return new XMLSerializer().serializeToString(s);};
+function wrap(ctx,text,maxW){const out=[]; let line=""; for(const ch of String(text)){const t=line+ch; if(ctx.measureText(t).width>maxW&&line){out.push(line); line=ch;} else line=t;} if(line) out.push(line); return out;}
+async function storyCanvas(kind){const W=1080,H=1920,c=document.createElement("canvas"); c.width=W; c.height=H; const x=c.getContext("2d");
+  const F='system-ui,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif';
+  x.fillStyle="#13222C"; x.fillRect(0,0,W,H);
+  const g=x.createRadialGradient(W*0.8,220,40,W*0.8,220,700); g.addColorStop(0,"rgba(240,160,75,.28)"); g.addColorStop(1,"rgba(240,160,75,0)"); x.fillStyle=g; x.fillRect(0,0,W,H);
+  x.fillStyle="#F0A04B"; x.font=`700 34px ${F}`; x.fillText("RAM'S CULTURE LAND",80,290);
+  // content
+  let title="", sub="", rows=[];
+  if(kind==="plan"&&P.plan){const days=Object.keys(P.plan.days).sort().filter(d=>P.plan.days[d].length).slice(0,2); title="나의 하루 코스"; sub=days.map(lab).join(" · ");
+    days.forEach(d=>{const r=simulate(P.plan.days[d].filter(id=>byId(id)),d,START[P.start].slice(1),PF.mode,P.t0); if(days.length>1) rows.push({h:lab(d)}); r.legs.forEach(L=>rows.push({t:toS(L.s),n:byId(L.id).name,p:placeName(byId(L.id))}));});}
+  else if(kind==="fav"){title="찜해 둔 순간들"; sub="곧 만나러 갈 곳"; MY.fav.map(byId).filter(e=>e&&(!e.end||e.end>=TODAY)).slice(0,9).forEach(e=>rows.push({t:e.start>TODAY?lab(e.start).replace(/ \(.\)/,""):"진행 중",n:e.name,p:placeName(e)}));}
+  else if(kind==="stamp"){title="내가 누린 순간들"; sub=`도장 ${Object.keys(MY.stamp).length}개`; Object.entries(MY.stamp).sort((a,b)=>a[1]<b[1]?1:-1).slice(0,9).forEach(([id,d])=>{const e=byId(id); rows.push({t:d.slice(5).replace("-","."),n:e?e.name:"지난 행사",p:e?placeName(e):""});});}
+  else {const ds=focusDates(); title=ds.length===1?`${lab(ds[0])}의 부산`:"이번 주말의 부산"; sub=ds.length>1?`${lab(ds[0])} ~ ${lab(ds[ds.length-1])}`:"가 볼 만한 곳";
+    [...document.querySelectorAll("#lists .card h3")].slice(0,9).forEach(h=>{const e=S.events.find(v=>v.name===h.textContent); if(e) rows.push({t:"",n:e.name,p:`${e.region} · ${placeName(e)}`});});}
+  x.fillStyle="#E4ECEE"; x.font=`800 84px ${F}`; let y=400; wrap(x,title,W-160).slice(0,2).forEach(l=>{x.fillText(l,80,y); y+=100;});
+  x.fillStyle="#93A5AC"; x.font=`500 38px ${F}`; x.fillText(sub,80,y); y+=70;
+  x.strokeStyle="rgba(228,236,238,.25)"; x.lineWidth=2; x.beginPath(); x.moveTo(80,y); x.lineTo(W-80,y); x.stroke(); y+=70;
+  if(!rows.length){x.fillStyle="#93A5AC"; x.font=`500 40px ${F}`; x.fillText("아직 담은 게 없어요. 페이지에서 골라 보세요.",80,y); y+=60;}
+  for(const r of rows){if(y>1120) break;
+    if(r.h){x.fillStyle="#F0A04B"; x.font=`800 40px ${F}`; x.fillText(r.h,80,y); y+=62; continue;}
+    if(r.t){x.fillStyle="#F0A04B"; x.font=`700 36px ui-monospace,Menlo,monospace`; x.fillText(r.t,80,y);}
+    const tx=r.t?300:80; x.fillStyle="#E4ECEE"; x.font=`700 42px ${F}`; const ls=wrap(x,r.n,W-tx-80).slice(0,2); ls.forEach((l,i)=>x.fillText(l,tx,y+i*54)); y+=ls.length*54;
+    if(r.p){x.fillStyle="#93A5AC"; x.font=`500 32px ${F}`; x.fillText(wrap(x,r.p,W-tx-80)[0],tx,y+4); y+=50;} y+=34;}
+  // illustration
+  try{const img=new Image(); img.src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(heroSvgText()); await img.decode(); x.drawImage(img,(W-640)/2,1340,640,340);}catch(e){}
+  x.fillStyle="#E4ECEE"; x.font=`500 34px ${F}`; x.textAlign="center"; ["어딘가에서 마주칠지도, 아닐지도 몰라요.","그래도 지금 이 순간을 누리고 있다는 건","변하지 않는 사실이에요."].forEach((l,i)=>x.fillText(l,W/2,1215+i*50)); x.textAlign="left";
+  x.fillStyle="#93A5AC"; x.font=`500 28px ${F}`; x.textAlign="center"; x.fillText("onyoupado.github.io/festival",W/2,1720); x.textAlign="left";
+  return c;}
+let storyBlob=null;
+async function openStory(kind){const c=await storyCanvas(kind); storyBlob=await new Promise(r=>c.toBlob(r,"image/png")); const url=URL.createObjectURL(storyBlob);
+  $("story-img").src=url; $("story").hidden=false; $("story-share").hidden=!(navigator.canShare&&navigator.canShare({files:[new File([storyBlob],"story.png",{type:"image/png"})]}));}
+document.addEventListener("click",ev=>{const b=ev.target.closest("[data-story]"); if(b) openStory(b.dataset.story);});
+
+async function saveStory(){if(!storyBlob) return; const name=`rams-culture-land-${TODAY}.png`;
+  const dl=window.claude&&window.claude.use?await window.claude.use("downloads"):null;
+  if(dl){try{await dl.save({filename:name,data:storyBlob}); toast("이미지를 저장했어요.");}catch(e){if(e&&e.code!=="declined") toast("여기서는 저장할 수 없어요. 이미지를 길게 눌러 저장해 보세요.");} return;}
+  const a=document.createElement("a"); a.href=URL.createObjectURL(storyBlob); a.download=name; document.body.appendChild(a); a.click(); a.remove(); toast("이미지를 저장했어요. 휴대폰에서는 이미지를 길게 눌러 사진에 저장할 수도 있어요.");}
+$("story-save").addEventListener("click",saveStory);
+$("story-share").addEventListener("click",async()=>{try{await navigator.share({files:[new File([storyBlob],"rams-culture-land.png",{type:"image/png"})],title:"Ram's Culture Land"});}catch(e){}});
+$("story-close").addEventListener("click",()=>{$("story").hidden=true;});
+$("story").addEventListener("click",ev=>{if(ev.target.id==="story") $("story").hidden=true;});
 
 // ---- nearby search, tips & cautions, date spots ----
 const placeName=e=>String(e.venue||e.name).split(/[(,·]/)[0].replace(/\s*일원|\s*일대/g,"").trim();
@@ -841,7 +961,7 @@ function planText(){if(!P.plan) return ""; const sp=START[P.start]; const nm=(ar
   return t;}
 
 bindPF();
-function renderAll(){renderBreathers();renderPF();renderCal();renderSel();renderTabs();renderWx();renderCats();renderLists();renderPicks();renderMovies();renderOther();syncPlanDays();renderChosen();if(P.plan)renderPlan();}
+function renderAll(){renderBreathers();renderToday();renderMine();renderPF();renderCal();renderSel();renderTabs();renderWx();renderCats();renderLists();renderPicks();renderMovies();renderOther();syncPlanDays();renderChosen();if(P.plan)renderPlan();}
 
 // ---- events ----
 $("cal-grid").addEventListener("click",ev=>{const b=ev.target.closest(".cell"); if(!b||b.classList.contains("out")) return; pick(b.dataset.date);});
@@ -854,11 +974,14 @@ function weekend(k){let x=TODAY; while(dow(x)!==6&&dow(x)!==0) x=add(x,1); let s
 $("dtabs").addEventListener("click",ev=>{const b=ev.target.closest(".dtab"); if(!b) return; S.focus=b.dataset.f; renderTabs(); renderWx(); renderLists();});
 $("f-grp").addEventListener("click",ev=>{const b=ev.target.closest(".chip"); if(!b) return; S.grp=b.dataset.v; $("f-grp").querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String(c===b))); renderLists();});
 $("f-cat").addEventListener("click",ev=>{const b=ev.target.closest(".chip"); if(!b) return; S.cat=b.dataset.v; renderCats(); renderLists();});
+$("f-indoor").addEventListener("click",()=>{S.indoor=!S.indoor; $("f-indoor").setAttribute("aria-pressed",String(S.indoor)); renderLists();});
+$("rain-go").addEventListener("click",()=>{S.indoor=true; $("f-indoor").setAttribute("aria-pressed","true"); $("fold-filter").open=true; renderLists(); $("lists").scrollIntoView({block:"start"}); toast("실내 위주로 바꿨어요. 필터에서 다시 풀 수 있어요.");});
+document.querySelectorAll("[data-note]").forEach(n=>n.textContent="🔒 "+STORE_NOTE);
 $("f-free").addEventListener("click",()=>{S.free=!S.free; $("f-free").setAttribute("aria-pressed",String(S.free)); renderLists();});
 let qt=null; $("q").addEventListener("input",ev=>{clearTimeout(qt); qt=setTimeout(()=>{S.q=ev.target.value; $("q-clear").hidden=!S.q; renderLists(); renderMovies(); searchEgg(S.q);},450);});
 $("q").addEventListener("keydown",ev=>{if(ev.key==="Enter"){ev.preventDefault(); $("lists").scrollIntoView({block:"start"});}});
 $("q-clear").addEventListener("click",()=>{$("q").value="";S.q="";$("q-clear").hidden=true;renderLists();renderMovies();$("q").focus();});
-$("f-reset").addEventListener("click",()=>{S.grp="all";S.cat="all";S.free=false;S.sort="match";$("f-grp").querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String(c.dataset.v==="all")));$("f-free").setAttribute("aria-pressed","false");document.querySelectorAll(".sortc").forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.s==="match")));renderCats();renderLists();});
+$("f-reset").addEventListener("click",()=>{S.grp="all";S.cat="all";S.free=false;S.indoor=false;$("f-indoor").setAttribute("aria-pressed","false");S.sort="match";$("f-grp").querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String(c.dataset.v==="all")));$("f-free").setAttribute("aria-pressed","false");document.querySelectorAll(".sortc").forEach(x=>x.setAttribute("aria-pressed",String(x.dataset.s==="match")));renderCats();renderLists();});
 document.querySelectorAll(".sortc").forEach(b=>b.addEventListener("click",()=>{S.sort=b.dataset.s; document.querySelectorAll(".sortc").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); renderLists();}));
 
 // default selection: upcoming weekend
@@ -868,7 +991,7 @@ document.querySelectorAll(".sortc").forEach(b=>b.addEventListener("click",()=>{S
 $("prefs").open=!hasPF();
 renderAll();
 (async()=>{try{const r=await fetch("data.json?t="+Date.now(),{cache:"no-store"}); if(!r.ok) throw new Error(r.status); const d=await r.json();
-  S.events=d.events||[];S.wx=d.weather||{};S.status=d.status||null;S.picks=d.picks||null;S.movies=d.movies||null;renderAll();}
+  S.events=d.events||[];S.wx=d.weather||{};S.status=d.status||null;S.picks=d.picks||null;S.movies=d.movies||null;S.news=d.news||null;S.days=d.days||null;renderAll();}
   catch(e){$("lists").innerHTML='<div class="empty">축제 데이터를 불러오지 못했습니다. 잠시 뒤 새로 고쳐 주세요.</div>';$("upd").textContent="불러오지 못함";}})();
 
 
