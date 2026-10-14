@@ -211,6 +211,16 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 @media (prefers-reduced-motion:no-preference){.toast.show{animation:tin .25s ease-out}@keyframes tin{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}
 .hero svg.boom g[stroke="#F0A04B"],.hero svg.boom g[stroke="#EE8B84"],.hero svg.boom g[stroke="#4FB6C0"]:not([fill]){animation:boom .7s ease-out;transform-box:fill-box;transform-origin:center}
 @keyframes boom{0%{transform:scale(.3);opacity:.2}60%{transform:scale(1.25);opacity:1}100%{transform:scale(1)}}}
+.near{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12.5px;align-items:center}
+.near span{color:var(--muted)} .near a{text-decoration:none}
+.tips{font-size:13px;border:1px solid var(--line);border-radius:8px;padding:4px 10px}
+.tips summary{cursor:pointer;color:var(--sea);font-weight:700;list-style:none}
+.tips summary::-webkit-details-marker{display:none}
+.tips summary::before{content:"💡 "}
+.tips ul{margin:6px 0 4px;padding-left:16px;display:flex;flex-direction:column;gap:3px}
+.tips li.warn{color:var(--warn)}
+.finale{font-size:13px;background:var(--lantern-soft);border-radius:8px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
+.finale b{color:var(--lantern)}
 </style>
 </head>
 <body>
@@ -457,6 +467,7 @@ function card(e,d){
     ${w?`<div class="wxmini">☁ ${w}</div>`:""}
     ${e.result?`<div class="result"><b>결과</b> ${esc(e.result)}</div>`:isGame&&e.end<TODAY?`<div class="wxmini">경기 결과는 다음 날 아침에 반영됩니다</div>`:""}
     ${e.note?`<div class="note">${esc(e.note)}</div>`:""}
+    ${e.status==="ok"&&e.end>=TODAY?tipsBox(e,d)+nearby(e):""}
     ${canAdd?`<button class="add-btn" data-add="${esc(e.id)}" aria-pressed="${P.ids.includes(e.id)}">${P.ids.includes(e.id)?"✓ 일정에 담음":"＋ 일정에 담기"}</button>`:""}
     <div class="links">
       ${ticket&&e.end>=TODAY?`<a class="tix" href="${esc(ticket)}" target="_blank" rel="noopener">예매하기 ↗</a>`:""}
@@ -694,6 +705,39 @@ function costQuip(c){if(c.total===0) return "공짜로 하루를 꽉 채웠어�
   if(c.meals>=2) return "두 끼 다 챙기는 일정이라 든든해요.";
   return "";}
 
+// ---- nearby search, tips & cautions, date spots ----
+const placeName=e=>String(e.venue||e.name).split(/[(,·]/)[0].replace(/\s*일원|\s*일대/g,"").trim();
+const nmap=q=>`https://map.naver.com/p/search/${encodeURIComponent(q)}`;
+function nearby(e){const p=placeName(e); return `<div class="near"><span>주변 찾기</span><a href="${nmap(p+" 맛집")}" target="_blank" rel="noopener">맛집 ↗</a><a href="${nmap(p+" 카페")}" target="_blank" rel="noopener">카페 ↗</a><a href="${nmap(p+" 공영주차장")}" target="_blank" rel="noopener">공영주차장 ↗</a></div>`;}
+const TIPS={
+ "불꽃·드론":[["tip","명당은 시작 1~2시간 전에 차요. 돗자리와 보조배터리를 챙기세요."],["tip","끝나자마자 움직이면 지하철이 가장 붐벼요. 20~30분 늦게 출발하는 것도 방법이에요."]],
+ "야간":[["tip","밤바다 바람은 생각보다 차요. 얇은 겉옷 한 벌을 챙기세요."]],
+ "스포츠":[["tip","경기 시작 30분 전에 도착하면 입장 줄을 피하기 쉬워요."],["tip","응원 도구는 홈팀 색으로. 함께 외치면 재미가 두 배예요."]],
+ "공연":[["tip","입장 마감 시각과 본인 확인 여부를 예매처에서 미리 확인하세요."],["tip","공연장 근처 주차는 빨리 차요. 가능하면 대중교통을 이용하세요."]],
+ "커피·맥주·음식":[["tip","인기 부스는 줄이 길어요. 먹고 싶은 것부터 먼저 공략하세요."],["warn","술을 마셨다면 운전은 절대 금지. 대중교통이나 대리운전을 이용하세요."]],
+ "꽃·억새·단풍":[["tip","주말 오전이 덜 붐벼요. 사진은 해가 기울 무렵이 예뻐요."],["tip","산길이 섞여 있으면 편한 신발이 필수예요."]],
+ "마켓":[["tip","장바구니와 텀블러를 챙기면 편해요. 현금만 받는 곳도 있어요."]],
+ "야시장":[["tip","현금과 카드를 둘 다 챙기세요. 물티슈도 있으면 좋아요."]],
+ "전시·영화":[["tip","휴관일과 입장 마감 시각을 먼저 확인하세요."]],
+ "가족":[["tip","아이 옷이나 가방에 보호자 연락처를 적어 두면 안심이에요."]],
+ "지역축제":[["warn","축제장 주변은 임시 교통 통제가 잦아요. 주차보다 대중교통이 편할 때가 많아요."]]};
+const CROWD=["warn","사람이 많이 몰리면 무리해서 앞으로 가지 말고, 위험하다 싶으면 바로 빠져나오세요."];
+function tipsFor(e,d){const out=[], seen=new Set(); (e.cats||[]).forEach(c=>(TIPS[c]||[]).forEach(t=>{if(!seen.has(t[1])){seen.add(t[1]);out.push(t);}}));
+  if((e.cats||[]).some(c=>["불꽃·드론","지역축제","공연"].includes(c))) out.push(CROWD);
+  if(d&&typeof rainOn==="function"&&rainOn(e,d)) out.unshift(["warn","이날 비 예보가 있어요. 우비나 우산, 여벌 양말을 챙기세요."]);
+  if(PF.who==="pet") out.push(["warn","반려동물 동반 가능 여부는 공식 안내를 먼저 확인하세요."]);
+  return out.slice(0,5);}
+function tipsBox(e,d){const t=tipsFor(e,d); if(!t.length) return ""; const w=t.filter(x=>x[0]==="warn").length;
+  return `<details class="tips"><summary>꿀팁 ${t.length-w}${w?` · 주의 ${w}`:""}</summary><ul>${t.map(([k,x])=>`<li class="${k}">${k==="warn"?"주의":"꿀팁"} · ${esc(x)}</li>`).join("")}</ul></details>`;}
+// public spots for date courses (well-known places; coordinates approximate)
+const SPOTS=[["이기대 해안산책로",35.1270,129.1210,"바다 산책·야경"],["광안리 해변",35.1532,129.1187,"광안대교 야경"],["민락수변공원",35.1550,129.1330,"광안대교 야경"],["흰여울문화마을",35.0780,129.0440,"노을·골목 산책"],
+ ["다대포 해수욕장",35.0470,128.9660,"노을"],["해운대 달맞이길",35.1580,129.1800,"바다 전망 드라이브"],["청사포 다릿돌전망대",35.1610,129.1950,"바다 전망"],["용두산공원 부산타워",35.1007,129.0325,"도심 야경"],
+ ["황령산 전망대",35.1570,129.0820,"도심 야경"],["감천문화마을",35.0975,129.0106,"골목 산책"],["송정 해변",35.1786,129.1997,"한적한 바다"],["오륙도 스카이워크",35.1006,129.1240,"바다 전망"],["APEC나루공원",35.1720,129.1240,"강변 산책"],["삼락생태공원",35.1700,128.9750,"강변 산책·노을"]];
+function nearSpots(pt,n){if(!pt) return []; return SPOTS.map(s=>({s,km:hav(pt,[s[1],s[2]])})).filter(x=>x.km<12).sort((a,b)=>a.km-b.km).slice(0,n);}
+function finaleHtml(lastPt,endMin){if(!lastPt||endMin>toM("22:30")) return ""; const sp=nearSpots(lastPt,PF.who==="couple"?2:1); if(!sp.length) return "";
+  const cafe=PF.who==="couple"?` · <a href="${nmap(sp[0].s[0]+" 분위기 좋은 카페")}" target="_blank" rel="noopener">근처 분위기 좋은 카페 찾기 ↗</a>`:"";
+  return `<div class="finale"><b>${PF.who==="couple"?"데이트 마무리 코스":"마무리 산책 추천"}</b>${sp.map(x=>`<span>${esc(x.s[0])} · ${esc(x.s[3])} · 약 ${x.km<1?"1km 이내":Math.round(x.km)+"km"} <a href="${nmap(x.s[0])}" target="_blank" rel="noopener">지도 ↗</a></span>`).join("")}${cafe?`<span>${cafe.slice(3)}</span>`:""}</div>`;}
+
 // ---- planner (event fields: lat,lng,open,close,stay,fixed,fixedByDate,byDow,byDate,est) ----
 const START={seomyeon:["부산 서면",35.1578,129.0600],busanst:["부산역",35.1151,129.0422],haeundae:["해운대",35.1631,129.1636],dongnae:["동래",35.2057,129.0786],nampo:["남포동",35.0980,129.0330],sasang:["사상",35.1626,128.9849],namgu:["부산 남구(대연)",35.1366,129.1007]};
 let P={ids:[],pin:{},days:[],start:"seomyeon",mode:"transit",t0:"10:00",plan:null,manual:false};
@@ -713,7 +757,8 @@ function tinfo(e,iso){const t={o:e.open||"10:00",c:e.close||"20:00",st:e.stay||9
 function simulate(order,d,startPt,mode,t0){let now=toM(t0),dep=now,pos=startPt,legs=[],trav=0,wait=0,miss=0;
   for(const id of order){const e=byId(id), g=geo(e), tr=travel(pos,g,mode); trav+=tr.min; const arr=now+tr.min; const t=tinfo(e,d); let s,dur=t.st,warn=[];
     if(t.fxl){const slot=t.fxl.map(toM).find(x=>x-15>=arr); if(slot==null){miss++;warn.push(`정해진 시각(${t.fxl.join(", ")})에 맞출 수 없어요 · 순서를 바꾸거나 다른 날로 옮겨 주세요`);s=arr;} else s=slot-15;}
-    else{const o=toM(t.o),c=toM(t.c); s=Math.max(arr,o); if(s+30>c){miss++;warn.push(`운영 종료(${t.c}) 전에 도착하기 어렵습니다`);} else dur=Math.min(dur,c-s);}
+    else{const o=toM(t.o),c=toM(t.c); s=Math.max(arr,o); if(s+30>c){miss++;warn.push(`운영 종료(${t.c}) 전에 도착하기 어렵습니다`);} else dur=Math.min(dur,c-s);
+      const ni=order.indexOf(id)+1, nid=order[ni]; if(nid){const ne=byId(nid), nt=tinfo(ne,d); if(nt.fxl){const tr2=travel(g||pos,geo(ne),mode); const slot=nt.fxl.map(toM).map(x=>x-15-tr2.min).find(x=>x>=s+45); if(slot!=null&&slot<s+dur) dur=Math.max(45,slot-s);}}}
     let a2=arr; if(!legs.length&&s-arr>20){const sh=s-arr-10; dep=toM(t0)+sh; a2=s-10;} else wait+=Math.max(0,s-arr);
     legs.push({id,arr:a2,s,e:s+dur,tr,t,warn,noGeo:!g}); now=s+dur; if(g) pos=g;}
   const back=travel(pos,startPt,mode); return {legs,back,end:now,dep,score:miss*100000+trav+wait*0.6+Math.max(0,now-toM("23:00"))*5+((PF.who==="kids"||PF.who==="parents")?Math.max(0,now-toM("21:00"))*8:0)+(PF.budget==="low"?legs.reduce((a,L)=>a+(byId(L.id).feeType==="paid"?60:0),0):0),miss};}
@@ -765,7 +810,8 @@ function renderPlan(){const out=$("pl-out"); $("pl-ai-out").hidden=true;
     r.overnight=overnight; const c=costOf(r); const pace=PACE.find(x=>x[0]===PF.pace);
     const paceWarn=order.length>pace[2]?` · <b style="color:var(--warn)">'${pace[1]}' 속도보다 많아요</b>`:"";
     const costHtml=`<div class="cost">1인 예상 비용(추정, ${BUDGET.find(x=>x[0]===(PF.budget||"mid"))[1]} 기준): <b>${won(c.total)}</b><br>입장 ${won(c.fee)}${c.feeUnknown?` (금액 미공개 ${c.feeUnknown}곳 제외)`:""} · 교통 ${won(c.move)}${PF.mode==="car"?" (유류비만, 통행료·주차비 별도)":""} · 식사 ${c.meals}끼 ${won(c.food)}${c.cafe?` · 카페·간식 ${won(c.cafe)}`:""}${PF.who==="kids"||PF.who==="parents"||PF.who==="friends"||PF.who==="couple"?"<br>동행 인원수만큼 곱해 계산하세요.":""}${costQuip(c)?`<br><i>${costQuip(c)}</i>`:""}</div>`;
-    html+=`<div class="plan-day"><h3>${lab(d)}</h3><p class="plan-sum" style="margin:0">축제 ${order.length}곳 · 이동 합계 약 ${r.legs.reduce((a,L)=>a+L.tr.min,0)+(overnight?0:r.back.min)}분${r.miss?` · <b style="color:var(--warn)">시간이 맞지 않는 곳 ${r.miss}곳</b>`:""}${paceWarn}</p><ol class="tl">${li}</ol>${costHtml}</div>`;});
+    const finale=overnight?"":finaleHtml(lastG,r.end);
+    html+=`<div class="plan-day"><h3>${lab(d)}</h3><p class="plan-sum" style="margin:0">축제 ${order.length}곳 · 이동 합계 약 ${r.legs.reduce((a,L)=>a+L.tr.min,0)+(overnight?0:r.back.min)}분${r.miss?` · <b style="color:var(--warn)">시간이 맞지 않는 곳 ${r.miss}곳</b>`:""}${paceWarn}</p><ol class="tl">${li}</ol>${finale}${costHtml}</div>`;});
   const none=(P.plan.none||[]).filter(id=>byId(id));
   if(none.length) html+=`<div class="plan-day"><h3>넣지 못한 축제</h3><p class="plan-sum" style="margin:0">고른 날짜에 열리지 않습니다: ${none.map(id=>esc(byId(id).name)).join(", ")}</p></div>`;
   html+=`<div class="pl-actions" style="grid-column:1/-1"><span class="plan-sum">${P.manual?"직접 조정한 순서입니다.":"추천 순서입니다. ↑↓로 순서를, '다른 날로'로 날짜를 바꿀 수 있어요."}</span>${P.manual?'<button class="ghost-btn" id="pl-reauto">자동으로 다시 짜기</button>':""}</div>`;
