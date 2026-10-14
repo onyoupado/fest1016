@@ -271,14 +271,14 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 <div class="wrap">
   <header class="hero">
    <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
-    <div class="eyebrow">오늘 부산, 뭐 하고 놀까요?</div>
+    <div class="eyebrow">부산 놀거리 레이더 ON 📡</div>
     <h1 class="brand">Ram's Culture Land</h1>
     <blockquote class="motto">어디선가 마주칠지도, 그냥 스쳐 갈지도 몰라요.<br>그래도 지금 이 순간을 누리고 있다는 건 변하지 않아요.</blockquote>
-    <p class="lede">축제부터 공연, 경기, 영화까지. 부산의 오늘을 한눈에 모았어요.</p>
+    <p class="lede">축제·공연·경기·영화까지 몽땅 모았어요. 고르는 건 3초, 노는 건 하루 종일.</p>
     <div class="stamp">
-      <span>마지막 업데이트 <b id="upd" class="mono">불러오는 중</b></span>
+      <span>마지막 업데이트 <b id="upd" class="mono">따끈하게 데우는 중</b></span>
       <span id="coverage"></span>
-      <span>매일 아침 새로 고쳐 둬요</span>
+      <span>매일 아침, 모닝커피보다 먼저 갱신돼요 ☕</span>
     </div>
     <div id="notice" class="notice" hidden></div>
    </div>
@@ -297,7 +297,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
   </header>
   <div class="searchbar" role="search">
     <div class="sbox"><svg class="ico" aria-hidden="true" style="width:18px;height:18px"><use href="#i-search"/></svg>
-      <input id="q" type="search" placeholder="어디로 갈까요? 광안리, 재즈, 아이파크…" autocomplete="off" aria-label="검색">
+      <input id="q" type="search" placeholder="광안리? 재즈? 아이파크? 일단 쳐 보세요" autocomplete="off" aria-label="검색">
       <button class="x-btn" id="q-clear" aria-label="검색어 지우기" hidden>×</button></div>
   </div>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -333,11 +333,11 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
         <button class="nav-btn" id="cal-next" aria-label="다음 달">›</button>
       </div>
       <div class="cal-grid" id="cal-grid"></div>
-      <p class="cal-hint">날짜를 한 번 누르면 그날, 다른 날짜를 이어서 누르면 그 기간이 선택돼요. 달을 넘겨서 끝날을 골라도 됩니다. 숫자 아래는 그날 열리는 행사 수예요.</p>
+      <p class="cal-hint">한 번 톡 누르면 그날, 다른 날을 또 누르면 그 사이가 몽땅 골라져요. 달을 넘어가도 괜찮아요. 숫자 밑 작은 수는 그날 열리는 행사 개수예요.</p>
     </div>
     <div class="side">
       <div class="sel-box">
-        <span class="eyebrow">선택한 날짜</span>
+        <span class="eyebrow">놀러 갈 날</span>
         <span class="big" id="sel-label">–</span>
         <span class="count" id="sel-count"></span>
         <div class="cal-quick">
@@ -353,15 +353,15 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
   <aside class="breather" id="br1" data-kind="busan" aria-label="부산 추천"></aside>
 
   <details class="fold" id="prefs">
-    <summary><span class="fold-t">나의 여행 취향</span><span class="fold-s" id="pf-short">동행·예산·취향을 고르면 목록과 동선이 맞춰져요</span></summary>
+    <summary><span class="fold-t">나의 여행 취향</span><span class="fold-s" id="pf-short">누구랑, 얼마로, 뭘 좋아하는지만 알려 주세요</span></summary>
     <div class="pref">
-      <div class="step"><div class="step-h"><span class="step-n">1</span>누구와 가나요?</div><div class="row" id="pf-who"></div></div>
-      <div class="step"><div class="step-h"><span class="step-n">2</span>예산은 어느 정도?</div><div class="row" id="pf-budget"></div></div>
-      <div class="step"><div class="step-h"><span class="step-n">3</span>좋아하는 것 (여러 개)</div><div class="row" id="pf-taste"></div></div>
-      <div class="step"><div class="step-h"><span class="step-n">4</span>하루 일정 속도</div><div class="row" id="pf-pace"></div></div>
-      <div class="step"><div class="step-h"><span class="step-n">5</span>이동 수단</div><div class="row" id="pf-mode"></div></div>
+      <div class="step"><div class="step-h"><span class="step-n">1</span>누구랑 가요?</div><div class="row" id="pf-who"></div></div>
+      <div class="step"><div class="step-h"><span class="step-n">2</span>지갑 사정은요?</div><div class="row" id="pf-budget"></div></div>
+      <div class="step"><div class="step-h"><span class="step-n">3</span>좋아하는 것 (욕심껏 여러 개)</div><div class="row" id="pf-taste"></div></div>
+      <div class="step"><div class="step-h"><span class="step-n">4</span>오늘의 체력 배분</div><div class="row" id="pf-pace"></div></div>
+      <div class="step"><div class="step-h"><span class="step-n">5</span>뭐 타고 가요?</div><div class="row" id="pf-mode"></div></div>
       <p class="store-note" data-note style="grid-column:1/-1"></p>
-      <div class="pref-foot"><p id="pf-sum"></p><button class="ghost-btn" id="pf-reset">취향 초기화</button></div>
+      <div class="pref-foot"><p id="pf-sum"></p><button class="ghost-btn" id="pf-reset">취향 리셋</button></div>
     </div>
   </details>
 
@@ -369,11 +369,11 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 
   <section aria-labelledby="wx-h">
     <div class="sec-head"><h2 id="wx-h">지역별 날씨 <span id="wx-day" style="font-family:var(--f-mono);font-size:15px"></span></h2><span id="wx-src" class="src"></span></div>
-    <div id="wx" class="wx"><div class="empty" style="flex:1">기상청 예보를 불러오는 중입니다.</div></div>
-    <div id="rainbar" class="rainbar" hidden><span>☔ 이날 부산에 비 예보가 있어요.</span><button class="go-btn" id="rain-go" style="padding:6px 12px">실내 코스로 보기</button></div>
+    <div id="wx" class="wx"><div class="empty" style="flex:1">기상청 예보를 모셔 오는 중이에요.</div></div>
+    <div id="rainbar" class="rainbar" hidden><span>☔ 이날 부산에 비 소식이 있어요. 우산보다 지붕이 나을지도요.</span><button class="go-btn" id="rain-go" style="padding:6px 12px">실내 코스로 피신하기</button></div>
   </section>
 
-  <div class="listbar" id="list-top"><div class="row" style="justify-content:space-between;align-items:center"><span class="count" id="count"></span><button class="ghost-btn" data-story="list" style="padding:4px 10px;font-size:13px">이 목록 스토리 이미지</button></div>
+  <div class="listbar" id="list-top"><div class="row" style="justify-content:space-between;align-items:center"><span class="count" id="count"></span><button class="ghost-btn" data-story="list" style="padding:4px 10px;font-size:13px">이 목록 스토리로 자랑하기</button></div>
   <details class="fold" id="fold-filter">
     <summary><span class="fold-t">필터·정렬</span><span class="fold-s" id="f-sum">전체</span></summary>
   <div class="filters">
@@ -390,19 +390,19 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
       <span style="width:8px"></span>
       <button class="chip sortc" data-s="match" aria-pressed="true">취향 맞춤순</button>
       <button class="chip sortc" data-s="end" aria-pressed="false">마감 임박순</button>
-      <button class="ghost-btn" id="f-reset" style="padding:4px 10px;font-size:13px">필터 초기화</button>
+      <button class="ghost-btn" id="f-reset" style="padding:4px 10px;font-size:13px">필터 싹 풀기</button>
     </div>
   </div>
   </details></div>
 
   <div id="lists" style="display:flex;flex-direction:column;gap:28px">
-    <div class="empty">축제 목록을 불러오는 중입니다.</div>
+    <div class="empty">축제들을 줄 세우는 중이에요.</div>
   </div>
 
   <div class="br-row"><aside class="breather" id="br2" data-kind="poem" aria-label="오늘의 부산말"></aside><aside class="breather" id="br3" data-kind="art" aria-label="부산이 담긴 작품"></aside></div>
 
   <section aria-labelledby="pl-h" id="planner">
-    <div class="sec-head"><h2 id="pl-h">내 일정 짜기</h2><span class="src">축제 카드의 ＋담기로 고른 뒤 동선을 만들어 보세요</span></div>
+    <div class="sec-head"><h2 id="pl-h">내 일정 짜기</h2><span class="src">카드에서 ＋담기로 장바구니를 채우면, 동선은 제가 짤게요</span></div>
     <div class="planner">
       <div id="incoming" class="incoming" hidden></div>
       <div class="pl-grid">
@@ -417,47 +417,47 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
       </div>
       <div class="pl-field"><span>담은 축제</span>
         <ul class="pl-chosen" id="pl-chosen"></ul>
-        <p id="pl-empty" class="plan-sum" style="margin:0">아직 담은 축제가 없습니다. 목록에서 ＋담기를 눌러 주세요. 담은 목록은 이 브라우저에만 저장됩니다.</p>
+        <p id="pl-empty" class="plan-sum" style="margin:0">장바구니가 아직 텅 비었어요. 목록에서 ＋담기를 눌러 채워 주세요. (담은 목록은 이 브라우저에만 저장돼요.)</p>
       </div>
       <div class="pl-actions">
-        <button class="go-btn" id="pl-go" disabled>동선 만들기</button>
+        <button class="go-btn" id="pl-go" disabled>동선 뚝딱 만들기</button>
         <button class="ghost-btn" id="pl-ai" hidden>Claude에게 일정 다듬기</button>
         <button class="ghost-btn" data-story="plan">스토리 이미지로 저장</button>
-        <button class="ghost-btn" id="pl-share">친구에게 코스 보내기</button>
-        <button class="ghost-btn" id="pl-clear">모두 비우기</button>
+        <button class="ghost-btn" id="pl-share">친구 불러내기 링크</button>
+        <button class="ghost-btn" id="pl-clear">싹 비우기</button>
       </div>
       <textarea id="share-box" class="share-box" hidden readonly aria-label="공유 링크"></textarea>
       <div id="pl-out" class="plan-out"></div>
       <div id="pl-ai-out" class="ai-out" hidden></div>
-      <p class="plan-sum" style="margin:0">이동시간은 행사장 대략 위치와 직선거리로 계산한 추정치입니다. 출발 전 카카오맵 길찾기로 확인하세요. 운영시간이 공개되지 않은 행사는 '시간 추정'으로 표시합니다.</p>
+      <p class="plan-sum" style="margin:0">이동시간은 직선거리로 어림잡은 값이라 실제와 다를 수 있어요. 출발 전에 카카오맵 길찾기로 한 번만 더 확인해 주세요. 운영시간이 공개되지 않은 곳은 '시간 추정'으로 표시했어요.</p>
     </div>
   </section>
 
   <section aria-labelledby="mine-h" id="mine">
-    <div class="sec-head"><h2 id="mine-h">내 찜 · 누린 순간</h2><span class="src">이 브라우저에만 저장돼요</span></div>
+    <div class="sec-head"><h2 id="mine-h">내 찜 · 누린 순간</h2><span class="src">이 브라우저에만 소중히 보관돼요</span></div>
     <div class="mine" id="mine-body"></div>
-    <div class="pl-actions"><button class="ghost-btn" data-story="fav">찜 목록 스토리 이미지</button><button class="ghost-btn" data-story="stamp">누린 순간 스토리 이미지</button></div>
+    <div class="pl-actions"><button class="ghost-btn" data-story="fav">찜 목록 자랑하기</button><button class="ghost-btn" data-story="stamp">누린 순간 자랑하기</button></div>
     <p class="store-note" data-note></p>
   </section>
 
   <div class="br-row"><aside class="breather" id="br4" data-kind="joke" aria-label="축제 생존 팁"></aside><aside class="breather" id="br5" data-kind="lotto" aria-label="오늘의 행운 번호"></aside></div>
 
   <section aria-labelledby="pick-h" id="pick-sec">
-    <div class="sec-head"><h2 id="pick-h">다가오는 주말 추천</h2><span class="src">날씨·마지막 날 여부를 반영해 갱신</span></div>
+    <div class="sec-head"><h2 id="pick-h">이번 주말, 여기 어때요?</h2><span class="src">날씨랑 '마지막 날'까지 따져서 골랐어요</span></div>
     <div class="picks" id="picks"></div>
     <div class="picks" id="routes"></div>
     <div class="card themes" id="themes"></div>
   </section>
 
   <section aria-labelledby="mv-h" id="mv-sec" hidden>
-    <div class="sec-head"><h2 id="mv-h">이번 주·다음 주 개봉 영화</h2><span class="src" id="mv-src"></span></div>
+    <div class="sec-head"><h2 id="mv-h">이번 주·다음 주 개봉 영화 🍿</h2><span class="src" id="mv-src"></span></div>
     <div class="movies" id="movies"></div>
     <div class="row" style="font-size:13px;gap:6px 14px"><span class="count">상영 시간표:</span>
       <a href="https://www.cgv.co.kr/" target="_blank" rel="noopener">CGV ↗</a><a href="https://www.lottecinema.co.kr/" target="_blank" rel="noopener">롯데시네마 ↗</a><a href="https://www.megabox.co.kr/" target="_blank" rel="noopener">메가박스 ↗</a><a href="https://www.dureraum.org/" target="_blank" rel="noopener">영화의전당 ↗</a><a href="https://blog.naver.com/cornertheate" target="_blank" rel="noopener">모퉁이극장 ↗</a></div>
   </section>
 
   <section aria-labelledby="un-h">
-    <div class="sec-head"><h2 id="un-h">일정 미확인</h2><span class="src">공식 발표가 나오면 달력에 올립니다</span></div>
+    <div class="sec-head"><h2 id="un-h">일정 미확인</h2><span class="src">두근두근 대기 중. 공식 발표가 뜨면 바로 달력에 올릴게요</span></div>
     <div class="grid" id="unconfirmed"></div>
   </section>
 
@@ -470,7 +470,7 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
 
   <details class="ghtip"><summary>📲 홈 화면에 앱처럼 추가하기</summary><p>아이폰: 사파리에서 공유 버튼 → '홈 화면에 추가'. 안드로이드: 크롬 메뉴(⋮) → '홈 화면에 추가' 또는 '앱 설치'. 홈 화면에서 열면 오늘 날짜 화면부터 보여 줘요.</p></details>
   <footer>
-    인스타그램 공식 계정은 확인된 곳만 연결하고, 없으면 축제 이름 해시태그 검색으로 연결했습니다. 운영시간·요금은 현장 사정으로 바뀔 수 있으니 방문 전 공식 홈페이지를 확인하세요. 기상청 예보는 약 10일 앞까지만 나옵니다.
+    인스타그램은 공식 계정이 확인된 곳만 연결했고, 없으면 해시태그 검색으로 이어 드려요. 운영시간·요금은 현장 사정으로 바뀔 수 있으니 출발 전에 공식 홈페이지를 한 번만 더 봐 주세요. 기상청 예보는 약 10일 앞까지만 나와요. 그다음은 하늘만 알아요.
   </footer>
 </div>
 <div id="story" class="story" hidden role="dialog" aria-label="스토리 이미지 미리보기"><div class="story-box"><img id="story-img" alt="인스타그램 스토리용 이미지 미리보기"><div class="pl-actions"><button class="go-btn" id="story-save">이미지 저장</button><button class="ghost-btn" id="story-share" hidden>인스타 등으로 공유</button><button class="ghost-btn" id="story-close">닫기</button></div><p class="plan-sum" style="margin:0">1080×1920 인스타그램 스토리 규격이에요. 휴대폰에서는 이미지를 길게 눌러 저장할 수도 있어요.</p></div></div>
@@ -540,7 +540,7 @@ function card(e,d){
     ${accessLine(e)}
     ${e.themeByDate&&d&&e.themeByDate[d]?`<div class="theme-of">이날 테마 · ${esc(e.themeByDate[d])}</div>`:""}
     ${w?`<div class="wxmini">☁ ${w}</div>`:""}
-    ${e.result?`<div class="result"><b>결과</b> ${esc(e.result)}</div>`:isGame&&e.end<TODAY?`<div class="wxmini">경기 결과는 다음 날 아침에 반영됩니다</div>`:""}
+    ${e.result?`<div class="result"><b>결과</b> ${esc(e.result)}</div>`:isGame&&e.end<TODAY?`<div class="wxmini">경기 결과는 다음 날 아침에 배달돼요</div>`:""}
     ${e.note?`<div class="note">${esc(e.note)}</div>`:""}
     ${e.status==="ok"&&e.end>=TODAY?tipsBox(e,d)+nearby(e):""}
     ${e.status==="ok"?`<div class="mybtns">${myBtns(e,d)}</div>`:""}
@@ -589,7 +589,7 @@ function renderWx(){
   const cards=list.map(([k,w])=>{const x=w.days&&w.days[d]; if(!x) return "";
     const rain=/비|눈/.test(x.am+x.pm)||Math.max(x.popAm,x.popPm)>=50;
     return `<div class="wxc ${rain?"rain":""}"><span class="city">${esc(w.name)}</span><span class="sky">${esc(x.am)}${x.am!==x.pm?" → "+esc(x.pm):""}</span><span class="t">${x.min}° / ${x.max}°</span><span class="pop">강수 오전 ${x.popAm}% · 오후 ${x.popPm}%</span></div>`}).join("");
-  $("wx").innerHTML=cards||`<div class="empty" style="flex:1">${d&&d<TODAY?"지난 날짜입니다.":"이 날짜는 아직 기상청 예보가 없습니다. 예보는 약 10일 앞까지 나와요."}</div>`;
+  $("wx").innerHTML=cards||`<div class="empty" style="flex:1">${d&&d<TODAY?"이미 지나간 날이에요. 좋은 추억으로 남았길 바라요.":"이 날은 아직 기상청도 몰라요. 예보는 약 10일 앞까지만 나와요."}</div>`;
   const bw=S.wx.busan&&S.wx.busan.days&&S.wx.busan.days[d]; $("rainbar").hidden=!(bw&&(/비|눈/.test(bw.am+bw.pm)||Math.max(bw.popAm,bw.popPm)>=50));
   const st=S.status; $("wx-src").innerHTML=st&&st.weatherIssued?`${esc(st.weatherIssued)} · <a href="${esc(safeUrl(st.weatherSource)||"https://www.weather.go.kr")}" target="_blank" rel="noopener">기상청</a>`:"";
 }
@@ -618,7 +618,7 @@ function renderLists(){
     const items=ev.filter(e=>e.grp===g).sort((a,b)=>S.sort==="match"&&hasPF()?(sc.get(b.id)-sc.get(a.id))||(a.end<b.end?-1:1):(a.end<b.end?-1:a.end>b.end?1:0));
     if(!items.length) return "";
     return `<section><div class="sec-head"><h2>${label}</h2><span class="count">${items.length}개</span></div><div class="grid">${items.map(e=>card(e,one)).join("")}</div></section>`}).join("");
-  $("lists").innerHTML=html||(toks.length?`<div class="empty">'${esc(S.q.trim())}'와 맞는 행사가 없어요.${(S.movies&&S.movies.items||[]).some(x=>[x.title,x.genre,x.director,x.cast].join(" ").toLowerCase().includes(S.q.trim().toLowerCase()))?' 개봉 영화에서 찾았어요. <a href="#mv-sec">영화 보기 ↓</a>':" 다른 단어로 찾아보거나 필터를 풀어 보세요."}</div>`:'<div class="empty">이 날짜에 맞는 행사가 없어요. 필터를 풀거나 다른 날짜를 골라 보세요.<br>아니면… 바다 보러 가는 것도 훌륭한 일정이에요.</div>');
+  $("lists").innerHTML=html||(toks.length?`<div class="empty">'${esc(S.q.trim())}'와 맞는 행사가 없어요.${(S.movies&&S.movies.items||[]).some(x=>[x.title,x.genre,x.director,x.cast].join(" ").toLowerCase().includes(S.q.trim().toLowerCase()))?' 개봉 영화에서 찾았어요. <a href="#mv-sec">영화 보기 ↓</a>':" 다른 단어로 찾아보거나 필터를 풀어 보세요."}</div>`:'<div class="empty">이 날짜엔 딱 맞는 행사가 없네요. 필터를 살짝 풀거나 다른 날을 골라 보세요.<br>아니면… 바다 보러 가는 것도 훌륭한 일정이에요.</div>');
 }
 function renderMovies(){const m=S.movies; const qq=S.q.trim().toLowerCase(); const items=(m&&m.items||[]).filter(x=>(!x.date||x.date>=add(TODAY,-3))&&(!qq||[x.title,x.genre,x.country,x.director,x.cast].join(" ").toLowerCase().includes(qq))).sort((a,b)=>(a.date||"9")<(b.date||"9")?-1:1).slice(0,30);
   $("mv-sec").hidden=!items.length; if(!items.length) return;
@@ -637,7 +637,7 @@ function renderPicks(){
 }
 function renderOther(){
   const un=S.events.filter(e=>e.status==="unconfirmed"&&(!e.end||e.end>=TODAY));
-  $("unconfirmed").innerHTML=un.length?un.map(e=>card(e,null)).join(""):'<div class="empty">미확인 행사가 없습니다.</div>';
+  $("unconfirmed").innerHTML=un.length?un.map(e=>card(e,null)).join(""):'<div class="empty">미확인 행사가 없어요. 전부 확인 끝!</div>';
   const st=S.status||{};
   $("log").innerHTML=(st.changelog||[]).slice(-12).reverse().map(c=>`<li><span class="mono">${esc(c.at)}</span> ${esc(c.text)}</li>`).join("");
   if(st.updatedAt){const t=new Date(st.updatedAt); $("upd").textContent=isNaN(t)?st.updatedAt:t.toLocaleString("ko-KR",{timeZone:"Asia/Seoul",month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"});}
@@ -682,8 +682,8 @@ function renderPF(){
   chips("pf-who",WHO,PF.who); chips("pf-budget",BUDGET,PF.budget); chips("pf-taste",TASTE,PF.tastes,true); chips("pf-pace",PACE,PF.pace);
   chips("pf-mode",[["transit","대중교통"],["car","자가용"]],PF.mode);
   const parts=[PF.who&&WHO.find(x=>x[0]===PF.who)[1], PF.budget&&BUDGET.find(x=>x[0]===PF.budget)[1], PF.tastes.map(k=>TASTE.find(x=>x[0]===k)[1]).join("·"), PACE.find(x=>x[0]===PF.pace)[1], PF.mode==="car"?"자가용":"대중교통"].filter(Boolean);
-  $("pf-short").textContent=hasPF()?parts.join(" · "):"동행·예산·취향을 고르면 목록과 동선이 맞춰져요";
-  $("pf-sum").textContent=hasPF()?`지금 취향: ${parts.join(" / ")} → 목록은 취향 맞춤순으로, 동선과 예상 비용도 이 기준으로 계산합니다.`:"아직 고른 취향이 없습니다. 고르는 만큼 목록 순서와 동선이 맞춰집니다.";}
+  $("pf-short").textContent=hasPF()?parts.join(" · "):"누구랑, 얼마로, 뭘 좋아하는지만 알려 주세요";
+  $("pf-sum").textContent=hasPF()?`지금 취향: ${parts.join(" / ")} → 목록은 취향 맞춤순으로, 동선과 예상 비용도 이 기준으로 맞춰 드려요.`:"아직 고른 취향이 없어요. 많이 알려 줄수록 목록과 동선이 찰떡같이 맞춰져요.";}
 function bindPF(){
   const one=(id,key)=>$(id).addEventListener("click",ev=>{const b=ev.target.closest(".chip"); if(!b) return; PF[key]=PF[key]===b.dataset.v&&key!=="pace"&&key!=="mode"?"":b.dataset.v; if(key==="mode"){P.mode=PF.mode;saveP();} savePF(); renderPF(); renderLists(); renderChosen(); if(P.plan) renderPlan();});
   one("pf-who","who"); one("pf-budget","budget"); one("pf-pace","pace"); one("pf-mode","mode");
@@ -746,7 +746,11 @@ const EGG={
   "무료 행사만 골라 담았다면, 당신은 이미 가성비 고수.",
   "푸드트럭 줄이 길면 맛있다는 뜻이에요. 짧으면… 빨리 먹을 수 있다는 뜻이고요.",
   "지도 앱이 '도보 5분'이라고 하면, 부산에선 오르막인지 먼저 확인하세요.",
-  "불꽃놀이 명당은 늘 내가 도착하기 10분 전에 꽉 차요."]};
+  "불꽃놀이 명당은 늘 내가 도착하기 10분 전에 꽉 차요.",
+  "부산에서 '바로 근처'는 산 하나 넘는 거리일 수도 있어요.",
+  "축제장 화장실 위치는 도착하자마자 확인. 이건 농담 아니에요.",
+  "사진은 백 장 찍고 한 장 건지는 거예요. 셔터를 아끼지 마세요.",
+  "보조배터리는 사랑이에요. 친구 것까지 챙기면 영웅이 되고요."]};
 const seedOf=s=>{let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;};
 function rng(seed){let x=seed||1;return()=>{x^=x<<13;x>>>=0;x^=x>>17;x^=x<<5;x>>>=0;return x/4294967296;};}
 const eggTurn={};
@@ -791,19 +795,19 @@ const PUBLIC_URL="https://onyoupado.github.io/festival/";
 const b64e=s=>btoa(unescape(encodeURIComponent(s))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
 const b64d=s=>decodeURIComponent(escape(atob(s.replace(/-/g,"+").replace(/_/g,"/"))));
 function planLink(){const o={v:1,ids:P.ids,days:P.days,start:P.start,t0:P.t0,mode:PF.mode,plan:P.plan?P.plan.days:null}; return PUBLIC_URL+"?plan="+b64e(JSON.stringify(o));}
-async function sharePlan(){if(!P.ids.length){toast("먼저 축제를 담고 동선을 만들어 주세요."); return;} const url=planLink();
-  if(navigator.share&&!(window.claude)){try{await navigator.share({title:"Ram's Culture Land · 내 코스",text:"이 코스 어때요?",url}); return;}catch(e){if(e&&e.name==="AbortError") return;}}
-  try{await navigator.clipboard.writeText(url); toast("링크를 복사했어요. 메신저에 붙여 넣어 보내 주세요.");}
+async function sharePlan(){if(!P.ids.length){toast("보낼 코스가 아직 없어요. 축제부터 담아 주세요."); return;} const url=planLink();
+  if(navigator.share&&!(window.claude)){try{await navigator.share({title:"Ram's Culture Land · 내 코스",text:"이 코스 어때요? 같이 가요!",url}); return;}catch(e){if(e&&e.name==="AbortError") return;}}
+  try{await navigator.clipboard.writeText(url); toast("링크 복사 완료! 단톡방에 붙여 넣고 반응을 기다려 보세요.");}
   catch(e){const box=$("share-box"); box.hidden=false; box.value=url; box.select(); toast("아래 링크를 길게 눌러 복사해 주세요.");}}
 document.addEventListener("click",ev=>{if(ev.target.closest("#pl-share")) sharePlan();});
 let incoming=null;
 try{const q=new URLSearchParams(location.search).get("plan"); if(q) incoming=JSON.parse(b64d(q));}catch(e){incoming=null;}
 function offerIncoming(){if(!incoming||!S.events.length) return; const n=(incoming.ids||[]).filter(id=>byId(id)).length; const el=$("incoming"); if(!el) return;
-  el.hidden=false; el.innerHTML=`<span>🎁 공유받은 코스가 있어요 (행사 ${n}곳). 불러올까요? 지금 담아 둔 일정은 바뀌어요.</span><span class="row"><button class="go-btn" id="in-yes" style="padding:6px 12px">불러오기</button><button class="ghost-btn" id="in-no" style="padding:6px 12px">괜찮아요</button></span>`;}
+  el.hidden=false; el.innerHTML=`<span>🎁 친구가 코스를 보냈어요 (행사 ${n}곳). 불러올까요? 지금 담아 둔 일정은 이걸로 바뀌어요.</span><span class="row"><button class="go-btn" id="in-yes" style="padding:6px 12px">불러오기</button><button class="ghost-btn" id="in-no" style="padding:6px 12px">괜찮아요</button></span>`;}
 document.addEventListener("click",ev=>{
   if(ev.target.id==="in-yes"&&incoming){const o=incoming; P.ids=(o.ids||[]).filter(id=>byId(id)); P.days=o.days||P.days; P.start=o.start||P.start; P.t0=o.t0||P.t0; if(o.mode){PF.mode=o.mode; savePF();}
     P.plan=o.plan?{days:o.plan,none:[]}:null; P.manual=!!o.plan; saveP(); const ds=(o.days||[]).slice().sort(); if(ds.length){S.from=ds[0];S.to=ds[ds.length-1];S.focus=S.from===S.to?S.from:"all";S.month=S.from.slice(0,7);}
-    incoming=null; $("incoming").hidden=true; try{history.replaceState(null,"",location.pathname);}catch(e){} renderAll(); if(!P.plan) autoPlan(); $("planner").scrollIntoView({block:"start"}); toast("공유받은 코스를 불러왔어요.");}
+    incoming=null; $("incoming").hidden=true; try{history.replaceState(null,"",location.pathname);}catch(e){} renderAll(); if(!P.plan) autoPlan(); $("planner").scrollIntoView({block:"start"}); toast("코스 도착! 이제 출발만 남았어요.");}
   if(ev.target.id==="in-no"){incoming=null; $("incoming").hidden=true; try{history.replaceState(null,"",location.pathname);}catch(e){}}});
 // ---- accessibility line ----
 function accessLine(e){const a=e.access; if(!a) return ""; const m=[["wheelchair","휠체어 접근"],["stroller","유아차 이동"],["toilet","화장실"],["nursing","수유실"],["parking","주차"]]; const yes=m.filter(([k])=>a[k]===true).map(x=>x[1]), no=m.filter(([k])=>a[k]===false).map(x=>x[1]);
@@ -832,7 +836,7 @@ function renderToday(){const el=$("today"); if(!el) return; const m=+TODAY.slice
 let MY={fav:[],stamp:{}};
 try{const s=JSON.parse(localStorage.getItem("fest-mine")||"null"); if(s) MY=Object.assign(MY,s);}catch(e){}
 const saveMY=()=>{try{localStorage.setItem("fest-mine",JSON.stringify(MY))}catch(e){}};
-const STORE_NOTE="이 기기·이 브라우저에만 저장돼요. 다른 기기나 브라우저에서는 보이지 않고, 방문 기록·사이트 데이터를 지우면 함께 사라져요.";
+const STORE_NOTE="이 기기·이 브라우저에만 저장돼요. 다른 기기에서는 안 보이고, 방문 기록·사이트 데이터를 지우면 같이 사라져요. 소중한 건 스토리 이미지로 남겨 두세요.";
 function myBtns(e,d){const fav=MY.fav.includes(e.id), st=!!MY.stamp[e.id], canStamp=e.start&&e.start<=TODAY;
   return `<button class="mini ${fav?"on":""}" data-fav="${esc(e.id)}" aria-pressed="${fav}" title="찜하기">${fav?"♥ 찜":"♡ 찜"}</button>${canStamp?`<button class="mini ${st?"on":""}" data-stamp="${esc(e.id)}" aria-pressed="${st}" title="누린 순간에 도장 찍기">${st?"✓ 누림":"다녀왔어요"}</button>`:""}<a class="mini" href="${esc(gcal(e,d))}" target="_blank" rel="noopener">캘린더에 추가 ↗</a>`;}
 function gcal(e,d){const day=d&&openOn(e,d)?d:(e.start>TODAY?e.start:(openOn(e,TODAY)?TODAY:e.start)); const t=(Array.isArray(e.fixed)&&e.fixed[0])||(e.fixedByDate&&e.fixedByDate[day]&&e.fixedByDate[day][0])||e.open;
@@ -842,14 +846,14 @@ function gcal(e,d){const day=d&&openOn(e,d)?d:(e.start>TODAY?e.start:(openOn(e,T
   const det=[e.hours&&"시간: "+e.hours,e.fee&&"요금: "+e.fee,safeUrl(e.ticket)&&"예매: "+e.ticket,safeUrl(e.home)&&"공식: "+e.home,"Ram's Culture Land"].filter(Boolean).join("\n");
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(e.name)}&dates=${dates}&ctz=Asia/Seoul&location=${encodeURIComponent(e.venue||"")}&details=${encodeURIComponent(det)}`;}
 document.addEventListener("click",ev=>{const f=ev.target.closest("[data-fav]"), s=ev.target.closest("[data-stamp]");
-  if(f){const id=f.dataset.fav; MY.fav=MY.fav.includes(id)?MY.fav.filter(x=>x!==id):MY.fav.concat(id); saveMY(); renderLists(); renderMine(); if(MY.fav.includes(id)) toast("찜했어요. 아래 '내 찜·누린 순간'에서 모아 볼 수 있어요.");}
-  if(s){const id=s.dataset.stamp; if(MY.stamp[id]) delete MY.stamp[id]; else MY.stamp[id]=TODAY; saveMY(); renderLists(); renderMine(); if(MY.stamp[id]) toast(`도장 쾅! 지금까지 누린 순간 ${Object.keys(MY.stamp).length}개.`);}});
+  if(f){const id=f.dataset.fav; MY.fav=MY.fav.includes(id)?MY.fav.filter(x=>x!==id):MY.fav.concat(id); saveMY(); renderLists(); renderMine(); if(MY.fav.includes(id)) toast("찜 완료! '내 찜'에 고이 모셔 뒀어요.");}
+  if(s){const id=s.dataset.stamp; if(MY.stamp[id]) delete MY.stamp[id]; else MY.stamp[id]=TODAY; saveMY(); renderLists(); renderMine(); if(MY.stamp[id]) toast(`도장 쾅! 누린 순간 ${Object.keys(MY.stamp).length}개째예요.`);}});
 function renderMine(){const el=$("mine-body"); if(!el) return; const fb=$("tb-fav"), fc=MY.fav.filter(id=>{const e=byId(id);return e&&(!e.end||e.end>=TODAY);}).length; fb.hidden=!fc; fb.textContent=fc;
   const favs=MY.fav.map(byId).filter(e=>e&&(!e.end||e.end>=TODAY)).sort((a,b)=>a.start<b.start?-1:1);
   const st=Object.entries(MY.stamp).map(([id,d])=>({e:byId(id),id,d})).sort((a,b)=>a.d<b.d?1:-1);
   const dday=e=>{const n=Math.round((D(e.start>TODAY?e.start:TODAY)-D(TODAY))/864e5); return e.start<=TODAY?(e.end===TODAY?"오늘 마지막 날":"진행 중"):`D-${n}`;};
-  el.innerHTML=`<div class="mine-col"><b>♥ 찜한 행사 <span class="count">${favs.length}개</span></b>${favs.length?`<ul>${favs.map(e=>`<li><span class="mono">${dday(e)}</span> ${esc(e.name)} <small>${esc(fmtD(e.start,e.end))}</small></li>`).join("")}</ul>`:'<p class="plan-sum">아직 찜한 행사가 없어요. 카드의 ♡를 눌러 보세요.</p>'}</div>
-   <div class="mine-col"><b>✓ 누린 순간 <span class="count">${st.length}개</span></b>${st.length?`<div class="stamps">${st.map(x=>`<span class="stampmark" title="${esc(x.e?x.e.name:x.id)}"><i>${esc(x.d.slice(5).replace("-","."))}</i>${esc(x.e?x.e.name.replace(/^제\d+회\s|^20\d\d\s/,"").slice(0,14):"지난 행사")}</span>`).join("")}</div>`:'<p class="plan-sum">다녀온 행사에서 \'다녀왔어요\'를 누르면 도장이 쌓여요.</p>'}</div>`;}
+  el.innerHTML=`<div class="mine-col"><b>♥ 찜한 행사 <span class="count">${favs.length}개</span></b>${favs.length?`<ul>${favs.map(e=>`<li><span class="mono">${dday(e)}</span> ${esc(e.name)} <small>${esc(fmtD(e.start,e.end))}</small></li>`).join("")}</ul>`:'<p class="plan-sum">아직 찜한 행사가 없어요. 마음이 가는 카드에 ♡를 콕 눌러 보세요.</p>'}</div>
+   <div class="mine-col"><b>✓ 누린 순간 <span class="count">${st.length}개</span></b>${st.length?`<div class="stamps">${st.map(x=>`<span class="stampmark" title="${esc(x.e?x.e.name:x.id)}"><i>${esc(x.d.slice(5).replace("-","."))}</i>${esc(x.e?x.e.name.replace(/^제\d+회\s|^20\d\d\s/,"").slice(0,14):"지난 행사")}</span>`).join("")}</div>`:'<p class="plan-sum">다녀온 행사에서 \'다녀왔어요\'를 누르면 도장이 쾅쾅 쌓여요.</p>'}</div>`;}
 // ---- story image (Instagram story 1080x1920) ----
 const heroSvgText=()=>{const s=document.querySelector(".hero svg").cloneNode(true); s.setAttribute("xmlns","http://www.w3.org/2000/svg"); s.setAttribute("width","640"); s.setAttribute("height","340"); s.classList.remove("boom"); return new XMLSerializer().serializeToString(s);};
 function wrap(ctx,text,maxW){const out=[]; let line=""; for(const ch of String(text)){const t=line+ch; if(ctx.measureText(t).width>maxW&&line){out.push(line); line=ch;} else line=t;} if(line) out.push(line); return out;}
@@ -870,7 +874,7 @@ async function storyCanvas(kind){const W=1080,H=1920,c=document.createElement("c
   x.fillStyle="#E4ECEE"; x.font=`800 84px ${F}`; let y=400; wrap(x,title,W-160).slice(0,2).forEach(l=>{x.fillText(l,80,y); y+=100;});
   x.fillStyle="#93A5AC"; x.font=`500 38px ${F}`; x.fillText(sub,80,y); y+=70;
   x.strokeStyle="rgba(228,236,238,.25)"; x.lineWidth=2; x.beginPath(); x.moveTo(80,y); x.lineTo(W-80,y); x.stroke(); y+=70;
-  if(!rows.length){x.fillStyle="#93A5AC"; x.font=`500 40px ${F}`; x.fillText("아직 담은 게 없어요. 페이지에서 골라 보세요.",80,y); y+=60;}
+  if(!rows.length){x.fillStyle="#93A5AC"; x.font=`500 40px ${F}`; x.fillText("아직 텅 비었어요. 마음에 드는 걸 먼저 골라 주세요.",80,y); y+=60;}
   for(const r of rows){if(y>1120) break;
     if(r.h){x.fillStyle="#F0A04B"; x.font=`800 40px ${F}`; x.fillText(r.h,80,y); y+=62; continue;}
     if(r.t){x.fillStyle="#F0A04B"; x.font=`700 36px ui-monospace,Menlo,monospace`; x.fillText(r.t,80,y);}
@@ -888,8 +892,8 @@ document.addEventListener("click",ev=>{const b=ev.target.closest("[data-story]")
 
 async function saveStory(){if(!storyBlob) return; const name=`rams-culture-land-${TODAY}.png`;
   const dl=window.claude&&window.claude.use?await window.claude.use("downloads"):null;
-  if(dl){try{await dl.save({filename:name,data:storyBlob}); toast("이미지를 저장했어요.");}catch(e){if(e&&e.code!=="declined") toast("여기서는 저장할 수 없어요. 이미지를 길게 눌러 저장해 보세요.");} return;}
-  const a=document.createElement("a"); a.href=URL.createObjectURL(storyBlob); a.download=name; document.body.appendChild(a); a.click(); a.remove(); toast("이미지를 저장했어요. 휴대폰에서는 이미지를 길게 눌러 사진에 저장할 수도 있어요.");}
+  if(dl){try{await dl.save({filename:name,data:storyBlob}); toast("저장 완료! 이제 올리기만 하면 돼요.");}catch(e){if(e&&e.code!=="declined") toast("여기서는 저장할 수 없어요. 이미지를 길게 눌러 저장해 보세요.");} return;}
+  const a=document.createElement("a"); a.href=URL.createObjectURL(storyBlob); a.download=name; document.body.appendChild(a); a.click(); a.remove(); toast("저장 완료! 휴대폰에서는 이미지를 길게 눌러 사진에 바로 넣을 수도 있어요.");}
 $("story-save").addEventListener("click",saveStory);
 $("story-share").addEventListener("click",async()=>{try{await navigator.share({files:[new File([storyBlob],"rams-culture-land.png",{type:"image/png"})],title:"Ram's Culture Land"});}catch(e){}});
 $("story-close").addEventListener("click",()=>{$("story").hidden=true;});
@@ -947,7 +951,7 @@ function tinfo(e,iso){const t={o:e.open||"10:00",c:e.close||"20:00",st:e.stay||9
 function simulate(order,d,startPt,mode,t0){let now=toM(t0),dep=now,pos=startPt,legs=[],trav=0,wait=0,miss=0;
   for(const id of order){const e=byId(id), g=geo(e), tr=travel(pos,g,mode); trav+=tr.min; const arr=now+tr.min; const t=tinfo(e,d); let s,dur=t.st,warn=[];
     if(t.fxl){const slot=t.fxl.map(toM).find(x=>x-15>=arr); if(slot==null){miss++;warn.push(`정해진 시각(${t.fxl.join(", ")})에 맞출 수 없어요 · 순서를 바꾸거나 다른 날로 옮겨 주세요`);s=arr;} else s=slot-15;}
-    else{const o=toM(t.o),c=toM(t.c); s=Math.max(arr,o); if(s+30>c){miss++;warn.push(`운영 종료(${t.c}) 전에 도착하기 어렵습니다`);} else dur=Math.min(dur,c-s);
+    else{const o=toM(t.o),c=toM(t.c); s=Math.max(arr,o); if(s+30>c){miss++;warn.push(`운영 종료(${t.c}) 전에 도착하기 빠듯해요`);} else dur=Math.min(dur,c-s);
       const ni=order.indexOf(id)+1, nid=order[ni]; if(nid){const ne=byId(nid), nt=tinfo(ne,d); if(nt.fxl){const tr2=travel(g||pos,geo(ne),mode); const slot=nt.fxl.map(toM).map(x=>x-15-tr2.min).find(x=>x>=s+45); if(slot!=null&&slot<s+dur) dur=Math.max(45,slot-s);}}}
     let a2=arr; if(!legs.length&&s-arr>20){const sh=s-arr-10; dep=toM(t0)+sh; a2=s-10;} else wait+=Math.max(0,s-arr);
     legs.push({id,arr:a2,s,e:s+dur,tr,t,warn,noGeo:!g}); now=s+dur; if(g) pos=g;}
@@ -977,7 +981,7 @@ function renderPlan(){const out=$("pl-out"); $("pl-ai-out").hidden=true;
   if(!P.plan){out.innerHTML="";return;}
   const home=START[P.start], sp=home.slice(1), days=Object.keys(P.plan.days).sort(); let html="", prev=null;
   days.forEach((d,di)=>{const order=P.plan.days[d].filter(id=>byId(id));
-    if(!order.length){html+=`<div class="plan-day"><h3>${lab(d)}</h3><p class="plan-sum" style="margin:0">이 날 배정된 축제가 없습니다.</p></div>`; prev=null; return;}
+    if(!order.length){html+=`<div class="plan-day"><h3>${lab(d)}</h3><p class="plan-sum" style="margin:0">이날은 배정된 축제가 없어요. 푹 쉬는 날로 할까요?</p></div>`; prev=null; return;}
     let startPt=sp,startName=home[0]; if(prev&&prev.overnight){startPt=prev.pos;startName=prev.name+" 인근 숙소";}
     const r=simulate(order,d,startPt,PF.mode,P.t0); const last=r.legs[r.legs.length-1]; const lastG=geo(byId(last.id));
     const nextOrder=di<days.length-1?(P.plan.days[days[di+1]]||[]):[]; const nx=nextOrder.length&&add(d,1)===days[di+1]?geo(byId(nextOrder[0])):null;
@@ -999,12 +1003,12 @@ function renderPlan(){const out=$("pl-out"); $("pl-ai-out").hidden=true;
     prev={overnight,pos:lastG||sp,name:byId(last.id).region};
     r.overnight=overnight; const c=costOf(r); const pace=PACE.find(x=>x[0]===PF.pace);
     const paceWarn=order.length>pace[2]?` · <b style="color:var(--warn)">'${pace[1]}' 속도보다 많아요</b>`:"";
-    const costHtml=`<div class="cost">1인 예상 비용(추정, ${BUDGET.find(x=>x[0]===(PF.budget||"mid"))[1]} 기준): <b>${won(c.total)}</b><br>입장 ${won(c.fee)}${c.feeUnknown?` (금액 미공개 ${c.feeUnknown}곳 제외)`:""} · 교통 ${won(c.move)}${PF.mode==="car"?" (유류비만, 통행료·주차비 별도)":""} · 식사 ${c.meals}끼 ${won(c.food)}${c.cafe?` · 카페·간식 ${won(c.cafe)}`:""}${PF.who==="kids"||PF.who==="parents"||PF.who==="friends"||PF.who==="couple"?"<br>동행 인원수만큼 곱해 계산하세요.":""}${costQuip(c)?`<br><i>${costQuip(c)}</i>`:""}</div>`;
+    const costHtml=`<div class="cost">1인 예상 비용(추정, ${BUDGET.find(x=>x[0]===(PF.budget||"mid"))[1]} 기준): <b>${won(c.total)}</b><br>입장 ${won(c.fee)}${c.feeUnknown?` (금액 미공개 ${c.feeUnknown}곳 제외)`:""} · 교통 ${won(c.move)}${PF.mode==="car"?" (유류비만, 통행료·주차비 별도)":""} · 식사 ${c.meals}끼 ${won(c.food)}${c.cafe?` · 카페·간식 ${won(c.cafe)}`:""}${PF.who==="kids"||PF.who==="parents"||PF.who==="friends"||PF.who==="couple"?"<br>동행 인원수만큼 곱해 주세요. 더치페이 계산은 알아서!":""}${costQuip(c)?`<br><i>${costQuip(c)}</i>`:""}</div>`;
     const finale=overnight?"":finaleHtml(lastG,r.end);
     html+=`<div class="plan-day"><h3>${lab(d)}</h3><p class="plan-sum" style="margin:0">축제 ${order.length}곳 · 이동 합계 약 ${r.legs.reduce((a,L)=>a+L.tr.min,0)+(overnight?0:r.back.min)}분${r.miss?` · <b style="color:var(--warn)">시간이 맞지 않는 곳 ${r.miss}곳</b>`:""}${paceWarn}</p><ol class="tl">${li}</ol>${finale}${costHtml}</div>`;});
   const none=(P.plan.none||[]).filter(id=>byId(id));
-  if(none.length) html+=`<div class="plan-day"><h3>넣지 못한 축제</h3><p class="plan-sum" style="margin:0">고른 날짜에 열리지 않습니다: ${none.map(id=>esc(byId(id).name)).join(", ")}</p></div>`;
-  html+=`<div class="pl-actions" style="grid-column:1/-1"><span class="plan-sum">${P.manual?"직접 조정한 순서입니다.":"추천 순서입니다. ↑↓로 순서를, '다른 날로'로 날짜를 바꿀 수 있어요."}</span>${P.manual?'<button class="ghost-btn" id="pl-reauto">자동으로 다시 짜기</button>':""}</div>`;
+  if(none.length) html+=`<div class="plan-day"><h3>넣지 못한 축제</h3><p class="plan-sum" style="margin:0">고른 날짜에는 안 열려요: ${none.map(id=>esc(byId(id).name)).join(", ")}</p></div>`;
+  html+=`<div class="pl-actions" style="grid-column:1/-1"><span class="plan-sum">${P.manual?"직접 손본 순서예요.":"추천 순서예요. 마음에 안 들면 ↑↓로 순서를, '다른 날로'로 날짜를 바꿔 보세요."}</span>${P.manual?'<button class="ghost-btn" id="pl-reauto">자동으로 다시 짜기</button>':""}</div>`;
   out.innerHTML=html;}
 function renderChosen(){const ul=$("pl-chosen"), ids=P.ids.filter(id=>byId(id)), sd=selDates();
   $("pl-empty").hidden=ids.length>0; $("pl-go").disabled=!ids.length||!P.days.length;
@@ -1045,7 +1049,7 @@ $("dtabs").addEventListener("click",ev=>{const b=ev.target.closest(".dtab"); if(
 $("f-grp").addEventListener("click",ev=>{const b=ev.target.closest(".chip"); if(!b) return; S.grp=b.dataset.v; $("f-grp").querySelectorAll(".chip").forEach(c=>c.setAttribute("aria-pressed",String(c===b))); renderLists();});
 $("f-cat").addEventListener("click",ev=>{const b=ev.target.closest(".chip"); if(!b) return; S.cat=b.dataset.v; renderCats(); renderLists();});
 $("f-indoor").addEventListener("click",()=>{S.indoor=!S.indoor; $("f-indoor").setAttribute("aria-pressed",String(S.indoor)); renderLists();});
-$("rain-go").addEventListener("click",()=>{S.indoor=true; $("f-indoor").setAttribute("aria-pressed","true"); $("fold-filter").open=true; renderLists(); $("lists").scrollIntoView({block:"start"}); toast("실내 위주로 바꿨어요. 필터에서 다시 풀 수 있어요.");});
+$("rain-go").addEventListener("click",()=>{S.indoor=true; $("f-indoor").setAttribute("aria-pressed","true"); $("fold-filter").open=true; renderLists(); $("lists").scrollIntoView({block:"start"}); toast("실내 위주로 바꿨어요. 비는 밖에서, 우리는 안에서! (필터에서 다시 풀 수 있어요.)");});
 document.querySelectorAll("[data-note]").forEach(n=>n.textContent="🔒 "+STORE_NOTE);
 $("f-free").addEventListener("click",()=>{S.free=!S.free; $("f-free").setAttribute("aria-pressed",String(S.free)); renderLists();});
 let qt=null; $("q").addEventListener("input",ev=>{clearTimeout(qt); qt=setTimeout(()=>{S.q=ev.target.value; $("q-clear").hidden=!S.q; renderLists(); renderMovies(); searchEgg(S.q);},450);});
