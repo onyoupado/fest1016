@@ -576,7 +576,8 @@
    "est": false,
    "closedDows": [
     1
-   ]
+   ],
+   "ticket": "https://nol.yanolja.com/ticket/products/26007895"
   },
   {
    "id": "biff",
@@ -606,7 +607,8 @@
    "open": "10:00",
    "close": "23:00",
    "stay": 180,
-   "est": true
+   "est": true,
+   "ticket": "https://ticket.biff.kr"
   },
   {
    "id": "bluefood",
@@ -718,6 +720,136 @@
    "close": "20:00",
    "stay": 90,
    "est": true
+  },
+  {
+   "home": null,
+   "instagram": null,
+   "ticket": "https://ticket.yes24.com/Perf/59972",
+   "status": "ok",
+   "note": "",
+   "est": false,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "c-broccoli1017",
+   "region": "부산 부산진구",
+   "name": "브로콜리너마저 전국 인디 교류 투어 [부산]",
+   "start": "2026-10-17",
+   "end": "2026-10-17",
+   "hours": "18:00",
+   "venue": "KT&G 상상마당 부산 라이브홀 (서면)",
+   "fee": "전석 66,000원",
+   "feeType": "paid",
+   "programs": "인디 밴드 브로콜리너마저 전국 투어 부산 공연",
+   "src": "https://ticket.yes24.com/Perf/59972",
+   "cats": [
+    "공연",
+    "음악"
+   ],
+   "lat": 35.1556,
+   "lng": 129.0592,
+   "fixed": [
+    "18:00"
+   ],
+   "stay": 150,
+   "tag": "브로콜리너마저"
+  },
+  {
+   "home": null,
+   "instagram": null,
+   "ticket": "https://nol.yanolja.com/ticket/products/26011121",
+   "status": "ok",
+   "note": "",
+   "est": false,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "c-jangyunjeong1017",
+   "region": "부산 수영구",
+   "name": "2026 장윤정 라이브 콘서트 〈THE MASTER〉 [부산]",
+   "start": "2026-10-17",
+   "end": "2026-10-17",
+   "hours": "14:00, 18:00 (2회, 120분)",
+   "venue": "KBS부산홀 (남천동)",
+   "fee": "VIP 143,000원 · R 132,000원 · S 121,000원",
+   "feeType": "paid",
+   "programs": "장윤정 단독 콘서트",
+   "src": "https://nol.yanolja.com/ticket/products/26011121",
+   "cats": [
+    "공연",
+    "음악"
+   ],
+   "lat": 35.1424,
+   "lng": 129.1095,
+   "fixed": [
+    "14:00",
+    "18:00"
+   ],
+   "stay": 140,
+   "tag": "장윤정콘서트"
+  },
+  {
+   "home": null,
+   "instagram": null,
+   "ticket": "https://ticket.yes24.com/Perf/60505",
+   "status": "ok",
+   "note": "야외 무대라 날씨 확인 · 무료지만 예매처에서 좌석 신청",
+   "est": false,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "c-mbcuniv1031",
+   "region": "부산 남구",
+   "name": "2026 MBC 대학가요제 〈나의 드라마〉",
+   "start": "2026-10-31",
+   "end": "2026-10-31",
+   "hours": "18:30",
+   "venue": "국립부경대학교 대연캠퍼스 대운동장 (2호선 경성대·부경대역)",
+   "fee": "전석 무료 (예매 필요)",
+   "feeType": "free",
+   "programs": "MBC 대학가요제 본선 무대",
+   "src": "https://ticket.yes24.com/Perf/60505",
+   "cats": [
+    "공연",
+    "음악",
+    "야간"
+   ],
+   "lat": 35.1338,
+   "lng": 129.1055,
+   "fixed": [
+    "18:30"
+   ],
+   "stay": 180,
+   "tag": "MBC대학가요제"
+  },
+  {
+   "home": null,
+   "instagram": null,
+   "ticket": "https://nol.yanolja.com/ticket/products/26012285",
+   "status": "ok",
+   "note": "",
+   "est": false,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "c-yoonjongshin1031",
+   "region": "부산 해운대구",
+   "name": "2026 윤종신 전국투어 콘서트 〈가을냄새〉 부산",
+   "start": "2026-10-31",
+   "end": "2026-10-31",
+   "hours": "17:00 (120분)",
+   "venue": "소향씨어터 우리은행홀 (센텀시티)",
+   "fee": "R 154,000원 · S 132,000원",
+   "feeType": "paid",
+   "programs": "윤종신 전국투어 부산 공연",
+   "src": "https://nol.yanolja.com/ticket/products/26012285",
+   "cats": [
+    "공연",
+    "음악"
+   ],
+   "lat": 35.17,
+   "lng": 129.131,
+   "fixed": [
+    "17:00"
+   ],
+   "stay": 140,
+   "tag": "윤종신가을냄새"
   },
   {
    "cats": [
@@ -1015,6 +1147,37 @@
    "est": false
   },
   {
+   "home": null,
+   "instagram": null,
+   "ticket": null,
+   "status": "ok",
+   "note": "'페스티벌 시월' 프로그램 · 일반 관람 여부는 공식 안내 확인",
+   "est": true,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "fashionweek",
+   "region": "부산 해운대구",
+   "name": "부산패션위크 · 패패부산(부산국제신발섬유패션전시회)",
+   "start": "2026-10-29",
+   "end": "2026-10-31",
+   "hours": "미공개",
+   "venue": "벡스코",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "패션쇼, 신발·섬유·패션 전시",
+   "src": "https://www.hankookilbo.com/news/article/amp/A2026093014200004227",
+   "cats": [
+    "전시·영화",
+    "마켓"
+   ],
+   "lat": 35.169,
+   "lng": 129.136,
+   "open": "10:00",
+   "close": "18:00",
+   "stay": 120,
+   "tag": "부산패션위크"
+  },
+  {
    "cats": [
     "전시·영화",
     "지역축제"
@@ -1272,7 +1435,9 @@
    "open": "12:00",
    "close": "22:00",
    "stay": 360,
-   "est": true
+   "est": true,
+   "ticket": "https://nol.yanolja.com/ticket/products/26010721",
+   "fixed": null
   },
   {
    "cats": [
@@ -1301,6 +1466,36 @@
    "close": "18:30",
    "stay": 120,
    "est": false
+  },
+  {
+   "home": null,
+   "instagram": null,
+   "ticket": null,
+   "status": "ok",
+   "note": "원 목록에 없던 행사 추가 · 운영시간·요금 미공개",
+   "est": true,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "gukbap",
+   "region": "부산 남구",
+   "name": "부산 돼지국밥 대전 쇼케이스",
+   "start": "2026-10-16",
+   "end": "2026-10-18",
+   "hours": "미공개",
+   "venue": "부산국제금융센터(BIFC) 나우어라이빙 (2호선 문현역)",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "시민 투표로 뽑은 돼지국밥 20곳 소개, 16일 '국밥 어워즈'(상위 3곳·10곳 발표)",
+   "src": "https://www.wikitree.co.kr/articles/1162691",
+   "cats": [
+    "커피·맥주·음식"
+   ],
+   "lat": 35.1467,
+   "lng": 129.0661,
+   "open": "11:00",
+   "close": "20:00",
+   "stay": 60,
+   "tag": "부산돼지국밥대전"
   },
   {
    "cats": [
@@ -1680,6 +1875,38 @@
    }
   },
   {
+   "home": null,
+   "instagram": null,
+   "ticket": null,
+   "status": "ok",
+   "note": "'페스티벌 시월' 프로그램 · 운영시간은 공식 공지 확인",
+   "est": true,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "nightmarket",
+   "region": "부산 북구",
+   "name": "별바다부산 나이트마켓 (3차)",
+   "start": "2026-10-15",
+   "end": "2026-10-18",
+   "hours": "미공개 (야간 운영)",
+   "venue": "화명생태공원",
+   "fee": "입장 무료 (먹거리 구매 별도)",
+   "feeType": "mixed",
+   "programs": "야시장 먹거리·셀러 마켓 (구포나루축제와 같은 장소)",
+   "src": "https://www.hankookilbo.com/news/article/amp/A2026093014200004227",
+   "cats": [
+    "야시장",
+    "야간",
+    "커피·맥주·음식"
+   ],
+   "lat": 35.229,
+   "lng": 129.004,
+   "open": "17:00",
+   "close": "22:00",
+   "stay": 90,
+   "tag": "별바다부산나이트마켓"
+  },
+  {
    "cats": [
     "커피·맥주·음식",
     "음악",
@@ -1707,7 +1934,286 @@
    "open": "17:00",
    "close": "22:00",
    "stay": 150,
-   "est": false
+   "est": false,
+   "ticket": "https://litt.ly/hscoktober"
+  },
+  {
+   "home": "https://www.busanipark.com/",
+   "instagram": null,
+   "ticket": "https://www.busanipark.com/match/match_schedule.php",
+   "status": "ok",
+   "note": "경기 시각은 중계 편성에 따라 바뀔 수 있음",
+   "est": false,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "s-ipark-1018",
+   "region": "부산 서구",
+   "name": "부산 아이파크 vs 전남 드래곤즈 (K리그2)",
+   "start": "2026-10-18",
+   "end": "2026-10-18",
+   "hours": "16:30 킥오프",
+   "venue": "구덕운동장 (1호선 토성역)",
+   "fee": "유료 (구단 예매처 확인)",
+   "feeType": "paid",
+   "programs": "하나은행 K리그2 2026 홈경기",
+   "src": "https://www.busanipark.com/match/match_schedule.php",
+   "cats": [
+    "스포츠"
+   ],
+   "lat": 35.117,
+   "lng": 129.017,
+   "fixed": [
+    "16:30"
+   ],
+   "stay": 130,
+   "tag": "부산아이파크"
+  },
+  {
+   "home": "https://www.busanipark.com/",
+   "instagram": null,
+   "ticket": "https://www.busanipark.com/match/match_schedule.php",
+   "status": "ok",
+   "note": "경기 시각은 중계 편성에 따라 바뀔 수 있음",
+   "est": false,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "s-ipark-1025",
+   "region": "부산 서구",
+   "name": "부산 아이파크 vs 경남FC (K리그2)",
+   "start": "2026-10-25",
+   "end": "2026-10-25",
+   "hours": "14:00 킥오프",
+   "venue": "구덕운동장 (1호선 토성역)",
+   "fee": "유료 (구단 예매처 확인)",
+   "feeType": "paid",
+   "programs": "하나은행 K리그2 2026 홈경기",
+   "src": "https://www.busanipark.com/match/match_schedule.php",
+   "cats": [
+    "스포츠"
+   ],
+   "lat": 35.117,
+   "lng": 129.017,
+   "fixed": [
+    "14:00"
+   ],
+   "stay": 130,
+   "tag": "부산아이파크"
+  },
+  {
+   "home": "https://www.busanipark.com/",
+   "instagram": null,
+   "ticket": "https://www.busanipark.com/match/match_schedule.php",
+   "status": "ok",
+   "note": "경기 시각은 중계 편성에 따라 바뀔 수 있음",
+   "est": false,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "s-ipark-1121",
+   "region": "부산 서구",
+   "name": "부산 아이파크 vs 충북청주FC (K리그2)",
+   "start": "2026-11-21",
+   "end": "2026-11-21",
+   "hours": "14:00 킥오프",
+   "venue": "구덕운동장 (1호선 토성역)",
+   "fee": "유료 (구단 예매처 확인)",
+   "feeType": "paid",
+   "programs": "하나은행 K리그2 2026 홈경기",
+   "src": "https://www.busanipark.com/match/match_schedule.php",
+   "cats": [
+    "스포츠"
+   ],
+   "lat": 35.117,
+   "lng": 129.017,
+   "fixed": [
+    "14:00"
+   ],
+   "stay": 130,
+   "tag": "부산아이파크"
+  },
+  {
+   "home": "https://www.kccegis.com/",
+   "instagram": null,
+   "ticket": "https://www.kccegis.com/scheduleList",
+   "status": "ok",
+   "note": "경기 시각은 중계 편성에 따라 바뀔 수 있음",
+   "est": false,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "s-kcc-1031",
+   "region": "부산 동래구",
+   "name": "부산 KCC 이지스 vs 원주 DB (KBL)",
+   "start": "2026-10-31",
+   "end": "2026-10-31",
+   "hours": "14:00 경기 시작",
+   "venue": "부산사직체육관 (3호선 종합운동장역)",
+   "fee": "유료 (구단 예매처 확인)",
+   "feeType": "paid",
+   "programs": "2026-2027 KBL 정규리그 홈경기",
+   "src": "https://www.kccegis.com/scheduleList",
+   "cats": [
+    "스포츠"
+   ],
+   "lat": 35.193,
+   "lng": 129.061,
+   "fixed": [
+    "14:00"
+   ],
+   "stay": 150,
+   "tag": "부산KCC이지스"
+  },
+  {
+   "home": "https://www.kccegis.com/",
+   "instagram": null,
+   "ticket": "https://www.kccegis.com/scheduleList",
+   "status": "ok",
+   "note": "경기 시각은 중계 편성에 따라 바뀔 수 있음",
+   "est": false,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "s-kcc-1103",
+   "region": "부산 동래구",
+   "name": "부산 KCC 이지스 vs 고양 소노 (KBL)",
+   "start": "2026-11-03",
+   "end": "2026-11-03",
+   "hours": "19:00 경기 시작",
+   "venue": "부산사직체육관 (3호선 종합운동장역)",
+   "fee": "유료 (구단 예매처 확인)",
+   "feeType": "paid",
+   "programs": "2026-2027 KBL 정규리그 홈경기",
+   "src": "https://www.kccegis.com/scheduleList",
+   "cats": [
+    "스포츠"
+   ],
+   "lat": 35.193,
+   "lng": 129.061,
+   "fixed": [
+    "19:00"
+   ],
+   "stay": 150,
+   "tag": "부산KCC이지스"
+  },
+  {
+   "home": "https://www.kccegis.com/",
+   "instagram": null,
+   "ticket": "https://www.kccegis.com/scheduleList",
+   "status": "ok",
+   "note": "경기 시각은 중계 편성에 따라 바뀔 수 있음",
+   "est": false,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "s-kcc-1114",
+   "region": "부산 동래구",
+   "name": "부산 KCC 이지스 vs 서울 SK (KBL)",
+   "start": "2026-11-14",
+   "end": "2026-11-14",
+   "hours": "14:00 경기 시작",
+   "venue": "부산사직체육관 (3호선 종합운동장역)",
+   "fee": "유료 (구단 예매처 확인)",
+   "feeType": "paid",
+   "programs": "2026-2027 KBL 정규리그 홈경기",
+   "src": "https://www.kccegis.com/scheduleList",
+   "cats": [
+    "스포츠"
+   ],
+   "lat": 35.193,
+   "lng": 129.061,
+   "fixed": [
+    "14:00"
+   ],
+   "stay": 150,
+   "tag": "부산KCC이지스"
+  },
+  {
+   "home": "https://www.kccegis.com/",
+   "instagram": null,
+   "ticket": "https://www.kccegis.com/scheduleList",
+   "status": "ok",
+   "note": "경기 시각은 중계 편성에 따라 바뀔 수 있음",
+   "est": false,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "s-kcc-1115",
+   "region": "부산 동래구",
+   "name": "부산 KCC 이지스 vs 대구 한국가스공사 (KBL)",
+   "start": "2026-11-15",
+   "end": "2026-11-15",
+   "hours": "16:30 경기 시작",
+   "venue": "부산사직체육관 (3호선 종합운동장역)",
+   "fee": "유료 (구단 예매처 확인)",
+   "feeType": "paid",
+   "programs": "2026-2027 KBL 정규리그 홈경기",
+   "src": "https://www.kccegis.com/scheduleList",
+   "cats": [
+    "스포츠"
+   ],
+   "lat": 35.193,
+   "lng": 129.061,
+   "fixed": [
+    "16:30"
+   ],
+   "stay": 150,
+   "tag": "부산KCC이지스"
+  },
+  {
+   "home": "https://marathon.busan.com/info1",
+   "instagram": null,
+   "ticket": null,
+   "status": "ok",
+   "note": "참가 접수는 마감 · 코스 주변 교통 통제 확인",
+   "est": true,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "s-oceanmarathon",
+   "region": "부산 해운대구",
+   "name": "2026 부산바다마라톤",
+   "start": "2026-10-25",
+   "end": "2026-10-25",
+   "hours": "미공개 (오전 출발)",
+   "venue": "벡스코 야외광장(제1전시장 옥외주차장)",
+   "fee": "참가 접수 마감",
+   "feeType": "unknown",
+   "programs": "5km·10km·15km",
+   "src": "https://www.kormarathon.com/ko/marathons/regions/busan/2026",
+   "cats": [
+    "스포츠"
+   ],
+   "lat": 35.169,
+   "lng": 129.136,
+   "open": "08:00",
+   "close": "12:00",
+   "stay": 120,
+   "tag": "부산바다마라톤"
+  },
+  {
+   "home": null,
+   "instagram": null,
+   "ticket": null,
+   "status": "ok",
+   "note": "참가 접수는 마감 · '페스티벌 시월' 프로그램",
+   "est": true,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "s-zombierace",
+   "region": "부산 영도구",
+   "name": "2026 태종대 BEAT ON 좀비레이스",
+   "start": "2026-10-31",
+   "end": "2026-10-31",
+   "hours": "미공개",
+   "venue": "태종대 자동차야외극장(Drive In 영도)",
+   "fee": "참가 접수 마감",
+   "feeType": "unknown",
+   "programs": "5km 핼러윈 좀비 레이스",
+   "src": "https://www.kormarathon.com/ko/marathons/regions/busan/2026",
+   "cats": [
+    "스포츠",
+    "가족"
+   ],
+   "lat": 35.056,
+   "lng": 129.082,
+   "open": "14:00",
+   "close": "20:00",
+   "stay": 120,
+   "tag": "좀비레이스"
   },
   {
    "cats": [
@@ -1866,6 +2372,37 @@
    "lng": 128.74,
    "stay": 90,
    "est": true
+  },
+  {
+   "home": null,
+   "instagram": null,
+   "ticket": null,
+   "status": "ok",
+   "note": "세부 프로그램 미공개",
+   "est": true,
+   "grp": "busan",
+   "wx": "busan",
+   "id": "wellness",
+   "region": "부산 금정구",
+   "name": "부산 웰니스 페스타",
+   "start": "2026-10-23",
+   "end": "2026-10-24",
+   "hours": "미공개",
+   "venue": "범어사 등",
+   "fee": "미확인",
+   "feeType": "unknown",
+   "programs": "웰니스·명상 프로그램 ('페스티벌 시월')",
+   "src": "https://www.hankookilbo.com/news/article/amp/A2026093014200004227",
+   "cats": [
+    "가족",
+    "기타"
+   ],
+   "lat": 35.2837,
+   "lng": 129.0687,
+   "open": "10:00",
+   "close": "17:00",
+   "stay": 120,
+   "tag": "부산웰니스페스타"
   },
   {
    "cats": [
@@ -2104,5 +2641,42 @@
    "stay": 90,
    "est": true
   }
- ]
+ ],
+ "movies": {
+  "updatedAt": "2026-10-14",
+  "src": "https://en.wikipedia.org/wiki/List_of_South_Korean_films_of_2026",
+  "items": [
+   {
+    "title": "실낙원",
+    "date": "2026-10-21",
+    "director": "연상호",
+    "cast": "김현주, 배현성",
+    "note": "BIFF 갈라 프레젠테이션 상영작"
+   },
+   {
+    "title": "눈 둘 데가 없네",
+    "when": "10월 개봉 (날짜 미정)",
+    "director": "홍상수",
+    "cast": "김민희, 최명길"
+   },
+   {
+    "title": "여전히 찬란하게",
+    "when": "10월 개봉 (날짜 미정)",
+    "director": "송일곤",
+    "cast": "김혜자, 차미경, 박서경, 최주은"
+   },
+   {
+    "title": "킬링타임",
+    "when": "10월 개봉 (날짜 미정)",
+    "director": "장준엽",
+    "cast": "남윤수, 류혜영, 오민수, 김리예"
+   },
+   {
+    "title": "수능, 출제의 비밀",
+    "when": "10월 개봉 (날짜 미정)",
+    "director": "이용재",
+    "cast": "이선빈, 유재명, 김영민, 전석호"
+   }
+  ]
+ }
 }
