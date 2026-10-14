@@ -2644,32 +2644,196 @@
  ],
  "movies": {
   "updatedAt": "2026-10-14",
-  "src": "https://en.wikipedia.org/wiki/List_of_South_Korean_films_of_2026",
+  "src": "https://www.kobis.or.kr/kobis/business/mast/mvie/findOpenScheduleList.do",
   "items": [
+   {
+    "title": "웨일폴: 고래에 먹힌 남자",
+    "date": "2026-10-14",
+    "genre": "어드벤처",
+    "country": "미국"
+   },
+   {
+    "title": "보더라인: 블랙 오퍼레이션",
+    "date": "2026-10-14",
+    "genre": "범죄",
+    "country": "미국"
+   },
+   {
+    "title": "스트리트 파이터",
+    "date": "2026-10-14",
+    "genre": "액션",
+    "country": "미국"
+   },
+   {
+    "title": "인-아이 인 모션",
+    "date": "2026-10-14",
+    "genre": "다큐멘터리",
+    "country": "프랑스"
+   },
+   {
+    "title": "전자오락수호대",
+    "date": "2026-10-14",
+    "genre": "애니메이션",
+    "country": "한국"
+   },
+   {
+    "title": "침묵의 빛",
+    "date": "2026-10-14",
+    "genre": "드라마",
+    "country": "멕시코"
+   },
+   {
+    "title": "파리스 그린이 밝는 날에",
+    "date": "2026-10-14",
+    "genre": "애니메이션",
+    "country": "일본"
+   },
+   {
+    "title": "퍼플 스왈로우",
+    "date": "2026-10-14",
+    "genre": "판타지",
+    "country": "한국"
+   },
+   {
+    "title": "헤븐 노우즈 왓",
+    "date": "2026-10-14",
+    "genre": "드라마",
+    "country": "미국"
+   },
+   {
+    "title": "스톰 라이더",
+    "date": "2026-10-15",
+    "genre": "액션",
+    "country": "미국"
+   },
+   {
+    "title": "쉘위런",
+    "date": "2026-10-16",
+    "genre": "다큐멘터리",
+    "country": "한국"
+   },
+   {
+    "title": "고잉홈프로젝트: 라벨 & 쇼스타코비치 인 시네마",
+    "date": "2026-10-17",
+    "genre": "공연",
+    "country": "한국"
+   },
+   {
+    "title": "올웨이즈 라리사",
+    "date": "2026-10-17",
+    "genre": "다큐멘터리",
+    "country": "미국"
+   },
    {
     "title": "실낙원",
     "date": "2026-10-21",
+    "genre": "스릴러",
+    "country": "한국",
     "director": "연상호",
     "cast": "김현주, 배현성",
     "note": "BIFF 갈라 프레젠테이션 상영작"
    },
    {
     "title": "눈 둘 데가 없네",
-    "when": "10월 개봉 (날짜 미정)",
+    "date": "2026-10-21",
+    "genre": "드라마",
+    "country": "한국",
     "director": "홍상수",
     "cast": "김민희, 최명길"
    },
    {
     "title": "여전히 찬란하게",
-    "when": "10월 개봉 (날짜 미정)",
+    "date": "2026-10-21",
+    "genre": "드라마",
+    "country": "한국",
     "director": "송일곤",
     "cast": "김혜자, 차미경, 박서경, 최주은"
    },
    {
     "title": "킬링타임",
-    "when": "10월 개봉 (날짜 미정)",
+    "date": "2026-10-21",
+    "genre": "호러",
+    "country": "한국",
     "director": "장준엽",
     "cast": "남윤수, 류혜영, 오민수, 김리예"
+   },
+   {
+    "title": "스틸레이",
+    "date": "2026-10-21",
+    "genre": "액션",
+    "country": "한국"
+   },
+   {
+    "title": "구제역에서 살아 돌아온 돼지",
+    "date": "2026-10-21",
+    "genre": "드라마",
+    "country": "한국"
+   },
+   {
+    "title": "클레이페이스",
+    "date": "2026-10-21",
+    "genre": "호러",
+    "country": "미국"
+   },
+   {
+    "title": "씽씽",
+    "date": "2026-10-21",
+    "genre": "드라마",
+    "country": "미국"
+   },
+   {
+    "title": "차오",
+    "date": "2026-10-21",
+    "genre": "애니메이션",
+    "country": "일본"
+   },
+   {
+    "title": "보이는 여고생",
+    "date": "2026-10-21",
+    "genre": "코미디",
+    "country": "일본"
+   },
+   {
+    "title": "레위기",
+    "date": "2026-10-21",
+    "genre": "공포(호러)",
+    "country": "호주"
+   },
+   {
+    "title": "부에노스 아이레스여 안녕",
+    "date": "2026-10-21",
+    "genre": "드라마",
+    "country": "독일"
+   },
+   {
+    "title": "베러티",
+    "date": "2026-10-22",
+    "genre": "범죄",
+    "country": "미국"
+   },
+   {
+    "title": "다크게임: 죽음의 생중계",
+    "date": "2026-10-22",
+    "genre": "스릴러",
+    "country": "영국"
+   },
+   {
+    "title": "세븐틴 월드 투어 '뉴_'",
+    "date": "2026-10-24",
+    "genre": "공연",
+    "country": "한국"
+   },
+   {
+    "title": "엔하이픈 월드 투어 '블러드 사가'",
+    "date": "2026-10-24",
+    "genre": "공연",
+    "country": "한국"
+   },
+   {
+    "title": "투모로우바이투게더 월드 투어 '액트 : 투모로우'",
+    "date": "2026-10-24",
+    "genre": "공연",
+    "country": "한국"
    },
    {
     "title": "수능, 출제의 비밀",

@@ -321,6 +321,8 @@ footer{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padd
   <section aria-labelledby="mv-h" id="mv-sec" hidden>
     <div class="sec-head"><h2 id="mv-h">이번 주·다음 주 개봉 영화</h2><span class="src" id="mv-src"></span></div>
     <div class="movies" id="movies"></div>
+    <div class="row" style="font-size:13px;gap:6px 14px"><span class="count">상영 시간표:</span>
+      <a href="https://www.cgv.co.kr/" target="_blank" rel="noopener">CGV ↗</a><a href="https://www.lottecinema.co.kr/" target="_blank" rel="noopener">롯데시네마 ↗</a><a href="https://www.megabox.co.kr/" target="_blank" rel="noopener">메가박스 ↗</a><a href="https://www.dureraum.org/" target="_blank" rel="noopener">영화의전당 ↗</a><a href="https://blog.naver.com/cornertheate" target="_blank" rel="noopener">모퉁이극장 ↗</a></div>
   </section>
 
   <section aria-labelledby="un-h">
@@ -466,10 +468,10 @@ function renderLists(){
     return `<section><div class="sec-head"><h2>${label}</h2><span class="count">${items.length}개</span></div><div class="grid">${items.map(e=>card(e,one)).join("")}</div></section>`}).join("");
   $("lists").innerHTML=html||'<div class="empty">이 날짜에 맞는 축제가 없습니다. 필터를 풀거나 다른 날짜를 골라 보세요.</div>';
 }
-function renderMovies(){const m=S.movies; const items=(m&&m.items||[]).filter(x=>!x.date||x.date>=add(TODAY,-7)).slice(0,12);
+function renderMovies(){const m=S.movies; const items=(m&&m.items||[]).filter(x=>!x.date||x.date>=add(TODAY,-3)).sort((a,b)=>(a.date||"9")<(b.date||"9")?-1:1).slice(0,30);
   $("mv-sec").hidden=!items.length; if(!items.length) return;
   $("mv-src").textContent=m.updatedAt?`${m.updatedAt.slice(5,10).replace("-","/")} 기준 · 개봉일은 바뀔 수 있어요`:"";
-  $("movies").innerHTML=items.map(x=>`<div class="movie"><span class="card-ico"><svg class="ico"><use href="#i-film"/></svg></span><div style="min-width:0"><b>${esc(x.title)}</b><small>${x.date?esc(lab(x.date))+" 개봉":esc(x.when||"개봉일 미정")}${x.director?" · 감독 "+esc(x.director):""}</small>${x.cast?`<small>${esc(x.cast)}</small>`:""}${x.note?`<small>${esc(x.note)}</small>`:""}</div></div>`).join("");}
+  $("movies").innerHTML=items.map(x=>`<div class="movie"><span class="card-ico"><svg class="ico"><use href="#i-film"/></svg></span><div style="min-width:0"><b>${esc(x.title)}</b><small>${x.date?esc(lab(x.date))+" 개봉":esc(x.when||"개봉일 미정")}${x.genre?" · "+esc(x.genre):""}${x.country?" · "+esc(x.country):""}${x.director?" · 감독 "+esc(x.director):""}</small>${x.cast?`<small>${esc(x.cast)}</small>`:""}${x.note?`<small>${esc(x.note)}</small>`:""}</div></div>`).join("");}
 function renderPicks(){
   const p=S.picks; const days=p&&p.days?Object.keys(p.days).filter(d=>d>=TODAY).sort().slice(0,2):[];
   $("pick-sec").hidden=!days.length&&!(p&&p.routes&&p.routes.length);
